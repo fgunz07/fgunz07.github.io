@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Software Developer Portfolio</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#10b981",
+            "background-light": "#f8faf9",
+            "background-dark": "#000000",
+          },
+          fontFamily: {
+            "display": ["Manrope", "sans-serif"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }</script>
+  <style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+        filter: blur(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    .animate-fade-in-up {
+      animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Scroll-triggered animations */
+    @supports (animation-timeline: view()) {
+      .reveal {
+        animation: fadeInUp 1s both;
+        animation-timeline: view();
+        animation-range: entry 5% cover 25%;
+      }
+    }
+
+    /* Fallback for browsers without animation-timeline: Use a simple entry animation if scroll-timeline isn't supported */
+    @media (prefers-reduced-motion: no-preference) {
+      @supports not (animation-timeline: view()) {
+        .reveal {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Note: In a real app, JS would add an 'active' class. For HTML-only, we rely on the @supports logic. */
+      }
+    }
+
+    .delay-100 {
+      animation-delay: 100ms;
+    }
+
+    .delay-200 {
+      animation-delay: 200ms;
+    }
+
+    .delay-300 {
+      animation-delay: 300ms;
+    }
+
+    .delay-400 {
+      animation-delay: 400ms;
+    }
+
+    .delay-500 {
+      animation-delay: 500ms;
+    }
+  </style>
+</head>
+
+<body
+  class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased transition-colors duration-300">
+  <div class="relative flex min-h-screen flex-col overflow-x-hidden">
+    <!-- <header
+      class="sticky top-0 z-50 w-full border-b border-primary/10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+      <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+        <div class="flex items-center gap-2">
+          <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white">
+            <span class="material-symbols-outlined text-[20px]">terminal</span>
+          </div>
+          <span class="text-lg font-bold tracking-tight">Alex.dev</span>
+        </div>
+        <nav class="hidden md:flex items-center gap-8">
+        </nav>
+        <button class="md:hidden text-slate-900 dark:text-slate-100">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </header> -->
+    <main class="mx-auto w-full max-w-4xl px-6 py-12 md:py-24">
+      <section class="mb-20 text-center md:text-left reveal">
+        <div
+          class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-semibold text-primary mb-6 animate-fade-in-up">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+          </span>
+          Available for new opportunities
+        </div>
+        <h1 class="text-5xl font-extrabold tracking-tight md:text-7xl mb-6 animate-fade-in-up delay-100">
+          Hi, I'm <span class="text-primary">Rey Mark Engada.</span>
+        </h1>
+        <p class="max-w-2xl text-lg text-slate-600 dark:text-slate-400 leading-relaxed animate-fade-in-up delay-200">
+          Full-stack software engineer focused on building clean, high-performance web applications. I turn complex
+          problems into simple, elegant digital experiences.
+        </p>
+        <div class="mt-10 flex flex-wrap gap-4 justify-center md:justify-start animate-fade-in-up delay-300">
+          <a class="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 font-bold text-white hover:bg-primary/90 transition-all"
+            href="#projects">
+            View Projects
+            <span class="material-symbols-outlined text-[18px]">arrow_downward</span>
+          </a>
+          <a href="./Resume_CV.pdf" target="_blank" rel="noreferrer noopener"
+            class="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 font-bold text-white shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
+            Resume
+            <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+          </a>
+        </div>
+      </section>
+      <section class="mb-24 reveal" id="skills">
+        <div class="flex items-center gap-4 mb-8">
+          <h2 class="text-2xl font-bold">Core Tech</h2>
+          <div class="h-[1px] flex-grow bg-primary/10"></div>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div
+            class="group flex items-center gap-3 rounded-xl border border-primary/10 bg-white dark:bg-primary/5 p-4 hover:border-primary/40 transition-all animate-fade-in-up delay-100">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <span class="material-symbols-outlined">code</span>
+            </div>
+            <span class="font-medium text-sm">Javascript / PHP</span>
+          </div>
+          <div
+            class="group flex items-center gap-3 rounded-xl border border-primary/10 bg-white dark:bg-primary/5 p-4 hover:border-primary/40 transition-all animate-fade-in-up delay-200">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <span class="material-symbols-outlined">layers</span>
+            </div>
+            <span class="font-medium text-sm">Vue / Nuxt.js</span>
+          </div>
+          <div
+            class="group flex items-center gap-3 rounded-xl border border-primary/10 bg-white dark:bg-primary/5 p-4 hover:border-primary/40 transition-all animate-fade-in-up delay-300">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <span class="material-symbols-outlined">database</span>
+            </div>
+            <span class="font-medium text-sm">MySQL</span>
+          </div>
+          <div
+            class="group flex items-center gap-3 rounded-xl border border-primary/10 bg-white dark:bg-primary/5 p-4 hover:border-primary/40 transition-all animate-fade-in-up delay-400">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <span class="material-symbols-outlined">settings_ethernet</span>
+            </div>
+            <span class="font-medium text-sm">Laravel</span>
+          </div>
+        </div>
+        <div class="mt-8 flex flex-wrap gap-2">
+          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-medium">GraphQL</span>
+          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-medium">Docker</span>
+          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-medium">AWS</span>
+          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-medium">Tailwind CSS</span>
+          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-medium">DaisyUI</span>
+          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-medium">Github Actions</span>
+          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-medium">Shadcn UI</span>
+          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-medium">Linux</span>
+          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-medium">Nginx</span>
+          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-medium">Cloudflare</span>
+          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-medium">Node / Express</span>
+        </div>
+      </section>
+      <section class="mb-24 animate-fade-in-up delay-200 reveal">
+        <div class="flex items-center gap-4 mb-8">
+          <h2 class="text-2xl font-bold">GitHub Organizations</h2>
+          <div class="h-[1px] flex-grow bg-primary/10"></div>
+        </div>
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 gap-8 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
+          <div class="flex flex-col items-center gap-2">
+            <span class="material-symbols-outlined text-4xl text-primary">engineering</span>
+            <span class="text-sm font-semibold">Annoyingmice</span>
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <span class="material-symbols-outlined text-4xl text-primary">groups</span>
+            <span class="text-sm font-semibold">Appfox apps</span>
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <span class="material-symbols-outlined text-4xl text-primary">hub</span>
+            <span class="text-sm font-semibold">Platform</span>
+          </div>
+        </div>
+      </section>
+      <section class="mb-24 animate-fade-in-up delay-300 reveal">
+        <div class="flex items-center gap-4 mb-8">
+          <h2 class="text-2xl font-bold">Open Source Repositories</h2>
+          <div class="h-[1px] flex-grow bg-primary/10"></div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <a href="https://github.com/annoyingmice/trello-action" target="_blank" rel="noreferrer noopener"
+            class="group p-5 rounded-xl border border-primary/10 bg-white dark:bg-primary/5 hover:border-primary/40 transition-all">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-bold text-primary">annoyingmice/trello-action</h3>
+              <span class="material-symbols-outlined text-sm">star</span>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-400">Trello action a github action library to automate
+              trello card on commit.</p>
+          </a>
+          <a href="https://github.com/annoyingmice/starter-api" target="_blank" rel="noreferrer noopener"
+            class="group p-5 rounded-xl border border-primary/10 bg-white dark:bg-primary/5 hover:border-primary/40 transition-all">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-bold text-primary">annoyingmice/starter-api</h3>
+              <span class="material-symbols-outlined text-sm">star</span>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-400">A laravel starter template for focus on api in DDD
+              structure with modules register user, email address, phone.</p>
+          </a>
+          <a href="https://github.com/annoyingmice/trading-hook" target="_blank" rel="noreferrer noopener"
+            class="group p-5 rounded-xl border border-primary/10 bg-white dark:bg-primary/5 hover:border-primary/40 transition-all">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-bold text-primary">annoyingmice/trading-hook</h3>
+              <span class="material-symbols-outlined text-sm">star</span>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-400">A trading hook that will automatically trigger buy or
+              sell on bybit but dynamically can be used on any trading broker with proper configuration.</p>
+          </a>
+          <a href="https://github.com/annoyingmice/laravel-jwt-starter" target="_blank" rel="noreferrer noopener"
+            class="group p-5 rounded-xl border border-primary/10 bg-white dark:bg-primary/5 hover:border-primary/40 transition-all">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-bold text-primary">annoyingmice/laravel-jwt-starter</h3>
+              <span class="material-symbols-outlined text-sm">star</span>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-400">A laravel starter with Roles, Permission, OTP, JWT.
+            </p>
+          </a>
+          <a href="https://github.com/annoyingmice/starter-shopify" target="_blank" rel="noreferrer noopener"
+            class="group p-5 rounded-xl border border-primary/10 bg-white dark:bg-primary/5 hover:border-primary/40 transition-all">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-bold text-primary">annoyingmice/starter-shopify</h3>
+              <span class="material-symbols-outlined text-sm">star</span>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-400">A laravel starter template for shopify integration
+              React & Shopify GraphQL.</p>
+          </a>
+        </div>
+      </section>
+      <section class="mb-24 reveal" id="experience">
+        <div class="flex items-center gap-4 mb-8">
+          <h2 class="text-2xl font-bold">Experience</h2>
+          <div class="h-[1px] flex-grow bg-primary/10"></div>
+        </div>
+        <div
+          class="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-primary/20 before:to-transparent">
+          <!-- Experience Entry 1 -->
+          <div
+            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group animate-fade-in-up">
+            <!-- Dot -->
+            <div
+              class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/30 bg-background-dark shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+              <div class="h-2.5 w-2.5 rounded-full bg-primary"></div>
+            </div>
+            <!-- Content -->
+            <div
+              class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl border border-primary/10 bg-white/5 backdrop-blur-sm hover:border-primary/30 transition-all">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-4">
+                <h3 class="text-xl font-bold text-slate-100">Software Developer.</h3>
+                <time class="text-xs font-bold uppercase tracking-wider text-primary">JUL 2025 — DEC 2025</time>
+              </div>
+              <div class="text-sm font-semibold text-primary/80 mb-4">Ominisystems LLC, 2 Burrough Court, Burrough on
+                the Hill, United Kingdom</div>
+              <ul class="space-y-3">
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Worked on integrating AI model mitral.io hosted model ensuring rate limit connecting to api.
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Making scheduled jobs work on timely sync for records.
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Convert figma design to vue components.
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Fixing bugs and adding new features.
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Restructuring backend application legacy code.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Experience Entry 2 -->
+          <div
+            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group animate-fade-in-up delay-200">
+            <!-- Dot -->
+            <div
+              class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/30 bg-background-dark shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+              <div class="h-2.5 w-2.5 rounded-full bg-primary"></div>
+            </div>
+            <!-- Content -->
+            <div
+              class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl border border-primary/10 bg-white/5 backdrop-blur-sm hover:border-primary/30 transition-all">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-4">
+                <h3 class="text-xl font-bold text-slate-100">Full Stack Developer.</h3>
+                <time class="text-xs font-bold uppercase tracking-wider text-primary">MARCH 2024 — JUL 2025</time>
+              </div>
+              <div class="text-sm font-semibold text-primary/80 mb-4">Feel At Home Builders, California, United State
+              </div>
+              <ul class="space-y-3">
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Create DevOps pipeline CI/CD automation to AWS using github actions.
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Manage team of developers.
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Debug platform memory leaks.
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Setup AWS servers for staging and prod.
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Integrate PLAID to pull bank transactions and Checkbook to issue checks.
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Creating new features on the platform.
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Analyze product requirements.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Experience Entry 3 -->
+          <div
+            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group animate-fade-in-up">
+            <!-- Dot -->
+            <div
+              class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/30 bg-background-dark shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+              <div class="h-2.5 w-2.5 rounded-full bg-primary"></div>
+            </div>
+            <!-- Content -->
+            <div
+              class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl border border-primary/10 bg-white/5 backdrop-blur-sm hover:border-primary/30 transition-all">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-4">
+                <h3 class="text-xl font-bold text-slate-100">Freelance Full Stack Developer.</h3>
+                <time class="text-xs font-bold uppercase tracking-wider text-primary">FEB 2024 — APRIL 2024</time>
+              </div>
+              <div class="text-sm font-semibold text-primary/80 mb-4">Upwork Freelance Platform</div>
+              <ul class="space-y-3">
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Convert existing legacy shopify admin api to graphql api.
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Creating frontend react components for stores.
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Creating new features move from legacy shopify integration to new shopify api implementation.
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Converting existing legacy app created from java to laravel
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Experience Entry 4 -->
+          <div
+            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group animate-fade-in-up delay-200">
+            <!-- Dot -->
+            <div
+              class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/30 bg-background-dark shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+              <div class="h-2.5 w-2.5 rounded-full bg-primary"></div>
+            </div>
+            <!-- Content -->
+            <div
+              class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl border border-primary/10 bg-white/5 backdrop-blur-sm hover:border-primary/30 transition-all">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-4">
+                <h3 class="text-xl font-bold text-slate-100">Software Engineer</h3>
+                <time class="text-xs font-bold uppercase tracking-wider text-primary">MAY 2023 — FEB 2024</time>
+              </div>
+              <div class="text-sm font-semibold text-primary/80 mb-4">Experience Digital, Surry Hills, Australia</div>
+              <ul class="space-y-3">
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Maintaining client vue application adding new features and fixing errors.
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Debugging database issue on query specially postgress.
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Upgrading legacy aws lambda api libraries to latest version.
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Taking client application maitaining legacy app created using cakephp.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Experience Entry 5 -->
+          <div
+            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group animate-fade-in-up">
+            <!-- Dot -->
+            <div
+              class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/30 bg-background-dark shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+              <div class="h-2.5 w-2.5 rounded-full bg-primary"></div>
+            </div>
+            <!-- Content -->
+            <div
+              class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl border border-primary/10 bg-white/5 backdrop-blur-sm hover:border-primary/30 transition-all">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-4">
+                <h3 class="text-xl font-bold text-slate-100">Sr. Software Developer.</h3>
+                <time class="text-xs font-bold uppercase tracking-wider text-primary">MAY 2020 — APRIL 2023</time>
+              </div>
+              <div class="text-sm font-semibold text-primary/80 mb-4">Get Served PH, Dumaguete City PH</div>
+              <ul class="space-y-3">
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Research and development.
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Integrating thirdparty payment API gateways
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Creating new feature on frontend page using React/Nuxt.
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Adding new api endpoint on the backend.
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Creating gateway applications for payments.
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Setting up AWS server and administration creating pipelines DevOps works.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Experience Entry 6 -->
+          <div
+            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group animate-fade-in-up delay-200">
+            <!-- Dot -->
+            <div
+              class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/30 bg-background-dark shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+              <div class="h-2.5 w-2.5 rounded-full bg-primary"></div>
+            </div>
+            <!-- Content -->
+            <div
+              class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl border border-primary/10 bg-white/5 backdrop-blur-sm hover:border-primary/30 transition-all">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-4">
+                <h3 class="text-xl font-bold text-slate-100">Sr. Software Developer</h3>
+                <time class="text-xs font-bold uppercase tracking-wider text-primary">JUN 2018 — MAY 2020</time>
+              </div>
+              <div class="text-sm font-semibold text-primary/80 mb-4">Bluebeans Systems Inc., Dumaguete City PH</div>
+              <ul class="space-y-3">
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Setup servers and AWS administration.
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Building web applications for clients.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Experience Entry 7 -->
+          <div
+            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group animate-fade-in-up">
+            <!-- Dot -->
+            <div
+              class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/30 bg-background-dark shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+              <div class="h-2.5 w-2.5 rounded-full bg-primary"></div>
+            </div>
+            <!-- Content -->
+            <div
+              class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl border border-primary/10 bg-white/5 backdrop-blur-sm hover:border-primary/30 transition-all">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-4">
+                <h3 class="text-xl font-bold text-slate-100">Jr. Web Developer.</h3>
+                <time class="text-xs font-bold uppercase tracking-wider text-primary">APR 2017 — MAY 2018</time>
+              </div>
+              <div class="text-sm font-semibold text-primary/80 mb-4">CoreDev Solutions Inc., Cebu City PH</div>
+              <ul class="space-y-3">
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Creating front-end application for the converted api
+                </li>
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Converting existing C# app to laravel
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Experience Entry 6 -->
+          <div
+            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group animate-fade-in-up delay-200">
+            <!-- Dot -->
+            <div
+              class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/30 bg-background-dark shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+              <div class="h-2.5 w-2.5 rounded-full bg-primary"></div>
+            </div>
+            <!-- Content -->
+            <div
+              class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl border border-primary/10 bg-white/5 backdrop-blur-sm hover:border-primary/30 transition-all">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-4">
+                <h3 class="text-xl font-bold text-slate-100">Jr. Software Developer</h3>
+                <time class="text-xs font-bold uppercase tracking-wider text-primary">NOV 2016 — MAR 2017</time>
+              </div>
+              <div class="text-sm font-semibold text-primary/80 mb-4">Bluebeans Systems Inc., Dumaguete City PH</div>
+              <ul class="space-y-3">
+                <li class="flex gap-3 text-sm text-slate-400">
+                  <span class="text-primary">•</span>
+                  Building web applications for clients.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="mb-24 reveal" id="github-stats">
+        <div class="flex items-center gap-4 mb-8">
+          <h2 class="text-2xl font-bold">GitHub Contributions</h2>
+          <div class="h-[1px] flex-grow bg-primary/10"></div>
+        </div>
+        <div
+          class="relative overflow-hidden rounded-3xl border border-primary/20 bg-slate-900/40 p-1 backdrop-blur-sm animate-fade-in-up">
+          <div class="rounded-[calc(1.5rem-1px)] bg-background-dark p-6 md:p-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+              <!-- Contributions -->
+              <div class="flex flex-col items-center md:items-start gap-2">
+                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary mb-2">
+                  <span class="material-symbols-outlined">calendar_month</span>
+                </div>
+                <span class="text-3xl font-extrabold text-white tracking-tight">5,761</span>
+                <span class="text-xs font-bold uppercase tracking-widest text-slate-500">Total Contribution</span>
+              </div>
+              <!-- Stars -->
+              <div class="flex flex-col items-center md:items-start gap-2">
+                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary mb-2">
+                  <span class="material-symbols-outlined">star</span>
+                </div>
+                <span class="text-3xl font-extrabold text-white tracking-tight">65</span>
+                <span class="text-xs font-bold uppercase tracking-widest text-slate-500">Total Stars</span>
+              </div>
+              <!-- PRs -->
+              <div class="flex flex-col items-center md:items-start gap-2">
+                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary mb-2">
+                  <span class="material-symbols-outlined">merge</span>
+                </div>
+                <span class="text-3xl font-extrabold text-white tracking-tight">77</span>
+                <span class="text-xs font-bold uppercase tracking-widest text-slate-500">Pull Requests</span>
+              </div>
+              <!-- Score -->
+              <div class="flex flex-col items-center md:items-start gap-2">
+                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary mb-2">
+                  <span class="material-symbols-outlined">leaderboard</span>
+                </div>
+                <span class="text-3xl font-extrabold text-primary tracking-tight">A+</span>
+                <span class="text-xs font-bold uppercase tracking-widest text-slate-500">(996) GitHub Score</span>
+              </div>
+            </div>
+            <div
+              class="mt-10 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <div class="h-3 w-3 rounded-full bg-primary"></div>
+                <span class="text-sm text-slate-400">Top 5% of active contributors this year</span>
+              </div>
+              <a class="inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline"
+                href="https://github.com/fgunz07" target="_blank" rel="noreferrer noopener">
+                View full profile
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+          <!-- Subtle background gradient for depth -->
+          <div class="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/5 blur-3xl"></div>
+        </div>
+      </section>
+      <section class="mb-24 reveal" id="projects">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+          <div class="flex items-center gap-4 flex-grow">
+            <h2 class="text-2xl font-bold">Projects</h2>
+            <div class="h-[1px] flex-grow bg-primary/10"></div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="projects-grid">
+          <!-- Project 1 (NDA) -->
+          <div
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
+            <div class="flex justify-between items-start mb-4">
+              <div class="flex items-center gap-2">
+                <h3 class="text-xl font-bold tracking-tight opacity-50">aae</h3>
+                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
+              </div>
+              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">Private</span>
+            </div>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+              A tool to generate ad angle from a description or web page , to boost marketing ads contents on different
+              angles.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
+                App</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">MVP</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">AI
+                Model</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Integration</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Crawler</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">API</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Vue</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Docker</span>
+            </div>
+          </div>
+          <div
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 animate-fade-in-up reveal">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-xl font-bold tracking-tight group-hover:text-primary transition-colors">Rent Flow</h3>
+              <div class="flex gap-3">
+                <a class="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-primary/20 hover:text-primary transition-all pointer-events-none opacity-50 cursor-not-allowed"
+                  href="#" target="_blank" rel="noreferrer noopener"><span
+                    class="material-symbols-outlined text-[18px]">open_in_new</span></a>
+                <a class="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-primary/20 hover:text-primary transition-all"
+                  href="https://github.com/annoyingmice/propc" target="_blank" rel="noreferrer noopener"><span
+                    class="material-symbols-outlined text-[18px]">code</span></a>
+              </div>
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+              A rent payment collection automation created by my, this app was pause since I'm looking for a partner who
+              is interested on pushing this app.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Custom
+                App</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Automation</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Rent</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">API</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Laravel</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Vue</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Queue</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Lemonsqueezy</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Scheduled</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">AI
+                Model (Option)</span>
+            </div>
+          </div>
+          <div
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 animate-fade-in-up reveal">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-xl font-bold tracking-tight group-hover:text-primary transition-colors">Ordering</h3>
+              <div class="flex gap-3">
+                <a class="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-primary/20 hover:text-primary transition-all"
+                  href="https://getfood.ph/" target="_blank" rel="noreferrer noopener"><span
+                    class="material-symbols-outlined text-[18px]">open_in_new</span></a>
+                <a class="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-primary/20 hover:text-primary transition-all pointer-events-none opacity-50 cursor-not-allowed"
+                  href="#"><span class="material-symbols-outlined text-[18px]">code</span></a>
+              </div>
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+              An online food delivery/ordering app similar with popular big companies ordering apps.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Custom
+                App</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Ordering</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Location</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">API</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Laravel</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">React</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Next.js</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Docker</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">AWS</span>
+            </div>
+          </div>
+          <!-- Project 2 -->
+          <!-- <div
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 animate-fade-in-up delay-100 reveal">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-xl font-bold tracking-tight group-hover:text-primary transition-colors">Ad Management</h3>
+              <div class="flex gap-3">
+                <a class="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-primary/20 hover:text-primary transition-all"
+                  href="#"><span class="material-symbols-outlined text-[18px]">open_in_new</span></a>
+                <a class="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-primary/20 hover:text-primary transition-all"
+                  href="#"><span class="material-symbols-outlined text-[18px]">code</span></a>
+              </div>
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+              A SaaS app powered integrated with AI to manage ad from any add prodiver.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Custom App</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Ad</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Integration</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Vue</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Legacy</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Laravel</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">API</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">AWS</span>
+            </div>
+          </div> -->
+          <!-- Project 1 (NDA) -->
+          <div
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 animate-fade-in-up reveal">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-xl font-bold tracking-tight group-hover:text-primary transition-colors">Ad Management</h3>
+              <div class="flex gap-3">
+                <a class="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-primary/20 hover:text-primary transition-all"
+                  href="https://app.lemonads.ai/" target="_blank" rel="noreferrer noopener"><span
+                    class="material-symbols-outlined text-[18px]">open_in_new</span></a>
+                <a class="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-primary/20 hover:text-primary transition-all pointer-events-none opacity-50 cursor-not-allowed"
+                  href="#"><span class="material-symbols-outlined text-[18px]">code</span></a>
+              </div>
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+              A SaaS app powered integrated with AI to manage ad from any add prodiver.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Custom
+                App</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Legacy</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">AI
+                Model</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Vue</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">API</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Laravel</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">AWS</span>
+            </div>
+          </div>
+          <!-- Project 1 (NDA) -->
+          <div
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
+            <div class="flex justify-between items-start mb-4">
+              <div class="flex items-center gap-2">
+                <h3 class="text-xl font-bold tracking-tight opacity-50">Construction Builder</h3>
+                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
+              </div>
+              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
+                Protected</span>
+            </div>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+              A SaaS app for contruction companies to manage financials, leads, task and more.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
+                App</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">MVP</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Vue</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Integration</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Inertia</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Nuxt.js</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Docker</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">AWS</span>
+            </div>
+          </div>
+          <!-- Project 1 (NDA) -->
+          <div
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
+            <div class="flex justify-between items-start mb-4">
+              <div class="flex items-center gap-2">
+                <h3 class="text-xl font-bold tracking-tight opacity-50">Shopify Reviews</h3>
+                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
+              </div>
+              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
+                Protected</span>
+            </div>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+              A shopify app/extensio or plugin for store to received product review for customer proof.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
+                App</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Shopify</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">React</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
+            </div>
+          </div>
+          <!-- Project 1 (NDA) -->
+          <div
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
+            <div class="flex justify-between items-start mb-4">
+              <div class="flex items-center gap-2">
+                <h3 class="text-xl font-bold tracking-tight opacity-50">Shopify Subscription</h3>
+                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
+              </div>
+              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
+                Protected</span>
+            </div>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+              A shopify app/extensio or plugin for product subscription.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
+                App</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Shopify</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">React</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
+            </div>
+          </div>
+          <!-- Project 1 (NDA) -->
+          <div
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
+            <div class="flex justify-between items-start mb-4">
+              <div class="flex items-center gap-2">
+                <h3 class="text-xl font-bold tracking-tight opacity-50">Company Directory</h3>
+                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
+              </div>
+              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
+                Protected</span>
+            </div>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+              A company directory where users can search a company or service and contact them removing the hussle on
+              finding company who offers specific services they are looking for.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
+                App</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Directory</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Data
+                Factory</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Node.js</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Vue.js</span>
+            </div>
+          </div>
+          <!-- Project 1 (NDA) -->
+          <div
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
+            <div class="flex justify-between items-start mb-4">
+              <div class="flex items-center gap-2">
+                <h3 class="text-xl font-bold tracking-tight opacity-50">Event Management</h3>
+                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
+              </div>
+              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
+                Protected</span>
+            </div>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+              Event managenent where you can manage events add, remove, view, advertise event.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
+                App</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Management</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Events</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">CakePHP</span>
+            </div>
+          </div>
+          <!-- Project 1 (NDA) -->
+          <div
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
+            <div class="flex justify-between items-start mb-4">
+              <div class="flex items-center gap-2">
+                <h3 class="text-xl font-bold tracking-tight opacity-50">Service Booking</h3>
+                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
+              </div>
+              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
+                Protected</span>
+            </div>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+              Book a service from professionals P2P.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
+                App</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">P2P</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Booking</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">API</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">React/Next.js</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Docker</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">AWS</span>
+            </div>
+          </div>
+          <!-- Project 1 (NDA) -->
+          <div
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
+            <div class="flex justify-between items-start mb-4">
+              <div class="flex items-center gap-2">
+                <h3 class="text-xl font-bold tracking-tight opacity-50">Payment Gateway</h3>
+                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
+              </div>
+              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
+                Protected</span>
+            </div>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+              A service to process payment or like a e-wallet but for points earned.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
+                App</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Points</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">API</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">React</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Docker</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">AWS</span>
+            </div>
+          </div>
+          <!-- Project 1 (NDA) -->
+          <div
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
+            <div class="flex justify-between items-start mb-4">
+              <div class="flex items-center gap-2">
+                <h3 class="text-xl font-bold tracking-tight opacity-50">Socket Location</h3>
+                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
+              </div>
+              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
+                Protected</span>
+            </div>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+              A socket server for food ordering to track riders and location.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
+                App</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Ordering</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Location</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">API</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Node.js</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Express.js</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">SocketIO</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">AWS</span>
+            </div>
+          </div>
+          <!-- Project 1 (NDA) -->
+          <div
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
+            <div class="flex justify-between items-start mb-4">
+              <div class="flex items-center gap-2">
+                <h3 class="text-xl font-bold tracking-tight opacity-50">Queuing</h3>
+                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
+              </div>
+              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
+                Protected</span>
+            </div>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+              Online queuing system the supports platforms Mobile, Queue Machine, Queue Monitor.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
+                App</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">B2B</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">API</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Blade</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Docker</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Linux</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">AWS</span>
+            </div>
+          </div>
+          <!-- Project 1 (NDA) -->
+          <div
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
+            <div class="flex justify-between items-start mb-4">
+              <div class="flex items-center gap-2">
+                <h3 class="text-xl font-bold tracking-tight opacity-50">Archiving</h3>
+                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
+              </div>
+              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
+                Protected</span>
+            </div>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+              File archiving system. Archive files organize folder structure encypted content fast file delivery scanned
+              documents.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
+                App</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">File</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Organize</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Storage</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">API</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Anti
+                Virus</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">AWS</span>
+            </div>
+          </div>
+          <!-- Project 2 (NDA) -->
+          <div
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
+            <div class="flex justify-between items-start mb-4">
+              <div class="flex items-center gap-2">
+                <h3 class="text-xl font-bold tracking-tight opacity-50">Socket Booking</h3>
+                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
+              </div>
+              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
+                Protected</span>
+            </div>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+              A socket server for a booking application using laravel-echo and redis realtime communication.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Service</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Realtime</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">API</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Redis</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">SocketIO</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">AWS</span>
+            </div>
+          </div>
+          <!-- Project 3 (NDA) -->
+          <div
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
+            <div class="flex justify-between items-start mb-4">
+              <div class="flex items-center gap-2">
+                <h3 class="text-xl font-bold tracking-tight opacity-50">App Version Control</h3>
+                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
+              </div>
+              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
+                Protected</span>
+            </div>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+              A API base app version control where all app versions are stored and then when a new version was uploaded
+              the clients can request then if there's new version uploaded it will update the client apps.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
+                App</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Tracking</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">API</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">React</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">AWS</span>
+            </div>
+          </div>
+          <!-- Project 4 (NDA) -->
+          <div
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
+            <div class="flex justify-between items-start mb-4">
+              <div class="flex items-center gap-2">
+                <h3 class="text-xl font-bold tracking-tight opacity-50">SMS Gateway</h3>
+                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
+              </div>
+              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
+                Protected</span>
+            </div>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+              An API gateway to receive request and send the SMS to selected provider.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
+                App</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Integration</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Reporting</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Telecom</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">API</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Blade</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">AWS</span>
+            </div>
+          </div>
+          <!-- Project 5 (NDA) -->
+          <div
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300">
+            <div class="flex justify-between items-start mb-4">
+              <div class="flex items-center gap-2">
+                <h3 class="text-xl font-bold tracking-tight opacity-50">Order Tracker</h3>
+                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
+              </div>
+              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
+                Protected</span>
+            </div>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+              Order tracking platform track orders with timeline where customers can see there product location and
+              current timeline. Also include invoicing and returns.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
+                App</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Reporting</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Tracking</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Blade</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">AWS</span>
+            </div>
+          </div>
+          <!-- Project 6 (NDA) -->
+          <div
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-400">
+            <div class="flex justify-between items-start mb-4">
+              <div class="flex items-center gap-2">
+                <h3 class="text-xl font-bold tracking-tight opacity-50">Ebay Store</h3>
+                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
+              </div>
+              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">
+                NDA Protected</span>
+            </div>
+            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+              Ebay / Shopify store connected to paypal
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Online
+                Store</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Paypal</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Reporting</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Blade</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="mb-24 animate-fade-in-up delay-400">
+        <div class="flex items-center gap-4 mb-8">
+          <h2 class="text-2xl font-bold">Video Showcase</h2>
+          <div class="h-[1px] flex-grow bg-primary/10"></div>
+        </div>
+        <!-- Preview Card -->
+        <div
+          class="relative aspect-video w-full rounded-2xl overflow-hidden border border-primary/20 hover:border-primary/50 transition-all cursor-pointer"
+          onclick="videoDialog.showModal(); modalVideo.play();">
+
+          <video class="w-full h-full object-cover blur-sm" muted loop playsinline>
+            <source src="./video.mp4" type="video/mp4">
+          </video>
+
+          <!-- Play Button -->
+          <div class="absolute inset-0 flex items-center justify-center bg-black/20">
+            <div
+              class="h-16 w-16 rounded-full bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/20 hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-3xl">play_arrow</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dialog Modal -->
+        <dialog id="videoDialog" class="p-0 bg-transparent backdrop:bg-black/80 border-none w-[90%] h-[90%]">
+
+          <div class="relative flex items-center justify-center">
+
+            <button onclick="closeVideo()" class="absolute top-12 right-0 text-white text-3xl">
+              ✕
+            </button>
+
+            <video id="modalVideo" class="max-w-[90vw] max-h-[90vh] rounded-xl shadow-xl" controls>
+              <source src="./video.mp4" type="video/mp4">
+            </video>
+
+          </div>
+
+        </dialog>
+      </section>
+      <section class="mb-24 rounded-3xl bg-primary/5 p-8 md:p-12 border border-primary/10 animate-fade-in-up delay-200"
+        id="contact">
+        <div class="max-w-xl mx-auto text-center">
+          <h2 class="text-3xl font-bold mb-4">Let's work together</h2>
+          <p class="text-slate-600 dark:text-slate-400 mb-8">
+            I'm currently looking for new opportunities. Whether you have a question or just want to say hi, my inbox is
+            always open!
+          </p>
+          <a class="inline-flex items-center gap-3 rounded-2xl bg-primary px-8 py-4 text-lg font-bold text-white shadow-xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all"
+            href="mailto:mhikeking0@gmail.com">
+            <span class="material-symbols-outlined">mail</span>
+            mhikeking0@gmail.com
+          </a>
+          <div class="mt-12 flex justify-center gap-6">
+            <a class="text-slate-500 hover:text-primary transition-colors"
+              href="https://wa.me/639559331401?text=Hello%20I%20saw%20your%20portfolio" rel="noreferrer noopener">
+              <span class="material-symbols-outlined">tag</span>
+            </a>
+            <a href="https://www.linkedin.com/in/rey-mark-engada-155122185" rel="noreferrer noopener"
+              class="text-slate-500 hover:text-primary transition-colors" href="#">
+              <span class="material-symbols-outlined">groups</span>
+            </a>
+            <a href="https://v2.onlinejobs.ph/jobseekers/info/3232308" target="_blank" rel="noreferrer noopener"
+              class="text-slate-500 hover:text-primary transition-colors" href="#">
+              <span class="material-symbols-outlined">business_center</span>
+            </a>
+            <a href="https://www.upwork.com/freelancers/~01236e8a4b76fbb88f?mp_source=share" target="_blank"
+              rel="noreferrer noopener" class="text-slate-500 hover:text-primary transition-colors" href="#">
+              <span class="material-symbols-outlined">work</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="mt-auto border-t border-primary/5 py-8 text-center text-sm text-slate-500">
+      <div class="mx-auto max-w-5xl px-6">
+        <p>© 2026 Rey Mark E. Built with precision.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script type="text/javascript">
+    const videoDialog = document.getElementById("videoDialog");
+    const modalVideo = document.getElementById("modalVideo");
+
+    function closeVideo() {
+      modalVideo.pause();
+      modalVideo.currentTime = 0;
+      videoDialog.close();
+    }
+  </script>
+</body>
+
+</html>
