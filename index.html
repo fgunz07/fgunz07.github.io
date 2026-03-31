@@ -53,21 +53,21 @@
 
     /* Scroll-triggered animations */
     @supports (animation-timeline: view()) {
-      .reveal {
+      /* .reveal {
         animation: fadeInUp 1s both;
         animation-timeline: view();
         animation-range: entry 5% cover 25%;
-      }
+      } */
     }
 
     /* Fallback for browsers without animation-timeline: Use a simple entry animation if scroll-timeline isn't supported */
     @media (prefers-reduced-motion: no-preference) {
       @supports not (animation-timeline: view()) {
-        .reveal {
+        /* .reveal {
           opacity: 0;
           transform: translateY(40px);
           transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+        } */
 
         /* Note: In a real app, JS would add an 'active' class. For HTML-only, we rely on the @supports logic. */
       }
@@ -667,7 +667,7 @@
             </div>
           </div>
           <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 animate-fade-in-up reveal">
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
             <div class="flex justify-between items-start mb-4">
               <h3 class="text-xl font-bold tracking-tight group-hover:text-primary transition-colors">Rent Flow</h3>
               <div class="flex gap-3">
@@ -709,7 +709,7 @@
             </div>
           </div>
           <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 animate-fade-in-up reveal">
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
             <div class="flex justify-between items-start mb-4">
               <h3 class="text-xl font-bold tracking-tight group-hover:text-primary transition-colors">Ordering</h3>
               <div class="flex gap-3">
@@ -781,7 +781,7 @@
           </div> -->
           <!-- Project 1 (NDA) -->
           <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 animate-fade-in-up reveal">
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
             <div class="flex justify-between items-start mb-4">
               <h3 class="text-xl font-bold tracking-tight group-hover:text-primary transition-colors">Ad Management</h3>
               <div class="flex gap-3">
@@ -1226,7 +1226,7 @@
           </div>
           <!-- Project 5 (NDA) -->
           <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300">
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
             <div class="flex justify-between items-start mb-4">
               <div class="flex items-center gap-2">
                 <h3 class="text-xl font-bold tracking-tight opacity-50">Order Tracker</h3>
@@ -1257,7 +1257,7 @@
           </div>
           <!-- Project 6 (NDA) -->
           <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-400">
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
             <div class="flex justify-between items-start mb-4">
               <div class="flex items-center gap-2">
                 <h3 class="text-xl font-bold tracking-tight opacity-50">Ebay Store</h3>
