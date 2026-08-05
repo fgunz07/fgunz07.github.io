@@ -1,1381 +1,1765 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <link rel="icon" type="image/x-icon" href="./favicon.ico">
-  <title>re</title>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
-    rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-    rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-    rel="stylesheet" />
-  <script id="tailwind-config">tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "primary": "#10b981",
-            "background-light": "#f8faf9",
-            "background-dark": "#000000",
-          },
-          fontFamily: {
-            "display": ["Manrope", "sans-serif"]
-          },
-          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
-        },
-      },
-    }</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rey Mark E. | Portfolio</title>
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <script src="https://kit.fontawesome.com/39e6dc33af.js" crossorigin="anonymous"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px) scale(0.98);
-        filter: blur(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0);
-      }
-    }
-
-    .animate-fade-in-up {
-      animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    /* Scroll-triggered animations */
-    @supports (animation-timeline: view()) {
-      /* .reveal {
-        animation: fadeInUp 1s both;
-        animation-timeline: view();
-        animation-range: entry 5% cover 25%;
-      } */
-    }
-
-    /* Fallback for browsers without animation-timeline: Use a simple entry animation if scroll-timeline isn't supported */
-    @media (prefers-reduced-motion: no-preference) {
-      @supports not (animation-timeline: view()) {
-        /* .reveal {
-          opacity: 0;
-          transform: translateY(40px);
-          transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-        } */
-
-        /* Note: In a real app, JS would add an 'active' class. For HTML-only, we rely on the @supports logic. */
-      }
-    }
-
-    .delay-100 {
-      animation-delay: 100ms;
-    }
-
-    .delay-200 {
-      animation-delay: 200ms;
-    }
-
-    .delay-300 {
-      animation-delay: 300ms;
-    }
-
-    .delay-400 {
-      animation-delay: 400ms;
-    }
-
-    .delay-500 {
-      animation-delay: 500ms;
+    body {
+      font-family: 'Inter', sans-serif;
     }
   </style>
 </head>
 
-<body
-  class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased transition-colors duration-300">
-  <div class="relative flex min-h-screen flex-col overflow-x-hidden">
-    <!-- <header
-      class="sticky top-0 z-50 w-full border-b border-primary/10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
-      <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        <div class="flex items-center gap-2">
-          <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white">
-            <span class="material-symbols-outlined text-[20px]">terminal</span>
-          </div>
-          <span class="text-lg font-bold tracking-tight">Alex.dev</span>
-        </div>
-        <nav class="hidden md:flex items-center gap-8">
-        </nav>
-        <button class="md:hidden text-slate-900 dark:text-slate-100">
-          <span class="material-symbols-outlined">menu</span>
-        </button>
-      </div>
-    </header> -->
-    <main class="mx-auto w-full max-w-4xl px-6 py-12 md:py-24">
-      <section class="mb-20 text-center md:text-left reveal">
-        <div
-          class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-semibold text-primary mb-6 animate-fade-in-up">
-          <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-          </span>
-          Available for new opportunities
-        </div>
-        <h1 class="text-5xl font-extrabold tracking-tight md:text-7xl mb-6 animate-fade-in-up delay-100">
-          Hi, I'm <span class="text-primary">Rey Mark Engada.</span>
-        </h1>
-        <p class="max-w-2xl text-lg text-slate-600 dark:text-slate-400 leading-relaxed animate-fade-in-up delay-200">
-          Full-stack software engineer focused on building clean, high-performance web applications. I turn complex
-          problems into simple, elegant digital experiences.
-        </p>
-        <div class="mt-10 flex flex-wrap gap-4 justify-center md:justify-start animate-fade-in-up delay-300">
-          <a class="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 font-bold text-white hover:bg-primary/90 transition-all"
-            href="#projects">
-            View Projects
-            <span class="material-symbols-outlined text-[18px]">arrow_downward</span>
-          </a>
-          <a href="./Resume_CV.pdf" target="_blank" rel="noreferrer noopener"
-            class="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 font-bold text-white shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
-            Resume
-            <span class="material-symbols-outlined text-[18px]">open_in_new</span>
-          </a>
-        </div>
-      </section>
-      <section class="mb-24 reveal" id="skills">
-        <div class="flex items-center gap-4 mb-8">
-          <h2 class="text-2xl font-bold">Core Tech</h2>
-          <div class="h-[1px] flex-grow bg-primary/10"></div>
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div
-            class="group flex items-center gap-3 rounded-xl border border-primary/10 bg-white dark:bg-primary/5 p-4 hover:border-primary/40 transition-all animate-fade-in-up delay-100">
-            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-              <span class="material-symbols-outlined">code</span>
-            </div>
-            <span class="font-medium text-sm">Javascript / PHP</span>
-          </div>
-          <div
-            class="group flex items-center gap-3 rounded-xl border border-primary/10 bg-white dark:bg-primary/5 p-4 hover:border-primary/40 transition-all animate-fade-in-up delay-200">
-            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-              <span class="material-symbols-outlined">layers</span>
-            </div>
-            <span class="font-medium text-sm">Vue / Nuxt.js</span>
-          </div>
-          <div
-            class="group flex items-center gap-3 rounded-xl border border-primary/10 bg-white dark:bg-primary/5 p-4 hover:border-primary/40 transition-all animate-fade-in-up delay-300">
-            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-              <span class="material-symbols-outlined">database</span>
-            </div>
-            <span class="font-medium text-sm">MySQL</span>
-          </div>
-          <div
-            class="group flex items-center gap-3 rounded-xl border border-primary/10 bg-white dark:bg-primary/5 p-4 hover:border-primary/40 transition-all animate-fade-in-up delay-400">
-            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-              <span class="material-symbols-outlined">settings_ethernet</span>
-            </div>
-            <span class="font-medium text-sm">Laravel</span>
-          </div>
-        </div>
-        <div class="mt-8 flex flex-wrap gap-2">
-          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-medium">GraphQL</span>
-          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-medium">Docker</span>
-          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-medium">AWS</span>
-          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-medium">Tailwind CSS</span>
-          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-medium">DaisyUI</span>
-          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-medium">Github Actions</span>
-          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-medium">Shadcn UI</span>
-          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-medium">Linux</span>
-          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-medium">Nginx</span>
-          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-medium">Cloudflare</span>
-          <span class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-medium">Node / Express</span>
-        </div>
-      </section>
-      <section class="mb-24 animate-fade-in-up delay-200 reveal">
-        <div class="flex items-center gap-4 mb-8">
-          <h2 class="text-2xl font-bold">GitHub Organizations</h2>
-          <div class="h-[1px] flex-grow bg-primary/10"></div>
-        </div>
-        <div
-          class="grid grid-cols-2 md:grid-cols-4 gap-8 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
-          <div class="flex flex-col items-center gap-2">
-            <span class="material-symbols-outlined text-4xl text-primary">engineering</span>
-            <span class="text-sm font-semibold">Annoyingmice</span>
-          </div>
-          <div class="flex flex-col items-center gap-2">
-            <span class="material-symbols-outlined text-4xl text-primary">groups</span>
-            <span class="text-sm font-semibold">Appfox apps</span>
-          </div>
-          <div class="flex flex-col items-center gap-2">
-            <span class="material-symbols-outlined text-4xl text-primary">hub</span>
-            <span class="text-sm font-semibold">Platform</span>
-          </div>
-        </div>
-      </section>
-      <section class="mb-24 animate-fade-in-up delay-300 reveal">
-        <div class="flex items-center gap-4 mb-8">
-          <h2 class="text-2xl font-bold">Open Source Repositories</h2>
-          <div class="h-[1px] flex-grow bg-primary/10"></div>
-        </div>
-        <div class="grid md:grid-cols-2 gap-4">
-          <a href="https://github.com/annoyingmice/trello-action" target="_blank" rel="noreferrer noopener"
-            class="group p-5 rounded-xl border border-primary/10 bg-white dark:bg-primary/5 hover:border-primary/40 transition-all">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="font-bold text-primary">annoyingmice/trello-action</h3>
-              <span class="material-symbols-outlined text-sm">star</span>
-            </div>
-            <p class="text-sm text-slate-600 dark:text-slate-400">Trello action a github action library to automate
-              trello card on commit.</p>
-          </a>
-          <a href="https://github.com/annoyingmice/starter-api" target="_blank" rel="noreferrer noopener"
-            class="group p-5 rounded-xl border border-primary/10 bg-white dark:bg-primary/5 hover:border-primary/40 transition-all">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="font-bold text-primary">annoyingmice/starter-api</h3>
-              <span class="material-symbols-outlined text-sm">star</span>
-            </div>
-            <p class="text-sm text-slate-600 dark:text-slate-400">A laravel starter template for focus on api in DDD
-              structure with modules register user, email address, phone.</p>
-          </a>
-          <a href="https://github.com/annoyingmice/trading-hook" target="_blank" rel="noreferrer noopener"
-            class="group p-5 rounded-xl border border-primary/10 bg-white dark:bg-primary/5 hover:border-primary/40 transition-all">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="font-bold text-primary">annoyingmice/trading-hook</h3>
-              <span class="material-symbols-outlined text-sm">star</span>
-            </div>
-            <p class="text-sm text-slate-600 dark:text-slate-400">A trading hook that will automatically trigger buy or
-              sell on bybit but dynamically can be used on any trading broker with proper configuration.</p>
-          </a>
-          <a href="https://github.com/annoyingmice/laravel-jwt-starter" target="_blank" rel="noreferrer noopener"
-            class="group p-5 rounded-xl border border-primary/10 bg-white dark:bg-primary/5 hover:border-primary/40 transition-all">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="font-bold text-primary">annoyingmice/laravel-jwt-starter</h3>
-              <span class="material-symbols-outlined text-sm">star</span>
-            </div>
-            <p class="text-sm text-slate-600 dark:text-slate-400">A laravel starter with Roles, Permission, OTP, JWT.
-            </p>
-          </a>
-          <a href="https://github.com/annoyingmice/starter-shopify" target="_blank" rel="noreferrer noopener"
-            class="group p-5 rounded-xl border border-primary/10 bg-white dark:bg-primary/5 hover:border-primary/40 transition-all">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="font-bold text-primary">annoyingmice/starter-shopify</h3>
-              <span class="material-symbols-outlined text-sm">star</span>
-            </div>
-            <p class="text-sm text-slate-600 dark:text-slate-400">A laravel starter template for shopify integration
-              React & Shopify GraphQL.</p>
-          </a>
-        </div>
-      </section>
-      <section class="mb-24 reveal" id="experience">
-        <div class="flex items-center gap-4 mb-8">
-          <h2 class="text-2xl font-bold">Experience</h2>
-          <div class="h-[1px] flex-grow bg-primary/10"></div>
-        </div>
-        <div
-          class="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-primary/20 before:to-transparent">
-          <!-- Experience Entry 1 -->
-          <div
-            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group animate-fade-in-up">
-            <!-- Dot -->
-            <div
-              class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/30 bg-background-dark shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-              <div class="h-2.5 w-2.5 rounded-full bg-primary"></div>
-            </div>
-            <!-- Content -->
-            <div
-              class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl border border-primary/10 bg-white/5 backdrop-blur-sm hover:border-primary/30 transition-all">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-4">
-                <h3 class="text-xl font-bold text-slate-100">Software Developer.</h3>
-                <time class="text-xs font-bold uppercase tracking-wider text-primary">JUL 2025 — DEC 2025</time>
-              </div>
-              <div class="text-sm font-semibold text-primary/80 mb-4">Ominisystems LLC, 2 Burrough Court, Burrough on
-                the Hill, United Kingdom</div>
-              <ul class="space-y-3">
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Worked on integrating AI model mitral.io hosted model ensuring rate limit connecting to api.
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Making scheduled jobs work on timely sync for records.
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Convert figma design to vue components.
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Fixing bugs and adding new features.
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Restructuring backend application legacy code.
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- Experience Entry 2 -->
-          <div
-            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group animate-fade-in-up delay-200">
-            <!-- Dot -->
-            <div
-              class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/30 bg-background-dark shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-              <div class="h-2.5 w-2.5 rounded-full bg-primary"></div>
-            </div>
-            <!-- Content -->
-            <div
-              class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl border border-primary/10 bg-white/5 backdrop-blur-sm hover:border-primary/30 transition-all">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-4">
-                <h3 class="text-xl font-bold text-slate-100">Full Stack Developer.</h3>
-                <time class="text-xs font-bold uppercase tracking-wider text-primary">MARCH 2024 — JUL 2025</time>
-              </div>
-              <div class="text-sm font-semibold text-primary/80 mb-4">Feel At Home Builders, California, United State
-              </div>
-              <ul class="space-y-3">
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Create DevOps pipeline CI/CD automation to AWS using github actions.
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Manage team of developers.
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Debug platform memory leaks.
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Setup AWS servers for staging and prod.
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Integrate PLAID to pull bank transactions and Checkbook to issue checks.
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Creating new features on the platform.
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Analyze product requirements.
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- Experience Entry 3 -->
-          <div
-            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group animate-fade-in-up">
-            <!-- Dot -->
-            <div
-              class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/30 bg-background-dark shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-              <div class="h-2.5 w-2.5 rounded-full bg-primary"></div>
-            </div>
-            <!-- Content -->
-            <div
-              class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl border border-primary/10 bg-white/5 backdrop-blur-sm hover:border-primary/30 transition-all">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-4">
-                <h3 class="text-xl font-bold text-slate-100">Freelance Full Stack Developer.</h3>
-                <time class="text-xs font-bold uppercase tracking-wider text-primary">FEB 2024 — APRIL 2024</time>
-              </div>
-              <div class="text-sm font-semibold text-primary/80 mb-4">Upwork Freelance Platform</div>
-              <ul class="space-y-3">
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Convert existing legacy shopify admin api to graphql api.
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Creating frontend react components for stores.
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Creating new features move from legacy shopify integration to new shopify api implementation.
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Converting existing legacy app created from java to laravel
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- Experience Entry 4 -->
-          <div
-            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group animate-fade-in-up delay-200">
-            <!-- Dot -->
-            <div
-              class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/30 bg-background-dark shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-              <div class="h-2.5 w-2.5 rounded-full bg-primary"></div>
-            </div>
-            <!-- Content -->
-            <div
-              class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl border border-primary/10 bg-white/5 backdrop-blur-sm hover:border-primary/30 transition-all">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-4">
-                <h3 class="text-xl font-bold text-slate-100">Software Engineer</h3>
-                <time class="text-xs font-bold uppercase tracking-wider text-primary">MAY 2023 — FEB 2024</time>
-              </div>
-              <div class="text-sm font-semibold text-primary/80 mb-4">Experience Digital, Surry Hills, Australia</div>
-              <ul class="space-y-3">
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Maintaining client vue application adding new features and fixing errors.
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Debugging database issue on query specially postgress.
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Upgrading legacy aws lambda api libraries to latest version.
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Taking client application maitaining legacy app created using cakephp.
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- Experience Entry 5 -->
-          <div
-            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group animate-fade-in-up">
-            <!-- Dot -->
-            <div
-              class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/30 bg-background-dark shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-              <div class="h-2.5 w-2.5 rounded-full bg-primary"></div>
-            </div>
-            <!-- Content -->
-            <div
-              class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl border border-primary/10 bg-white/5 backdrop-blur-sm hover:border-primary/30 transition-all">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-4">
-                <h3 class="text-xl font-bold text-slate-100">Sr. Software Developer.</h3>
-                <time class="text-xs font-bold uppercase tracking-wider text-primary">MAY 2020 — APRIL 2023</time>
-              </div>
-              <div class="text-sm font-semibold text-primary/80 mb-4">Get Served PH, Dumaguete City PH</div>
-              <ul class="space-y-3">
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Research and development.
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Integrating thirdparty payment API gateways
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Creating new feature on frontend page using React/Nuxt.
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Adding new api endpoint on the backend.
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Creating gateway applications for payments.
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Setting up AWS server and administration creating pipelines DevOps works.
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- Experience Entry 6 -->
-          <div
-            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group animate-fade-in-up delay-200">
-            <!-- Dot -->
-            <div
-              class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/30 bg-background-dark shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-              <div class="h-2.5 w-2.5 rounded-full bg-primary"></div>
-            </div>
-            <!-- Content -->
-            <div
-              class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl border border-primary/10 bg-white/5 backdrop-blur-sm hover:border-primary/30 transition-all">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-4">
-                <h3 class="text-xl font-bold text-slate-100">Sr. Software Developer</h3>
-                <time class="text-xs font-bold uppercase tracking-wider text-primary">JUN 2018 — MAY 2020</time>
-              </div>
-              <div class="text-sm font-semibold text-primary/80 mb-4">Bluebeans Systems Inc., Dumaguete City PH</div>
-              <ul class="space-y-3">
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Setup servers and AWS administration.
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Building web applications for clients.
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- Experience Entry 7 -->
-          <div
-            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group animate-fade-in-up">
-            <!-- Dot -->
-            <div
-              class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/30 bg-background-dark shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-              <div class="h-2.5 w-2.5 rounded-full bg-primary"></div>
-            </div>
-            <!-- Content -->
-            <div
-              class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl border border-primary/10 bg-white/5 backdrop-blur-sm hover:border-primary/30 transition-all">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-4">
-                <h3 class="text-xl font-bold text-slate-100">Jr. Web Developer.</h3>
-                <time class="text-xs font-bold uppercase tracking-wider text-primary">APR 2017 — MAY 2018</time>
-              </div>
-              <div class="text-sm font-semibold text-primary/80 mb-4">CoreDev Solutions Inc., Cebu City PH</div>
-              <ul class="space-y-3">
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Creating front-end application for the converted api
-                </li>
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Converting existing C# app to laravel
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- Experience Entry 6 -->
-          <div
-            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group animate-fade-in-up delay-200">
-            <!-- Dot -->
-            <div
-              class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/30 bg-background-dark shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-              <div class="h-2.5 w-2.5 rounded-full bg-primary"></div>
-            </div>
-            <!-- Content -->
-            <div
-              class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl border border-primary/10 bg-white/5 backdrop-blur-sm hover:border-primary/30 transition-all">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-4">
-                <h3 class="text-xl font-bold text-slate-100">Jr. Software Developer</h3>
-                <time class="text-xs font-bold uppercase tracking-wider text-primary">NOV 2016 — MAR 2017</time>
-              </div>
-              <div class="text-sm font-semibold text-primary/80 mb-4">Bluebeans Systems Inc., Dumaguete City PH</div>
-              <ul class="space-y-3">
-                <li class="flex gap-3 text-sm text-slate-400">
-                  <span class="text-primary">•</span>
-                  Building web applications for clients.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="mb-24 reveal" id="github-stats">
-        <div class="flex items-center gap-4 mb-8">
-          <h2 class="text-2xl font-bold">GitHub Contributions</h2>
-          <div class="h-[1px] flex-grow bg-primary/10"></div>
-        </div>
-        <div
-          class="relative overflow-hidden rounded-3xl border border-primary/20 bg-slate-900/40 p-1 backdrop-blur-sm animate-fade-in-up">
-          <div class="rounded-[calc(1.5rem-1px)] bg-background-dark p-6 md:p-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <!-- Contributions -->
-              <div class="flex flex-col items-center md:items-start gap-2">
-                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary mb-2">
-                  <span class="material-symbols-outlined">calendar_month</span>
-                </div>
-                <span class="text-3xl font-extrabold text-white tracking-tight">5,761</span>
-                <span class="text-xs font-bold uppercase tracking-widest text-slate-500">Total Contribution</span>
-              </div>
-              <!-- Stars -->
-              <div class="flex flex-col items-center md:items-start gap-2">
-                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary mb-2">
-                  <span class="material-symbols-outlined">star</span>
-                </div>
-                <span class="text-3xl font-extrabold text-white tracking-tight">65</span>
-                <span class="text-xs font-bold uppercase tracking-widest text-slate-500">Total Stars</span>
-              </div>
-              <!-- PRs -->
-              <div class="flex flex-col items-center md:items-start gap-2">
-                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary mb-2">
-                  <span class="material-symbols-outlined">merge</span>
-                </div>
-                <span class="text-3xl font-extrabold text-white tracking-tight">77</span>
-                <span class="text-xs font-bold uppercase tracking-widest text-slate-500">Pull Requests</span>
-              </div>
-              <!-- Score -->
-              <div class="flex flex-col items-center md:items-start gap-2">
-                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary mb-2">
-                  <span class="material-symbols-outlined">leaderboard</span>
-                </div>
-                <span class="text-3xl font-extrabold text-primary tracking-tight">A+</span>
-                <span class="text-xs font-bold uppercase tracking-widest text-slate-500">(996) GitHub Score</span>
-              </div>
-            </div>
-            <div
-              class="mt-10 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
-              <div class="flex items-center gap-3">
-                <div class="h-3 w-3 rounded-full bg-primary"></div>
-                <span class="text-sm text-slate-400">Top 5% of active contributors this year</span>
-              </div>
-              <a class="inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline"
-                href="https://github.com/fgunz07" target="_blank" rel="noreferrer noopener">
-                View full profile
-                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-              </a>
-            </div>
-          </div>
-          <!-- Subtle background gradient for depth -->
-          <div class="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/5 blur-3xl"></div>
-        </div>
-      </section>
-      <section class="mb-24 reveal" id="projects">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
-          <div class="flex items-center gap-4 flex-grow">
-            <h2 class="text-2xl font-bold">Projects</h2>
-            <div class="h-[1px] flex-grow bg-primary/10"></div>
-          </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="projects-grid">
-          <!-- Project 1 (NDA) -->
-          <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
-            <div class="flex justify-between items-start mb-4">
-              <div class="flex items-center gap-2">
-                <h3 class="text-xl font-bold tracking-tight opacity-50">aae</h3>
-                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
-              </div>
-              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">Private</span>
-            </div>
-            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
-              A tool to generate ad angle from a description or web page , to boost marketing ads contents on different
-              angles.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
-                App</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">MVP</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">AI
-                Model</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Integration</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Crawler</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">API</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Vue</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Docker</span>
-            </div>
-          </div>
-          <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
-            <div class="flex justify-between items-start mb-4">
-              <h3 class="text-xl font-bold tracking-tight group-hover:text-primary transition-colors">Rent Flow</h3>
-              <div class="flex gap-3">
-                <a class="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-primary/20 hover:text-primary transition-all pointer-events-none opacity-50 cursor-not-allowed"
-                  href="#" target="_blank" rel="noreferrer noopener"><span
-                    class="material-symbols-outlined text-[18px]">open_in_new</span></a>
-                <a class="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-primary/20 hover:text-primary transition-all"
-                  href="https://github.com/annoyingmice/propc" target="_blank" rel="noreferrer noopener"><span
-                    class="material-symbols-outlined text-[18px]">code</span></a>
-              </div>
-            </div>
-            <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-              A rent payment collection automation created by me, this app was pause since I'm looking for a partner who
-              is interested on pushing this app.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Custom
-                App</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Automation</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Rent</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">API</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Laravel</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Vue</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Queue</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Lemonsqueezy</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Scheduled</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">AI
-                Model (Option)</span>
-            </div>
-          </div>
-          <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
-            <div class="flex justify-between items-start mb-4">
-              <h3 class="text-xl font-bold tracking-tight group-hover:text-primary transition-colors">Ordering</h3>
-              <div class="flex gap-3">
-                <a class="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-primary/20 hover:text-primary transition-all"
-                  href="https://getfood.ph/" target="_blank" rel="noreferrer noopener"><span
-                    class="material-symbols-outlined text-[18px]">open_in_new</span></a>
-                <a class="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-primary/20 hover:text-primary transition-all pointer-events-none opacity-50 cursor-not-allowed"
-                  href="#"><span class="material-symbols-outlined text-[18px]">code</span></a>
-              </div>
-            </div>
-            <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-              An online food delivery/ordering app similar with popular big companies ordering apps.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Custom
-                App</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Ordering</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Location</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">API</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Laravel</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">React</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Next.js</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Docker</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">AWS</span>
-            </div>
-          </div>
-          <!-- Project 2 -->
-          <!-- <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 animate-fade-in-up delay-100 reveal">
-            <div class="flex justify-between items-start mb-4">
-              <h3 class="text-xl font-bold tracking-tight group-hover:text-primary transition-colors">Ad Management</h3>
-              <div class="flex gap-3">
-                <a class="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-primary/20 hover:text-primary transition-all"
-                  href="#"><span class="material-symbols-outlined text-[18px]">open_in_new</span></a>
-                <a class="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-primary/20 hover:text-primary transition-all"
-                  href="#"><span class="material-symbols-outlined text-[18px]">code</span></a>
-              </div>
-            </div>
-            <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-              A SaaS app powered integrated with AI to manage ad from any add prodiver.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Custom App</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Ad</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Integration</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Vue</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Legacy</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Laravel</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">API</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">AWS</span>
-            </div>
-          </div> -->
-          <!-- Project 1 (NDA) -->
-          <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
-            <div class="flex justify-between items-start mb-4">
-              <h3 class="text-xl font-bold tracking-tight group-hover:text-primary transition-colors">Ad Management</h3>
-              <div class="flex gap-3">
-                <a class="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-primary/20 hover:text-primary transition-all"
-                  href="https://app.lemonads.ai/" target="_blank" rel="noreferrer noopener"><span
-                    class="material-symbols-outlined text-[18px]">open_in_new</span></a>
-                <a class="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-primary/20 hover:text-primary transition-all pointer-events-none opacity-50 cursor-not-allowed"
-                  href="#"><span class="material-symbols-outlined text-[18px]">code</span></a>
-              </div>
-            </div>
-            <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-              A SaaS app powered integrated with AI to manage ad from any ad prodiver.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Custom
-                App</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Legacy</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">AI
-                Model</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Vue</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">API</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">Laravel</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary border border-primary/20">AWS</span>
-            </div>
-          </div>
-          <!-- Project 1 (NDA) -->
-          <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
-            <div class="flex justify-between items-start mb-4">
-              <div class="flex items-center gap-2">
-                <h3 class="text-xl font-bold tracking-tight opacity-50">Construction Builder</h3>
-                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
-              </div>
-              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
-                Protected</span>
-            </div>
-            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
-              A SaaS app for contruction companies to manage financials, leads, task and more.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
-                App</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">MVP</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Vue</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Integration</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Inertia</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Nuxt.js</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Docker</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">AWS</span>
-            </div>
-          </div>
-          <!-- Project 1 (NDA) -->
-          <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
-            <div class="flex justify-between items-start mb-4">
-              <div class="flex items-center gap-2">
-                <h3 class="text-xl font-bold tracking-tight opacity-50">Shopify Reviews</h3>
-                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
-              </div>
-              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
-                Protected</span>
-            </div>
-            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
-              A shopify app/extension or plugin for store to received product review for customer proof.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
-                App</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Shopify</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">React</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
-            </div>
-          </div>
-          <!-- Project 1 (NDA) -->
-          <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
-            <div class="flex justify-between items-start mb-4">
-              <div class="flex items-center gap-2">
-                <h3 class="text-xl font-bold tracking-tight opacity-50">Shopify Subscription</h3>
-                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
-              </div>
-              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
-                Protected</span>
-            </div>
-            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
-              A shopify app/extension or plugin for product subscription.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
-                App</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Shopify</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">React</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
-            </div>
-          </div>
-          <!-- Project 1 (NDA) -->
-          <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
-            <div class="flex justify-between items-start mb-4">
-              <div class="flex items-center gap-2">
-                <h3 class="text-xl font-bold tracking-tight opacity-50">Company Directory</h3>
-                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
-              </div>
-              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
-                Protected</span>
-            </div>
-            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
-              A company directory where users can search a company or service and contact them removing the hussle on
-              finding company who offers specific services they are looking for.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
-                App</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Directory</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Data
-                Factory</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Node.js</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Vue.js</span>
-            </div>
-          </div>
-          <!-- Project 1 (NDA) -->
-          <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
-            <div class="flex justify-between items-start mb-4">
-              <div class="flex items-center gap-2">
-                <h3 class="text-xl font-bold tracking-tight opacity-50">Event Management</h3>
-                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
-              </div>
-              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
-                Protected</span>
-            </div>
-            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
-              Event managenent where you can manage events add, remove, view, advertise event.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
-                App</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Management</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Events</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">CakePHP</span>
-            </div>
-          </div>
-          <!-- Project 1 (NDA) -->
-          <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
-            <div class="flex justify-between items-start mb-4">
-              <div class="flex items-center gap-2">
-                <h3 class="text-xl font-bold tracking-tight opacity-50">Service Booking</h3>
-                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
-              </div>
-              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
-                Protected</span>
-            </div>
-            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
-              Book a service from professionals P2P.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
-                App</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">P2P</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Booking</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">API</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">React/Next.js</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Docker</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">AWS</span>
-            </div>
-          </div>
-          <!-- Project 1 (NDA) -->
-          <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
-            <div class="flex justify-between items-start mb-4">
-              <div class="flex items-center gap-2">
-                <h3 class="text-xl font-bold tracking-tight opacity-50">Payment Gateway</h3>
-                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
-              </div>
-              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
-                Protected</span>
-            </div>
-            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
-              A service to process payment or like a e-wallet but for points earned.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
-                App</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Points</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">API</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">React</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Docker</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">AWS</span>
-            </div>
-          </div>
-          <!-- Project 1 (NDA) -->
-          <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
-            <div class="flex justify-between items-start mb-4">
-              <div class="flex items-center gap-2">
-                <h3 class="text-xl font-bold tracking-tight opacity-50">Socket Location</h3>
-                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
-              </div>
-              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
-                Protected</span>
-            </div>
-            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
-              A socket server for food ordering to track riders and location.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
-                App</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Ordering</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Location</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">API</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Node.js</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Express.js</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">SocketIO</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">AWS</span>
-            </div>
-          </div>
-          <!-- Project 1 (NDA) -->
-          <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
-            <div class="flex justify-between items-start mb-4">
-              <div class="flex items-center gap-2">
-                <h3 class="text-xl font-bold tracking-tight opacity-50">Queuing</h3>
-                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
-              </div>
-              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
-                Protected</span>
-            </div>
-            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
-              Online queuing system that supports platforms Mobile, Queue Machine, Queue Monitor.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
-                App</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">B2B</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">API</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Blade</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Docker</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Linux</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">AWS</span>
-            </div>
-          </div>
-          <!-- Project 1 (NDA) -->
-          <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
-            <div class="flex justify-between items-start mb-4">
-              <div class="flex items-center gap-2">
-                <h3 class="text-xl font-bold tracking-tight opacity-50">Archiving</h3>
-                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
-              </div>
-              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
-                Protected</span>
-            </div>
-            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
-              File archiving system. Archive files organize folder structure encypted content fast file delivery scanned
-              documents.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
-                App</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">File</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Organize</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Storage</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">API</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Anti
-                Virus</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">AWS</span>
-            </div>
-          </div>
-          <!-- Project 2 (NDA) -->
-          <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
-            <div class="flex justify-between items-start mb-4">
-              <div class="flex items-center gap-2">
-                <h3 class="text-xl font-bold tracking-tight opacity-50">Socket Booking</h3>
-                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
-              </div>
-              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
-                Protected</span>
-            </div>
-            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
-              A socket server for a booking application using laravel-echo and redis realtime communication.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Service</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Realtime</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">API</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Redis</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">SocketIO</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">AWS</span>
-            </div>
-          </div>
-          <!-- Project 3 (NDA) -->
-          <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
-            <div class="flex justify-between items-start mb-4">
-              <div class="flex items-center gap-2">
-                <h3 class="text-xl font-bold tracking-tight opacity-50">App Version Control</h3>
-                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
-              </div>
-              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
-                Protected</span>
-            </div>
-            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
-              A API base app version control where all app versions are stored and then when a new version was uploaded
-              the clients can request then if there's new version uploaded it will update the client apps.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
-                App</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Tracking</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">API</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">React</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">AWS</span>
-            </div>
-          </div>
-          <!-- Project 4 (NDA) -->
-          <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
-            <div class="flex justify-between items-start mb-4">
-              <div class="flex items-center gap-2">
-                <h3 class="text-xl font-bold tracking-tight opacity-50">SMS Gateway</h3>
-                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
-              </div>
-              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
-                Protected</span>
-            </div>
-            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
-              An API gateway to receive request and send the SMS to selected provider.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
-                App</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Integration</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Reporting</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Telecom</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">API</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Blade</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">AWS</span>
-            </div>
-          </div>
-          <!-- Project 5 (NDA) -->
-          <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
-            <div class="flex justify-between items-start mb-4">
-              <div class="flex items-center gap-2">
-                <h3 class="text-xl font-bold tracking-tight opacity-50">Order Tracker</h3>
-                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
-              </div>
-              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">NDA
-                Protected</span>
-            </div>
-            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
-              Order tracking platform track orders with timeline where customers can see there product location and
-              current timeline. Also include invoicing and returns.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Custom
-                App</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Reporting</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Tracking</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Blade</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">AWS</span>
-            </div>
-          </div>
-          <!-- Project 6 (NDA) -->
-          <div
-            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-slate-900/20 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-700 animate-fade-in-up delay-300 reveal">
-            <div class="flex justify-between items-start mb-4">
-              <div class="flex items-center gap-2">
-                <h3 class="text-xl font-bold tracking-tight opacity-50">Ebay Store</h3>
-                <span class="material-symbols-outlined text-[16px] text-slate-500">lock</span>
-              </div>
-              <span class="px-2 py-1 rounded bg-slate-800 text-[10px] font-bold uppercase text-slate-500">
-                NDA Protected</span>
-            </div>
-            <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
-              Ebay / Shopify store connected to paypal
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Online
-                Store</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Paypal</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Reporting</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Blade</span>
-              <span
-                class="px-2.5 py-0.5 rounded-full bg-slate-800 text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-white/5">Laravel</span>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="mb-24 animate-fade-in-up delay-400">
-        <div class="flex items-center gap-4 mb-8">
-          <h2 class="text-2xl font-bold">Video Showcase</h2>
-          <div class="h-[1px] flex-grow bg-primary/10"></div>
-        </div>
-        <!-- Preview Card -->
-        <div
-          class="relative aspect-video w-full rounded-2xl overflow-hidden border border-primary/20 hover:border-primary/50 transition-all cursor-pointer"
-          onclick="videoDialog.showModal(); modalVideo.play();">
+<body class="bg-white text-neutral-900 antialiased selection:bg-neutral-900 selection:text-white">
 
-          <video class="w-full h-full object-cover blur-sm" muted loop playsinline>
-            <source src="./video.mp4" type="video/mp4">
-          </video>
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100">
+    <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center" aria-label="RM. Logo">
+        <svg class="h-6 w-auto" viewBox="0 0 100 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="27" font-family="'Inter', sans-serif" font-weight="600" font-size="28" fill="#171717"
+            letter-spacing="-1">RM</text>
+          <rect x="65" y="20" width="6" height="6" fill="#2563eb" />
+        </svg>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-xs font-medium text-neutral-500">
+        <a href="#experience" class="hover:text-neutral-900 transition-colors">Experience</a>
+        <a href="#apps" class="hover:text-neutral-900 transition-colors">Projects</a>
+        <a href="#activity" class="hover:text-neutral-900 transition-colors">Activity</a>
+        <a href="#skills" class="hover:text-neutral-900 transition-colors">Skills</a>
+        <a href="#certificates" class="hover:text-neutral-900 transition-colors">Certificates</a>
+        <a href="#projects" class="hover:text-neutral-900 transition-colors">Architecture</a>
+        <a href="#organizations" class="hover:text-neutral-900 transition-colors">Organizations</a>
+        <a href="#contact" class="hover:text-neutral-900 transition-colors">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-          <!-- Play Button -->
-          <div class="absolute inset-0 flex items-center justify-center bg-black/20">
-            <div
-              class="h-16 w-16 rounded-full bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/20 hover:scale-110 transition-transform">
-              <span class="material-symbols-outlined text-3xl">play_arrow</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Dialog Modal -->
-        <dialog id="videoDialog" class="p-0 bg-transparent backdrop:bg-black/80 border-none w-[90%] h-[90%]">
-
-          <div class="relative flex items-center justify-center">
-
-            <button onclick="closeVideo()" class="absolute top-12 right-0 text-white text-3xl">
-              ✕
-            </button>
-
-            <video id="modalVideo" class="max-w-[90vw] max-h-[90vh] rounded-xl shadow-xl" controls>
-              <source src="./video.mp4" type="video/mp4">
-            </video>
-
-          </div>
-
-        </dialog>
-      </section>
-      <section class="mb-24 rounded-3xl bg-primary/5 p-8 md:p-12 border border-primary/10 animate-fade-in-up delay-200"
-        id="contact">
-        <div class="max-w-xl mx-auto text-center">
-          <h2 class="text-3xl font-bold mb-4">Let's work together</h2>
-          <p class="text-slate-600 dark:text-slate-400 mb-8">
-            I'm currently looking for new opportunities. Whether you have a question or just want to say hi, my inbox is
-            always open!
-          </p>
-          <a class="inline-flex items-center gap-3 rounded-2xl bg-primary px-8 py-4 text-lg font-bold text-white shadow-xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all"
-            href="mailto:mhikeking0@gmail.com">
-            <span class="material-symbols-outlined">mail</span>
-            mhikeking0@gmail.com
-          </a>
-          <div class="mt-12 flex justify-center gap-6">
-            <a class="text-slate-500 hover:text-primary transition-colors"
-              href="https://wa.me/639559331401?text=Hello%20I%20saw%20your%20portfolio" rel="noreferrer noopener">
-              <span class="material-symbols-outlined">tag</span>
-            </a>
-            <a href="https://www.linkedin.com/in/rey-mark-engada-155122185" rel="noreferrer noopener"
-              class="text-slate-500 hover:text-primary transition-colors" href="#">
-              <span class="material-symbols-outlined">groups</span>
-            </a>
-            <a href="https://v2.onlinejobs.ph/jobseekers/info/3232308" target="_blank" rel="noreferrer noopener"
-              class="text-slate-500 hover:text-primary transition-colors" href="#">
-              <span class="material-symbols-outlined">business_center</span>
-            </a>
-            <a href="https://www.upwork.com/freelancers/~01236e8a4b76fbb88f?mp_source=share" target="_blank"
-              rel="noreferrer noopener" class="text-slate-500 hover:text-primary transition-colors" href="#">
-              <span class="material-symbols-outlined">work</span>
-            </a>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer class="mt-auto border-t border-primary/5 py-8 text-center text-sm text-slate-500">
-      <div class="mx-auto max-w-5xl px-6">
-        <p>© 2026 Rey Mark E. Built with precision.</p>
-      </div>
-    </footer>
+  <!-- Mobile Edge-to-Edge Hero Image -->
+  <div
+    class="w-full h-64 sm:hidden bg-neutral-100 overflow-hidden relative [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)]">
+    <img src="./images/IMG_20220520_170046_2.jpg"
+      alt="Profile Image" class="w-full h-full object-cover grayscale">
   </div>
 
-  <script type="text/javascript">
-    const videoDialog = document.getElementById("videoDialog");
-    const modalVideo = document.getElementById("modalVideo");
+  <main class="max-w-4xl mx-auto px-6 space-y-24 py-16">
 
-    function closeVideo() {
-      modalVideo.pause();
-      modalVideo.currentTime = 0;
-      videoDialog.close();
+    <!-- Hero Section -->
+    <section class="py-12 sm:py-0 flex flex-col items-start gap-8">
+      <!-- Profile Image (Desktop only) -->
+      <div class="hidden sm:block w-28 h-28 bg-neutral-100 overflow-hidden">
+        <img src="./images/IMG_20220520_170046_2.jpg"
+          alt="Profile Image" class="w-full h-full object-cover grayscale">
+      </div>
+
+      <div class="space-y-4">
+        <div class="space-y-1">
+          <h1 class="text-2xl sm:text-4xl font-semibold tracking-tight text-neutral-900">
+            Rey Mark E<span class="text-blue-600">.</span>
+          </h1>
+          <p class="text-xs sm:text-sm font-medium text-neutral-500 tracking-wide uppercase">
+            [ DevOps ] / Software Developer / Engineer
+          </p>
+        </div>
+        <p class="text-sm sm:text-base text-neutral-500 leading-relaxed max-w-xl">
+          Building clean web applications, scalable microservices, and reliable backend architectures with meticulous
+          attention to detail.
+        </p>
+        <div class="flex items-center gap-4 pt-2">
+          <a href="#contact"
+            class="px-4 py-2 bg-neutral-900 hover:bg-neutral-800 text-white font-medium text-xs tracking-wide transition-all rounded-xl">
+            Get in Touch
+          </a>
+          <a href="#experience"
+            class="px-4 py-2 bg-neutral-100 hover:bg-neutral-200 text-neutral-900 font-medium text-xs tracking-wide transition-all rounded-xl">
+            View Experience
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Letter of Recommendation - Featured Banner -->
+    <a href="./Letter_of_Recommendation_-_Rey_signed.pdf" target="_blank" rel="noopener noreferrer" class="group border border-blue-100 bg-blue-50/50 rounded-xl p-4 hover:border-blue-300 hover:bg-blue-50 transition-all duration-300 mb-6 flex items-center justify-between gap-4 no-underline">
+      <div class="flex items-center gap-3.5 min-w-0">
+        <!-- Icon Badge -->
+        <div class="w-10 h-10 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-handshake text-xl"></i>
+        </div>
+        
+        <!-- Info -->
+        <div class="min-w-0">
+          <div class="flex items-center gap-2">
+            <h3 class="font-medium text-neutral-900 text-sm truncate group-hover:text-blue-600 transition-colors">
+              Letter of Recommendation
+            </h3>
+            <span class="px-2 py-0.5 text-[10px] font-medium bg-blue-100 text-blue-700 rounded-full border border-blue-200 shrink-0">
+              Featured
+            </span>
+          </div>
+          <p class="text-xs text-neutral-500 mt-0.5 truncate">
+            Official Reference • Endorsement & Performance Record
+          </p>
+        </div>
+      </div>
+
+      <!-- Action Link / Button -->
+      <span class="text-xs font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1 shrink-0">
+        View Letter <i class="fa-solid fa-arrow-right-long text-xs group-hover:translate-x-0.5 transition-transform"></i>
+      </span>
+    </a>
+
+    <!-- 1. Experience Section -->
+    <section id="experience" class="space-y-8">
+      <div class="border-b border-neutral-100 pb-4">
+        <h2 class="text-sm font-semibold tracking-wider text-neutral-400 uppercase">Experience</h2>
+      </div>
+
+      <div class="space-y-8">
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+          <div class="flex items-start gap-3.5">
+            <div
+              class="w-8 h-8 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center shrink-0 mt-0.5 text-neutral-700">
+              <img src="./icons/whiteglove.png" alt="whiteglove" />
+            </div>
+            <div>
+              <h3 class="font-medium text-neutral-900 text-sm">Lead Developer (Part-time)</h3>
+              <p class="text-xs text-neutral-500 mt-0.5">White Glove Agents • Texas, US</p>
+            </div>
+          </div>
+          <span class="text-xs text-neutral-400">Jul 2026 - Present</span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+          <div class="flex items-start gap-3.5">
+            <div
+              class="w-8 h-8 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center shrink-0 mt-0.5 text-neutral-700">
+              <img src="./icons/socialinsomnia.png" alt="socialinsomnia" />
+            </div>
+            <div>
+              <h3 class="font-medium text-neutral-900 text-sm">Full Stack Developer (Freelance)</h3>
+              <p class="text-xs text-neutral-500 mt-0.5">Social Insomnia LLC. • California, US</p>
+            </div>
+          </div>
+          <span class="text-xs text-neutral-400">May 2026 - Present</span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+          <div class="flex items-start gap-3.5">
+            <div
+              class="w-8 h-8 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center shrink-0 mt-0.5 text-neutral-700">
+              <i class="fa-solid fa-cube"></i>
+            </div>
+            <div>
+              <h3 class="font-medium text-neutral-900 text-sm">Software Developer (Contract)</h3>
+              <p class="text-xs text-neutral-500 mt-0.5">Ominisystems LLC. • 2 Burrough Court, Burrough on the Hill, UK
+              </p>
+            </div>
+          </div>
+          <span class="text-xs text-neutral-400">Jul 2025 - Dec 2025</span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+          <div class="flex items-start gap-3.5">
+            <div
+              class="w-8 h-8 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center shrink-0 mt-0.5 text-neutral-700">
+              <i class="fa-solid fa-cube"></i>
+            </div>
+            <div>
+              <h3 class="font-medium text-neutral-900 text-sm">Full Stack Developer (Full-time)</h3>
+              <p class="text-xs text-neutral-500 mt-0.5">Feel At Home Builders. • California, US</p>
+            </div>
+          </div>
+          <span class="text-xs text-neutral-400">March 2024 - Jul 2025</span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+          <div class="flex items-start gap-3.5">
+            <div
+              class="w-8 h-8 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center shrink-0 mt-0.5 text-neutral-700">
+              <img src="./icons/upwork.png" alt="upwork" />
+            </div>
+            <div>
+              <h3 class="font-medium text-neutral-900 text-sm">Full Stack Developer (Freelance)</h3>
+              <p class="text-xs text-neutral-500 mt-0.5">Upwork. • -, -</p>
+            </div>
+          </div>
+          <span class="text-xs text-neutral-400">Feb 2024 - Apr 2024</span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+          <div class="flex items-start gap-3.5">
+            <div
+              class="w-8 h-8 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center shrink-0 mt-0.5 text-neutral-700">
+              <img src="./icons/experiencedigital.png" alt="experiencedigital" />
+            </div>
+            <div>
+              <h3 class="font-medium text-neutral-900 text-sm">Software Engineer (Contract)</h3>
+              <p class="text-xs text-neutral-500 mt-0.5">Experience Digital. • Surry Hills, AU</p>
+            </div>
+          </div>
+          <span class="text-xs text-neutral-400">May 2023 - Feb 2024</span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+          <div class="flex items-start gap-3.5">
+            <div
+              class="w-8 h-8 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center shrink-0 mt-0.5 text-neutral-700">
+              <i class="fa-solid fa-cube"></i>
+            </div>
+            <div>
+              <h3 class="font-medium text-neutral-900 text-sm">Sr. Software Developer (Full-time)</h3>
+              <p class="text-xs text-neutral-500 mt-0.5">Get Served PH. • Dumaguete City, PH</p>
+            </div>
+          </div>
+          <span class="text-xs text-neutral-400">May 2020 - Apr 2023</span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+          <div class="flex items-start gap-3.5">
+            <div
+              class="w-8 h-8 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center shrink-0 mt-0.5 text-neutral-700">
+              <img src="./icons/bluebeans.jpeg" alt="bluebeans" />
+            </div>
+            <div>
+              <h3 class="font-medium text-neutral-900 text-sm">Sr. Software Developer (Full-time)</h3>
+              <p class="text-xs text-neutral-500 mt-0.5">Bluebeans Systems Inc. • Dumaguete City, PH</p>
+            </div>
+          </div>
+          <span class="text-xs text-neutral-400">Jun 2018 - May 2020</span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+          <div class="flex items-start gap-3.5">
+            <div
+              class="w-8 h-8 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center shrink-0 mt-0.5 text-neutral-700">
+              <img src="./icons/coredev.png" alt="coredev" />
+            </div>
+            <div>
+              <h3 class="font-medium text-neutral-900 text-sm">Jr. Web Developer (Contract)</h3>
+              <p class="text-xs text-neutral-500 mt-0.5">CoreDev Solutions Inc. • Cebu City, PH</p>
+            </div>
+          </div>
+          <span class="text-xs text-neutral-400">Apr 2017 - May 2018</span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+          <div class="flex items-start gap-3.5">
+            <div
+              class="w-8 h-8 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center shrink-0 mt-0.5 text-neutral-700">
+              <img src="./icons/bluebeans.jpeg" alt="bluebeans" />
+            </div>
+            <div>
+              <h3 class="font-medium text-neutral-900 text-sm">Jr. Web Developer (Intern)</h3>
+              <p class="text-xs text-neutral-500 mt-0.5">Bluebeans Systems Inc. • Dumaguete City, PH</p>
+            </div>
+          </div>
+          <span class="text-xs text-neutral-400">Nov 2016 - Mar 2017</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Loom Video Walkthroughs Section (Loom Preview Style with Click-to-Play Modal) -->
+    <section id="videos" class="space-y-8">
+      <div class="border-b border-neutral-100 pb-4 flex items-center justify-between">
+        <h2 class="text-sm font-semibold tracking-wider text-neutral-400 uppercase">Loom Walkthroughs</h2>
+        <span class="text-[11px] text-neutral-400 font-mono">Demos & Code Architecture</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <!-- Video Item 1 -->
+        <div
+          onclick="openLoomModal('https://www.loom.com/embed/e8d221ac49934868b729ca20b43c191b', 'Email Sequencing Marketing Tool')"
+          class="group border border-neutral-200 rounded-xl overflow-hidden bg-white shadow-xs flex flex-col cursor-pointer hover:border-neutral-400 transition-all">
+          <!-- Thumbnail Container with Loom Style Play Button Overlay -->
+          <div class="relative w-full aspect-video bg-neutral-900 overflow-hidden">
+            <!-- Replace thumbnail URL with an actual screenshot or project poster image -->
+            <img
+              src="https://cdn.loom.com/sessions/thumbnails/e8d221ac49934868b729ca20b43c191b-43c9406add0d453a-full-play.gif#t=0.1"
+              alt="Video thumbnail"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
+            <!-- Dark gradient overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <!-- Play Button Badge -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div
+                class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <i class="fa-solid fa-play text-xs ml-0.5"></i>
+              </div>
+            </div>
+            <!-- Loom Brand Badge / Duration Tag -->
+            <div
+              class="absolute bottom-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-medium">
+              <ion-icon name="videocam-outline" class="text-xs"></ion-icon> Watch on Loom
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Item 2 -->
+        <div
+          onclick="openLoomModal('https://www.loom.com/embed/af926fd005534c68b958c3952c6e0678', 'Rest Collection Automation')"
+          class="group border border-neutral-200 rounded-xl overflow-hidden bg-white shadow-xs flex flex-col cursor-pointer hover:border-neutral-400 transition-all">
+          <!-- Thumbnail Container with Loom Style Play Button Overlay -->
+          <div class="relative w-full aspect-video bg-neutral-900 overflow-hidden">
+            <!-- Replace thumbnail URL with an actual screenshot or project poster image -->
+            <img
+              src="https://cdn.loom.com/sessions/thumbnails/af926fd005534c68b958c3952c6e0678-651c11bb2306564e-full-play.gif#t=0.1"
+              alt="Video thumbnail"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
+            <!-- Dark gradient overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <!-- Play Button Badge -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div
+                class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <i class="fa-solid fa-play text-xs ml-0.5"></i>
+              </div>
+            </div>
+            <!-- Loom Brand Badge / Duration Tag -->
+            <div
+              class="absolute bottom-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-medium">
+              <ion-icon name="videocam-outline" class="text-xs"></ion-icon> Watch on Loom
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Personal Projects Section (3-Column Grid with SEO OpenGraph Cards) -->
+    <section id="apps" class="space-y-8">
+      <div class="border-b border-neutral-100 pb-4">
+        <h2 class="text-sm font-semibold tracking-wider text-neutral-400 uppercase">Featured Projects</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <!-- Project Card 1 -->
+        <a href="https://youleads.xyz" target="_blank" rel="noopener noreferrer"
+          class="group flex flex-col border border-neutral-200 rounded-xl overflow-hidden hover:border-neutral-400 transition-all bg-white shadow-xs">
+          <div class="h-32 w-full bg-neutral-100 overflow-hidden relative">
+            <img src="./images/yourleads.png" alt="youleads.xyz"
+              class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
+
+            <!-- Status Badge (Absolute Positioned on Image) -->
+            <div class="absolute top-2.5 right-2.5">
+              <span
+                class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-medium bg-emerald-500/90 text-white backdrop-blur-xs shadow-xs">
+                <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                Active
+              </span>
+            </div>
+          </div>
+          <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
+            <div class="space-y-1.5">
+              <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
+                <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> youleads.app
+              </div>
+              <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
+                Automated Lead Reactivation Platform
+              </h3>
+              <p class="text-[11px] text-neutral-500 leading-relaxed line-clamp-2">
+                Automated campaign platform featuring secure batch management, bulk Excel processing, and AI metrics
+                tracking.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Laravel</span>
+              <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Vue.js</span>
+              <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">mysql</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Project Card 2 -->
+        <a href="https://showring.thastackoff.online/"
+          class="group flex flex-col border border-neutral-200 rounded-xl overflow-hidden hover:border-neutral-400 transition-all bg-white shadow-xs">
+          <div class="h-32 w-full bg-neutral-100 overflow-hidden relative">
+            <img src="./images/showring.png" alt="uptime monitor preview"
+              class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
+
+            <!-- Status Badge (Absolute Positioned on Image) -->
+            <div class="absolute top-2.5 right-2.5">
+              <span
+                class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-medium bg-emerald-500/90 text-white backdrop-blur-xs shadow-xs">
+                <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                Active
+              </span>
+            </div>
+          </div>
+          <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
+            <div class="space-y-1.5">
+              <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
+                <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> showring.thastackoff.online
+              </div>
+              <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
+                Dog Show Management
+              </h3>
+              <p class="text-[11px] text-neutral-500 leading-relaxed line-clamp-2">
+                Dog show management and ticketing platform for dog lovers.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Node.js</span>
+              <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Lambda</span>
+              <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">DynamoDB</span>
+              <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">React</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Project Card 3 -->
+        <a href="javascript:void(0);"
+          class="group flex flex-col border border-neutral-200 rounded-xl overflow-hidden hover:border-neutral-400 transition-all bg-white shadow-xs">
+          <div class="h-32 w-full bg-neutral-100 overflow-hidden relative">
+            <img src="./images/aae.png" alt="project preview"
+              class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
+
+            <!-- Offline Badge -->
+            <div class="absolute top-2.5 right-2.5">
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-neutral-300 border border-neutral-700/50 backdrop-blur-xs shadow-xs">
+                <ion-icon name="cloud-offline-outline" class="text-[9px]"></ion-icon>
+                Offline
+              </span>
+            </div>
+          </div>
+          <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
+            <div class="space-y-1.5">
+              <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
+                <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> na
+              </div>
+              <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
+                Ad Angle Extractor
+              </h3>
+              <p class="text-[11px] text-neutral-500 leading-relaxed line-clamp-2">
+                A tool to generate ad angle from a description or web page , to boost marketing ads contents on different angles.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Laravel</span>
+              <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Vue</span>
+              <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Docker</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Hidden Projects Container (Toggled via JS) -->
+        <div id="extra-projects" class="hidden contents">
+          <!-- Project Card 4 -->
+          <a href="javascript:void(0);"
+            class="group flex flex-col border border-neutral-200 rounded-xl overflow-hidden hover:border-neutral-400 transition-all bg-white shadow-xs">
+            <div class="h-32 w-full bg-neutral-100 overflow-hidden relative">
+              <img src="./images/propflow.png" alt="project preview"
+                class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
+
+              <!-- Offline Badge -->
+              <div class="absolute top-2.5 right-2.5">
+                <span
+                  class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-neutral-300 border border-neutral-700/50 backdrop-blur-xs shadow-xs">
+                  <ion-icon name="cloud-offline-outline" class="text-[9px]"></ion-icon>
+                  Offline
+                </span>
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
+                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> na
+                </div>
+                <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
+                  Rent Collection Automation
+                </h3>
+                <p class="text-[11px] text-neutral-500 leading-relaxed line-clamp-2">
+                  Platform for automating rent payment collection a personal project.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Laravel</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Vue</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Docker</span>
+              </div>
+            </div>
+          </a>
+          
+          <!-- Project Card 5 -->
+          <a href="javascript:void(0);"
+            class="group flex flex-col border border-neutral-200 rounded-xl overflow-hidden hover:border-neutral-400 transition-all bg-white shadow-xs">
+            <div class="h-32 w-full bg-neutral-100 overflow-hidden relative">
+              <img src="./images/placeholder.jpg" alt="project preview"
+                class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
+
+              <!-- NDA Protected Badge -->
+              <div class="absolute top-2.5 right-2.5">
+                <span
+                  class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-amber-400 border border-amber-500/30 backdrop-blur-xs shadow-xs">
+                  <ion-icon name="lock-closed-outline" class="text-[9px]"></ion-icon>
+                  NDA Protected
+                </span>
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
+                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> ************
+                </div>
+                <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
+                  Digital monetization
+                </h3>
+                <p class="text-[11px] text-neutral-500 leading-relaxed line-clamp-2">
+                  Social digital monetization social hub designed for content creators.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Laravel</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">React</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Project Card 6 -->
+          <a href="javascript:void(0);"
+            class="group flex flex-col border border-neutral-200 rounded-xl overflow-hidden hover:border-neutral-400 transition-all bg-white shadow-xs">
+            <div class="h-32 w-full bg-neutral-100 overflow-hidden relative">
+              <img src="./images/placeholder.jpg" alt="project preview"
+                class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
+
+              <!-- NDA Protected Badge -->
+              <div class="absolute top-2.5 right-2.5">
+                <span
+                  class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-amber-400 border border-amber-500/30 backdrop-blur-xs shadow-xs">
+                  <ion-icon name="lock-closed-outline" class="text-[9px]"></ion-icon>
+                  NDA Protected
+                </span>
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
+                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> ************
+                </div>
+                <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
+                  Food Develiery App
+                </h3>
+                <p class="text-[11px] text-neutral-500 leading-relaxed line-clamp-2">
+                  An online food delivery/ordering app similar with popular big companies ordering apps.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Laravel</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Next</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Docker</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">AWS</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Project Card 7 -->
+          <a href="javascript:void(0);"
+            class="group flex flex-col border border-neutral-200 rounded-xl overflow-hidden hover:border-neutral-400 transition-all bg-white shadow-xs">
+            <div class="h-32 w-full bg-neutral-100 overflow-hidden relative">
+              <img src="./images/placeholder.jpg" alt="project preview"
+                class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
+
+              <!-- NDA Protected Badge -->
+              <div class="absolute top-2.5 right-2.5">
+                <span
+                  class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-amber-400 border border-amber-500/30 backdrop-blur-xs shadow-xs">
+                  <ion-icon name="lock-closed-outline" class="text-[9px]"></ion-icon>
+                  NDA Protected
+                </span>
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
+                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> ************
+                </div>
+                <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
+                  Ad Management
+                </h3>
+                <p class="text-[11px] text-neutral-500 leading-relaxed line-clamp-2">
+                  A SaaS app powered integrated with AI to manage ad from any ad prodiver.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Laravel</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Vue</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">EC2</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">AWS</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">mistral</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">apify</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Project Card 8 -->
+          <a href="javascript:void(0);"
+            class="group flex flex-col border border-neutral-200 rounded-xl overflow-hidden hover:border-neutral-400 transition-all bg-white shadow-xs">
+            <div class="h-32 w-full bg-neutral-100 overflow-hidden relative">
+              <img src="./images/placeholder.jpg" alt="project preview"
+                class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
+
+              <!-- NDA Protected Badge -->
+              <div class="absolute top-2.5 right-2.5">
+                <span
+                  class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-amber-400 border border-amber-500/30 backdrop-blur-xs shadow-xs">
+                  <ion-icon name="lock-closed-outline" class="text-[9px]"></ion-icon>
+                  NDA Protected
+                </span>
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
+                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> ************
+                </div>
+                <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
+                  Construction Management SaaS
+                </h3>
+                <p class="text-[11px] text-neutral-500 leading-relaxed line-clamp-2">
+                  A SaaS app for contruction companies to manage financials, leads, task and more.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Laravel</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Nuxt</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Docker</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">AWS</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Project Card 9 -->
+          <a href="javascript:void(0);"
+            class="group flex flex-col border border-neutral-200 rounded-xl overflow-hidden hover:border-neutral-400 transition-all bg-white shadow-xs">
+            <div class="h-32 w-full bg-neutral-100 overflow-hidden relative">
+              <img src="./images/placeholder.jpg" alt="project preview"
+                class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
+
+              <!-- NDA Protected Badge -->
+              <div class="absolute top-2.5 right-2.5">
+                <span
+                  class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-amber-400 border border-amber-500/30 backdrop-blur-xs shadow-xs">
+                  <ion-icon name="lock-closed-outline" class="text-[9px]"></ion-icon>
+                  NDA Protected
+                </span>
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
+                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> ************
+                </div>
+                <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
+                  Shopify App For Reviews
+                </h3>
+                <p class="text-[11px] text-neutral-500 leading-relaxed line-clamp-2">
+                  A shopify app/extension or plugin for store to received product review for customer proof.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Laravel</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">React</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Polaris</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Liquid</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Shopify</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Project Card 10 -->
+          <a href="javascript:void(0);"
+            class="group flex flex-col border border-neutral-200 rounded-xl overflow-hidden hover:border-neutral-400 transition-all bg-white shadow-xs">
+            <div class="h-32 w-full bg-neutral-100 overflow-hidden relative">
+              <img src="./images/placeholder.jpg" alt="project preview"
+                class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
+
+              <!-- NDA Protected Badge -->
+              <div class="absolute top-2.5 right-2.5">
+                <span
+                  class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-amber-400 border border-amber-500/30 backdrop-blur-xs shadow-xs">
+                  <ion-icon name="lock-closed-outline" class="text-[9px]"></ion-icon>
+                  NDA Protected
+                </span>
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
+                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> ************
+                </div>
+                <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
+                  Shopify App For Subscription
+                </h3>
+                <p class="text-[11px] text-neutral-500 leading-relaxed line-clamp-2">
+                  A shopify app/extension or plugin for product subscription.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Laravel</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">React</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Polaris</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Shopify</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Project Card 11 -->
+          <a href="javascript:void(0);"
+            class="group flex flex-col border border-neutral-200 rounded-xl overflow-hidden hover:border-neutral-400 transition-all bg-white shadow-xs">
+            <div class="h-32 w-full bg-neutral-100 overflow-hidden relative">
+              <img src="./images/placeholder.jpg" alt="project preview"
+                class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
+
+              <!-- NDA Protected Badge -->
+              <div class="absolute top-2.5 right-2.5">
+                <span
+                  class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-amber-400 border border-amber-500/30 backdrop-blur-xs shadow-xs">
+                  <ion-icon name="lock-closed-outline" class="text-[9px]"></ion-icon>
+                  NDA Protected
+                </span>
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
+                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> ************
+                </div>
+                <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
+                  File Archiving System
+                </h3>
+                <p class="text-[11px] text-neutral-500 leading-relaxed line-clamp-2">
+                  A company directory where they can search a company or service and contact them removing the hussle on finding company who offers specific services they are looking for.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Laravel</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Blade</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">AWS</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Project Card 11 -->
+          <a href="javascript:void(0);"
+            class="group flex flex-col border border-neutral-200 rounded-xl overflow-hidden hover:border-neutral-400 transition-all bg-white shadow-xs">
+            <div class="h-32 w-full bg-neutral-100 overflow-hidden relative">
+              <img src="./images/placeholder.jpg" alt="project preview"
+                class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
+
+              <!-- NDA Protected Badge -->
+              <div class="absolute top-2.5 right-2.5">
+                <span
+                  class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-amber-400 border border-amber-500/30 backdrop-blur-xs shadow-xs">
+                  <ion-icon name="lock-closed-outline" class="text-[9px]"></ion-icon>
+                  NDA Protected
+                </span>
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
+                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> ************
+                </div>
+                <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
+                  Book a Service
+                </h3>
+                <p class="text-[11px] text-neutral-500 leading-relaxed line-clamp-2">
+                  Book a service from professionals Peer-to-Peer.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Laravel</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">React</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">AWS</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Docker</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Project Card 11 -->
+          <a href="javascript:void(0);"
+            class="group flex flex-col border border-neutral-200 rounded-xl overflow-hidden hover:border-neutral-400 transition-all bg-white shadow-xs">
+            <div class="h-32 w-full bg-neutral-100 overflow-hidden relative">
+              <img src="./images/placeholder.jpg" alt="project preview"
+                class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
+
+              <!-- NDA Protected Badge -->
+              <div class="absolute top-2.5 right-2.5">
+                <span
+                  class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-amber-400 border border-amber-500/30 backdrop-blur-xs shadow-xs">
+                  <ion-icon name="lock-closed-outline" class="text-[9px]"></ion-icon>
+                  NDA Protected
+                </span>
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
+                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> ************
+                </div>
+                <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
+                  Queuing System
+                </h3>
+                <p class="text-[11px] text-neutral-500 leading-relaxed line-clamp-2">
+                  Online queuing system that supports platforms Mobile, Queue Machine, Queue Monitor.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Laravel</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Blade</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">AWS</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Project Card 11 -->
+          <a href="javascript:void(0);"
+            class="group flex flex-col border border-neutral-200 rounded-xl overflow-hidden hover:border-neutral-400 transition-all bg-white shadow-xs">
+            <div class="h-32 w-full bg-neutral-100 overflow-hidden relative">
+              <img src="./images/placeholder.jpg" alt="project preview"
+                class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
+
+              <!-- NDA Protected Badge -->
+              <div class="absolute top-2.5 right-2.5">
+                <span
+                  class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-amber-400 border border-amber-500/30 backdrop-blur-xs shadow-xs">
+                  <ion-icon name="lock-closed-outline" class="text-[9px]"></ion-icon>
+                  NDA Protected
+                </span>
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
+                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> ************
+                </div>
+                <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
+                  Order Tracker
+                </h3>
+                <p class="text-[11px] text-neutral-500 leading-relaxed line-clamp-2">
+                  Order tracking platform track orders with timeline where customers can see there product location and current timeline. Also include invoicing and returns.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Laravel</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Blade</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">AWS</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Project Card 11 -->
+          <a href="javascript:void(0);"
+            class="group flex flex-col border border-neutral-200 rounded-xl overflow-hidden hover:border-neutral-400 transition-all bg-white shadow-xs">
+            <div class="h-32 w-full bg-neutral-100 overflow-hidden relative">
+              <img src="./images/placeholder.jpg" alt="project preview"
+                class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
+
+              <!-- NDA Protected Badge -->
+              <div class="absolute top-2.5 right-2.5">
+                <span
+                  class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-amber-400 border border-amber-500/30 backdrop-blur-xs shadow-xs">
+                  <ion-icon name="lock-closed-outline" class="text-[9px]"></ion-icon>
+                  NDA Protected
+                </span>
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
+                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> ************
+                </div>
+                <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
+                  SMS Gateway Service
+                </h3>
+                <p class="text-[11px] text-neutral-500 leading-relaxed line-clamp-2">
+                  An API gateway to receive request and send the SMS to selected provider.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">Laravel</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">React</span>
+                <span class="text-[10px] text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded">AWS</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- View More / View Less Button -->
+      <div class="flex justify-center pt-4">
+        <button id="toggle-projects-btn" onclick="toggleProjects()"
+          class="px-4 py-2 bg-neutral-100 hover:bg-neutral-200 text-neutral-900 font-medium text-xs tracking-wide transition-all rounded-lg flex items-center gap-1.5">
+          <span id="toggle-text">View More Projects</span>
+          <ion-icon name="chevron-down-outline" id="toggle-icon" class="text-xs transition-transform duration-300"></ion-icon>
+        </button>
+      </div>
+    </section>
+
+    <!-- 3. Technical Skills Section -->
+    <section id="skills" class="space-y-8">
+      <div class="border-b border-neutral-100 pb-4">
+        <h2 class="text-sm font-semibold tracking-wider text-neutral-400 uppercase">Technical Skills</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="space-y-3">
+          <h3 class="font-medium text-neutral-900 text-xs tracking-wide uppercase text-neutral-400">Backend</h3>
+          <ul class="space-y-2 text-xs text-neutral-600">
+            <li>PHP / Laravel / CakePhp</li>
+            <li>Node.js / Hono / Express</li>
+            <li>TypeScript / JavaScript</li>
+            <li>RESTful APIs & Webhooks</li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <h3 class="font-medium text-neutral-900 text-xs tracking-wide uppercase text-neutral-400">Frontend</h3>
+          <ul class="space-y-2 text-xs text-neutral-600">
+            <li>Vue / Nuxt</li>
+            <li>React / Next</li>
+            <li>Tailwind CSS / DaisyUI</li>
+            <li>Responsive UI/UX</li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <h3 class="font-medium text-neutral-900 text-xs tracking-wide uppercase text-neutral-400">AI & Automation</h3>
+          <ul class="space-y-2 text-xs text-neutral-600">
+            <li>LLM Integration</li>
+            <li>Agent Skills</li>
+            <li>Agent Instructions</li>
+            <li>Figma Make</li>
+            <li>Stitch</li>
+            <li>Claude Code</li>
+            <li>Codex</li>
+            <li>OpenClaw</li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <h3 class="font-medium text-neutral-900 text-xs tracking-wide uppercase text-neutral-400">Infrastructure & Tools</h3>
+          <ul class="space-y-2 text-xs text-neutral-600">
+            <li>PostgreSQL & MySQL</li>
+            <li>Docker & Containerization</li>
+            <li>Serverless & Cloudflare Workers</li>
+            <li>Git & GitHub Workflows</li>
+            <li>Hostinger, GoDaddy & Namecheap</li>
+            <li>AWS, VPC & VPS</li>
+            <li>Postman & API Testing</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Certificates Section -->
+    <section id="certificates" class="space-y-8">
+      <div class="border-b border-neutral-100 pb-4">
+        <h2 class="text-sm font-semibold tracking-wider text-neutral-400 uppercase">Certificates</h2>
+      </div>
+
+      <div class="space-y-6">
+        <!-- Certificate 4 -->
+        <div
+          onclick="openCertificateModal('./certificates/COE_-_Rey_Mark_Engada_signed.pdf', 'Vue.js 3 Enterprise Applications')"
+          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg cursor-pointer">
+          <div class="flex items-center gap-3.5 min-w-0">
+            <embed src="./certificates/COE_-_Rey_Mark_Engada_signed.pdf"
+              type="application/pdf"
+              alt="Frontend Masters Logo" class="w-9 h-9 object-cover rounded border border-neutral-200 shrink-0">
+            <div class="min-w-0">
+              <h3 class="font-medium text-neutral-900 text-sm truncate group-hover:text-blue-600 transition-colors">
+                Certificate of Employment
+              </h3>
+              <p class="text-xs text-neutral-500 mt-0.5">Professional Experience • Work Record</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <span class="text-[11px] text-neutral-400 hidden sm:inline-block group-hover:text-neutral-600">View <i
+                class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></span>
+            <span class="text-xs text-neutral-400">2025</span>
+          </div>
+
+          <!-- Hover Preview Tooltip (Desktop) -->
+          <div
+            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block z-20 pointer-events-none w-64 bg-white p-2 rounded-lg shadow-xl border border-neutral-200">
+            <embed src="./certificates/COE_-_Rey_Mark_Engada_signed.pdf"
+              type="application/pdf"
+              alt="Preview" class="w-full h-36 object-cover rounded">
+            <p class="text-[11px] text-center font-medium text-neutral-700 mt-1.5">Click to view full certificate</p>
+          </div>
+        </div>
+
+        <!-- Certificate 1 -->
+        <div
+          onclick="openCertificateModal('./certificates/AWS_Certified_Cloud_Practitioner_certificate.pdf', 'Advanced Laravel Architecture & Best Practices')"
+          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg cursor-pointer">
+          <div class="flex items-center gap-3.5 min-w-0">
+            <embed src="./certificates/AWS_Certified_Cloud_Practitioner_certificate.pdf"
+              type="application/pdf"
+              alt="Laracasts Logo" class="w-9 h-9 object-cover rounded border border-neutral-200 shrink-0">
+            <div class="min-w-0">
+              <h3 class="font-medium text-neutral-900 text-sm truncate group-hover:text-blue-600 transition-colors">
+                AWS Certified Cloud Practitioner
+              </h3>
+              <p class="text-xs text-neutral-500 mt-0.5">Amazon Web Services (AWS) • Cloud Fundamentals</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <span class="text-[11px] text-neutral-400 hidden sm:inline-block group-hover:text-neutral-600">View <i
+                class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></span>
+            <span class="text-xs text-neutral-400">2024</span>
+          </div>
+
+          <!-- Hover Preview Tooltip (Desktop) -->
+          <div
+            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block z-20 pointer-events-none w-64 bg-white p-2 rounded-lg shadow-xl border border-neutral-200">
+            <embed src="./certificates/AWS_Certified_Cloud_Practitioner_certificate.pdf"
+              alt="Preview" class="w-full h-36 object-cover rounded">
+            <p class="text-[11px] text-center font-medium text-neutral-700 mt-1.5">Click to view full certificate</p>
+          </div>
+        </div>
+
+        <!-- Certificate 2 -->
+        <div
+          onclick="openCertificateModal('./certificates/AWS_Certified_Solutions_Architect_Associate.pdf', 'Cloudflare Workers & Edge Development')"
+          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg cursor-pointer">
+          <div class="flex items-center gap-3.5 min-w-0">
+            <embed src="./certificates/AWS_Certified_Solutions_Architect_Associate.pdf"
+              type="application/pdf"
+              alt="Cloudflare Logo" class="w-9 h-9 object-cover rounded border border-neutral-200 shrink-0">
+            <div class="min-w-0">
+            <h3 class="font-medium text-neutral-900 text-sm truncate group-hover:text-blue-600 transition-colors">
+              AWS Certified Solutions Architect – Associate
+            </h3>
+            <p class="text-xs text-neutral-500 mt-0.5">Amazon Web Services (AWS) • Official Exam Participant & Score Report</p>
+          </div>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <span class="text-[11px] text-neutral-400 hidden sm:inline-block group-hover:text-neutral-600">View <i
+                class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></span>
+            <span class="text-xs text-neutral-400">2024</span>
+          </div>
+
+          <!-- Hover Preview Tooltip (Desktop) -->
+          <div
+            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block z-20 pointer-events-none w-64 bg-white p-2 rounded-lg shadow-xl border border-neutral-200">
+            <embed src="./certificates/AWS_Certified_Solutions_Architect_Associate.pdf"
+              type="application/pdf"
+              alt="Preview" class="w-full h-36 object-cover rounded">
+            <p class="text-[11px] text-center font-medium text-neutral-700 mt-1.5">Click to view full certificate</p>
+          </div>
+        </div>
+
+        <!-- Certificate 4 -->
+        <div
+          onclick="openCertificateModal('./certificates/COE - Reymark Engada - Contractor.pdf', 'Vue.js 3 Enterprise Applications')"
+          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg cursor-pointer">
+          <div class="flex items-center gap-3.5 min-w-0">
+            <embed src="./certificates/COE - Reymark Engada - Contractor.pdf"
+              type="application/pdf"
+              alt="Frontend Masters Logo" class="w-9 h-9 object-cover rounded border border-neutral-200 shrink-0">
+            <div class="min-w-0">
+              <h3 class="font-medium text-neutral-900 text-sm truncate group-hover:text-blue-600 transition-colors">
+                Certificate of Employment
+              </h3>
+              <p class="text-xs text-neutral-500 mt-0.5">Professional Experience • Work Record</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <span class="text-[11px] text-neutral-400 hidden sm:inline-block group-hover:text-neutral-600">View <i
+                class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></span>
+            <span class="text-xs text-neutral-400">2024</span>
+          </div>
+
+          <!-- Hover Preview Tooltip (Desktop) -->
+          <div
+            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block z-20 pointer-events-none w-64 bg-white p-2 rounded-lg shadow-xl border border-neutral-200">
+            <embed src="./certificates/COE - Reymark Engada - Contractor.pdf"
+              type="application/pdf"
+              alt="Preview" class="w-full h-36 object-cover rounded">
+            <p class="text-[11px] text-center font-medium text-neutral-700 mt-1.5">Click to view full certificate</p>
+          </div>
+        </div>
+
+        <!-- Certificate 7 -->
+        <div
+          onclick="openCertificateModal('./certificates/react-summit2022-gitnation.pdf', 'Vue.js 3 Enterprise Applications')"
+          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg cursor-pointer">
+          <div class="flex items-center gap-3.5 min-w-0">
+            <embed src="./certificates/react-summit2022-gitnation.pdf"
+              type="application/pdf"
+              alt="Frontend Masters Logo" class="w-9 h-9 object-cover rounded border border-neutral-200 shrink-0">
+            <div class="min-w-0">
+              <h3 class="font-medium text-neutral-900 text-sm truncate group-hover:text-blue-600 transition-colors">
+                GitNation Certification
+              </h3>
+              <p class="text-xs text-neutral-500 mt-0.5">Online Conference • Technical Training</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <span class="text-[11px] text-neutral-400 hidden sm:inline-block group-hover:text-neutral-600">View <i
+                class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></span>
+            <span class="text-xs text-neutral-400">2024</span>
+          </div>
+
+          <!-- Hover Preview Tooltip (Desktop) -->
+          <div
+            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block z-20 pointer-events-none w-64 bg-white p-2 rounded-lg shadow-xl border border-neutral-200">
+            <embed src="./certificates/react-summit2022-gitnation.pdf"
+              type="application/pdf"
+              alt="Preview" class="w-full h-36 object-cover rounded">
+            <p class="text-[11px] text-center font-medium text-neutral-700 mt-1.5">Click to view full certificate</p>
+          </div>
+        </div>
+
+        <!-- Certificate 5 -->
+        <div
+          onclick="openCertificateModal('./certificates/pirple-keeping-up-es6-certificate.pdf', 'Vue.js 3 Enterprise Applications')"
+          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg cursor-pointer">
+          <div class="flex items-center gap-3.5 min-w-0">
+            <embed src="./certificates/pirple-keeping-up-es6-certificate.pdf"
+              type="application/pdf"
+              alt="Frontend Masters Logo" class="w-9 h-9 object-cover rounded border border-neutral-200 shrink-0">
+            <div class="min-w-0">
+              <h3 class="font-medium text-neutral-900 text-sm truncate group-hover:text-blue-600 transition-colors">
+                Online course certificate
+              </h3>
+              <p class="text-xs text-neutral-500 mt-0.5">Online Course • Training Program</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <span class="text-[11px] text-neutral-400 hidden sm:inline-block group-hover:text-neutral-600">View <i
+                class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></span>
+            <span class="text-xs text-neutral-400">2021</span>
+          </div>
+
+          <!-- Hover Preview Tooltip (Desktop) -->
+          <div
+            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block z-20 pointer-events-none w-64 bg-white p-2 rounded-lg shadow-xl border border-neutral-200">
+            <embed src="./certificates/pirple-keeping-up-es6-certificate.pdf"
+              type="application/pdf"
+              alt="Preview" class="w-full h-36 object-cover rounded">
+            <p class="text-[11px] text-center font-medium text-neutral-700 mt-1.5">Click to view full certificate</p>
+          </div>
+        </div>
+
+        <!-- Certificate 6 -->
+        <div
+          onclick="openCertificateModal('./certificates/qbo-certificate-of-participation.pdf', 'Vue.js 3 Enterprise Applications')"
+          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg cursor-pointer">
+          <div class="flex items-center gap-3.5 min-w-0">
+            <embed src="./certificates/pirple-nodejs-master-class-certificate.pdf"
+              type="application/pdf"
+              alt="Frontend Masters Logo" class="w-9 h-9 object-cover rounded border border-neutral-200 shrink-0">
+            <div class="min-w-0">
+              <h3 class="font-medium text-neutral-900 text-sm truncate group-hover:text-blue-600 transition-colors">
+                Online course certificate
+              </h3>
+              <p class="text-xs text-neutral-500 mt-0.5">Online Course • Training Program</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <span class="text-[11px] text-neutral-400 hidden sm:inline-block group-hover:text-neutral-600">View <i
+                class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></span>
+            <span class="text-xs text-neutral-400">2021</span>
+          </div>
+
+          <!-- Hover Preview Tooltip (Desktop) -->
+          <div
+            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block z-20 pointer-events-none w-64 bg-white p-2 rounded-lg shadow-xl border border-neutral-200">
+            <embed src="./certificates/pirple-nodejs-master-class-certificate.pdf"
+              type="application/pdf"
+              alt="Preview" class="w-full h-36 object-cover rounded">
+            <p class="text-[11px] text-center font-medium text-neutral-700 mt-1.5">Click to view full certificate</p>
+          </div>
+        </div>
+
+        <!-- Certificate 8 -->
+        <div
+          onclick="openCertificateModal('./certificates/solo_lear-html-fundamentals-certificate.pdf', 'Vue.js 3 Enterprise Applications')"
+          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg cursor-pointer">
+          <div class="flex items-center gap-3.5 min-w-0">
+            <embed src="./certificates/solo_lear-html-fundamentals-certificate.pdf"
+              type="application/pdf"
+              alt="Frontend Masters Logo" class="w-9 h-9 object-cover rounded border border-neutral-200 shrink-0">
+            <div class="min-w-0">
+              <h3 class="font-medium text-neutral-900 text-sm truncate group-hover:text-blue-600 transition-colors">
+                SoloLearn Course Certificate
+              </h3>
+              <p class="text-xs text-neutral-500 mt-0.5">SoloLearn • Programming Certification</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <span class="text-[11px] text-neutral-400 hidden sm:inline-block group-hover:text-neutral-600">View <i
+                class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></span>
+            <span class="text-xs text-neutral-400">2021</span>
+          </div>
+
+          <!-- Hover Preview Tooltip (Desktop) -->
+          <div
+            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block z-20 pointer-events-none w-64 bg-white p-2 rounded-lg shadow-xl border border-neutral-200">
+            <embed src="./certificates/solo_lear-html-fundamentals-certificate.pdf"
+              type="application/pdf"
+              alt="Preview" class="w-full h-36 object-cover rounded">
+            <p class="text-[11px] text-center font-medium text-neutral-700 mt-1.5">Click to view full certificate</p>
+          </div>
+        </div>
+
+        <!-- Certificate 9 -->
+        <div
+          onclick="openCertificateModal('./certificates/solo_learn-angular-plus-nestjs-certificate.pdf', 'Vue.js 3 Enterprise Applications')"
+          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg cursor-pointer">
+          <div class="flex items-center gap-3.5 min-w-0">
+            <embed src="./certificates/solo_learn-angular-plus-nestjs-certificate.pdf"
+              type="application/pdf"
+              alt="Frontend Masters Logo" class="w-9 h-9 object-cover rounded border border-neutral-200 shrink-0">
+            <div class="min-w-0">
+              <h3 class="font-medium text-neutral-900 text-sm truncate group-hover:text-blue-600 transition-colors">
+                SoloLearn Course Certificate
+              </h3>
+              <p class="text-xs text-neutral-500 mt-0.5">SoloLearn • Programming Certification</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <span class="text-[11px] text-neutral-400 hidden sm:inline-block group-hover:text-neutral-600">View <i
+                class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></span>
+            <span class="text-xs text-neutral-400">2021</span>
+          </div>
+
+          <!-- Hover Preview Tooltip (Desktop) -->
+          <div
+            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block z-20 pointer-events-none w-64 bg-white p-2 rounded-lg shadow-xl border border-neutral-200">
+            <embed src="./certificates/solo_learn-angular-plus-nestjs-certificate.pdf"
+              type="application/pdf"
+              alt="Preview" class="w-full h-36 object-cover rounded">
+            <p class="text-[11px] text-center font-medium text-neutral-700 mt-1.5">Click to view full certificate</p>
+          </div>
+        </div>
+
+        <!-- Certificate 10 -->
+        <div
+          onclick="openCertificateModal('./certificates/solo_learn-javascript-certificate.pdf', 'Vue.js 3 Enterprise Applications')"
+          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg cursor-pointer">
+          <div class="flex items-center gap-3.5 min-w-0">
+            <embed src="./certificates/solo_learn-javascript-certificate.pdf"
+              type="application/pdf"
+              alt="Frontend Masters Logo" class="w-9 h-9 object-cover rounded border border-neutral-200 shrink-0">
+            <div class="min-w-0">
+              <h3 class="font-medium text-neutral-900 text-sm truncate group-hover:text-blue-600 transition-colors">
+                SoloLearn Course Certificate
+              </h3>
+              <p class="text-xs text-neutral-500 mt-0.5">SoloLearn • Programming Certification</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <span class="text-[11px] text-neutral-400 hidden sm:inline-block group-hover:text-neutral-600">View <i
+                class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></span>
+            <span class="text-xs text-neutral-400">2021</span>
+          </div>
+
+          <!-- Hover Preview Tooltip (Desktop) -->
+          <div
+            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block z-20 pointer-events-none w-64 bg-white p-2 rounded-lg shadow-xl border border-neutral-200">
+            <embed src="./certificates/solo_learn-javascript-certificate.pdf"
+              type="application/pdf"
+              alt="Preview" class="w-full h-36 object-cover rounded">
+            <p class="text-[11px] text-center font-medium text-neutral-700 mt-1.5">Click to view full certificate</p>
+          </div>
+        </div>
+
+        <!-- Certificate 3 -->
+        <div
+          onclick="openCertificateModal('./certificates/aws_innovate-certificate-of-attendance.pdf', 'Vue.js 3 Enterprise Applications')"
+          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg cursor-pointer">
+          <div class="flex items-center gap-3.5 min-w-0">
+            <embed src="./certificates/aws_innovate-certificate-of-attendance.pdf"
+              type="application/pdf"
+              alt="Frontend Masters Logo" class="w-9 h-9 object-cover rounded border border-neutral-200 shrink-0">
+            <div class="min-w-0">
+              <h3 class="font-medium text-neutral-900 text-sm truncate group-hover:text-blue-600 transition-colors">
+                AWS Innovate Certificate of Attendance
+              </h3>
+              <p class="text-xs text-neutral-500 mt-0.5">Amazon Web Services (AWS) • Online Conference</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <span class="text-[11px] text-neutral-400 hidden sm:inline-block group-hover:text-neutral-600">View <i
+                class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></span>
+            <span class="text-xs text-neutral-400">2021</span>
+          </div>
+
+          <!-- Hover Preview Tooltip (Desktop) -->
+          <div
+            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block z-20 pointer-events-none w-64 bg-white p-2 rounded-lg shadow-xl border border-neutral-200">
+            <embed src="./certificates/aws_innovate-certificate-of-attendance.pdf"
+              type="application/pdf"
+              alt="Preview" class="w-full h-36 object-cover rounded">
+            <p class="text-[11px] text-center font-medium text-neutral-700 mt-1.5">Click to view full certificate</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Architecture & Systems Section -->
+    <section id="architecture" class="py-12 space-y-6">
+      <div class="space-y-1">
+        <h2 class="text-xl font-semibold text-neutral-900">Architecture & Systems</h2>
+        <p class="text-xs text-neutral-500">Core design patterns, data flow, and infrastructure strategies behind my projects.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        
+        <!-- Card 1: Serverless & Distributed Monitoring -->
+        <div class="border border-neutral-200 rounded-xl p-5 bg-white space-y-3 shadow-xs">
+          <div class="flex items-center gap-2 text-neutral-900 font-medium text-xs">
+            <ion-icon name="cloud-outline" class="text-sm text-blue-600"></ion-icon>
+            Serverless & Multi-Zone Latency Checks
+          </div>
+          <p class="text-[11px] text-neutral-500 leading-relaxed">
+            Designing distributed monitoring architectures across edge regions to execute 24/7 heartbeat checks, measure multi-AZ latency, and trigger instant multi-channel incident alerts.
+          </p>
+        </div>
+
+        <!-- Card 2: Asynchronous Workflows & Queues -->
+        <div class="border border-neutral-200 rounded-xl p-5 bg-white space-y-3 shadow-xs">
+          <div class="flex items-center gap-2 text-neutral-900 font-medium text-xs">
+            <ion-icon name="git-merge-outline" class="text-sm text-blue-600"></ion-icon>
+            Asynchronous Processing & Batch Management
+          </div>
+          <p class="text-[11px] text-neutral-500 leading-relaxed">
+            Structuring robust backend workflows to handle heavy data operations—such as bulk Excel parsing and campaign batching—via background queues to ensure UI responsiveness.
+          </p>
+        </div>
+
+        <!-- Card 3: Database & Schema Design -->
+        <div class="border border-neutral-200 rounded-xl p-5 bg-white space-y-3 shadow-xs">
+          <div class="flex items-center gap-2 text-neutral-900 font-medium text-xs">
+            <ion-icon name="server-outline" class="text-sm text-blue-600"></ion-icon>
+            Normalized & Single-Table Schemas
+          </div>
+          <p class="text-[11px] text-neutral-500 leading-relaxed">
+            Architecting secure relational databases (MySQL) with clear ownership indexing, alongside high-throughput single-table designs optimized for fast logging and metrics tracking.
+          </p>
+        </div>
+
+        <!-- Card 4: Webhooks & Event-Driven Integration -->
+        <div class="border border-neutral-200 rounded-xl p-5 bg-white space-y-3 shadow-xs">
+          <div class="flex items-center gap-2 text-neutral-900 font-medium text-xs">
+            <ion-icon name="flash-outline" class="text-sm text-blue-600"></ion-icon>
+            Secure Webhooks & Event Pipelines
+          </div>
+          <p class="text-[11px] text-neutral-500 leading-relaxed">
+            Implementing secure inbound/outbound webhook handlers (e.g., Postmark integrations) with payload verification, idempotent event processing, and automated error logging.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. GitHub Organizations Section -->
+    <section id="organizations" class="space-y-8">
+      <div class="border-b border-neutral-100 pb-4">
+        <h2 class="text-sm font-semibold tracking-wider text-neutral-400 uppercase">GitHub Organizations</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <!-- Org Item 1 -->
+        <a href="https://github.com/annoyingmice" target="_blank" rel="noopener noreferrer"
+          class="p-4 border border-neutral-100 hover:border-neutral-300 transition-colors flex items-center gap-3 rounded-xl">
+          <div class="w-10 h-10 text-neutral-900 flex items-center justify-center shrink-0">
+            <i class="fa-brands fa-github text-3xl"></i>
+          </div>
+          <div>
+            <h3 class="font-medium text-neutral-900 text-xs">annoyingmice</h3>
+            <p class="text-[11px] text-neutral-400">Personal org for experiment projects and open source libs</p>
+          </div>
+        </a>
+
+        <!-- Org Item 2 -->
+        <a href="https://github.com/Appfox-apps" target="_blank" rel="noopener noreferrer"
+          class="p-4 border border-neutral-100 hover:border-neutral-300 transition-colors flex items-center gap-3 rounded-xl">
+          <div class="w-10 h-10 text-neutral-900 flex items-center justify-center shrink-0">
+            <i class="fa-brands fa-github text-3xl"></i>
+          </div>
+          <div>
+            <h3 class="font-medium text-neutral-900 text-xs">Appfox-apps</h3>
+            <p class="text-[11px] text-neutral-400">-</p>
+          </div>
+        </a>
+
+        <!-- Org Item 3 -->
+        <a href="https://github.com/fluxvio" target="_blank" rel="noopener noreferrer"
+          class="p-4 border border-neutral-100 hover:border-neutral-300 transition-colors flex items-center gap-3 rounded-xl">
+          <div class="w-10 h-10 text-neutral-900 flex items-center justify-center shrink-0">
+            <i class="fa-brands fa-github text-3xl"></i>
+          </div>
+          <div>
+            <h3 class="font-medium text-neutral-900 text-xs">fluxvio</h3>
+            <p class="text-[11px] text-neutral-400">Colab org from my old college for experiment projects</p>
+          </div>
+        </a>
+
+        <!-- Org Item 3 -->
+        <a href="https://github.com/platf0rm" target="_blank" rel="noopener noreferrer"
+          class="p-4 border border-neutral-100 hover:border-neutral-300 transition-colors flex items-center gap-3 rounded-xl">
+          <div class="w-10 h-10 text-neutral-900 flex items-center justify-center shrink-0">
+            <i class="fa-brands fa-github text-3xl"></i>
+          </div>
+          <div>
+            <h3 class="font-medium text-neutral-900 text-xs">platf0rm</h3>
+            <p class="text-[11px] text-neutral-400">An open colab org for innovative devs</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- GitHub Contribution Activity Grid Section -->
+    <section id="activity" class="space-y-8 hidden sm:block">
+      <div class="border-b border-neutral-100 pb-4 flex items-center justify-between">
+        <h2 class="text-sm font-semibold tracking-wider text-neutral-400 uppercase">GitHub Activity</h2>
+        <span class="text-[11px] text-neutral-400 font-mono">Live Contribution Graph</span>
+      </div>
+
+      <div class="border border-neutral-200 rounded-xl p-5 bg-white shadow-xs space-y-4">
+        <div class="flex items-center justify-between text-xs text-neutral-600">
+          <div class="flex items-center gap-2">
+            <i class="fa-brands fa-github text-base"></i>
+            <span class="font-medium text-neutral-900">reymark</span> <span class="text-neutral-400">(Replace username
+              in img src)</span>
+          </div>
+          <span class="text-[11px] text-neutral-500">Powered by <code>ghchart.rshah.org</code></span>
+        </div>
+
+        <!-- Responsive container for the GitHub contribution graph image -->
+        <div class="w-full overflow-x-auto py-2 flex justify-center">
+          <!-- Option A: Standard GitHub Contribution Graph SVG generator widget -->
+          <img src="https://ghchart.rshah.org/fgunz07" alt="Rey Mark's Github Commit Graph"
+            class="w-full max-w-2xl h-auto object-contain">
+        </div>
+
+        <div class="flex items-center justify-between text-[11px] text-neutral-400 pt-2 border-t border-neutral-100">
+          <span>Less</span>
+          <div class="flex items-center gap-1">
+            <span class="w-2.5 h-2.5 bg-neutral-100 rounded-xs border border-neutral-200"></span>
+            <span class="w-2.5 h-2.5 bg-emerald-200 rounded-xs"></span>
+            <span class="w-2.5 h-2.5 bg-emerald-400 rounded-xs"></span>
+            <span class="w-2.5 h-2.5 bg-emerald-600 rounded-xs"></span>
+            <span class="w-2.5 h-2.5 bg-emerald-800 rounded-xs"></span>
+          </div>
+          <span>More</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cover letter -->
+    <div class="space-y-3">
+      <h3 class="font-medium text-neutral-900 text-xs tracking-wide uppercase text-neutral-400">
+        Cover Letter & Intro
+      </h3>
+      
+      <a href="./Cover_Letter.pdf" target="_blank" rel="noopener noreferrer" class="group border border-neutral-200 rounded-xl p-4 bg-white shadow-xs hover:border-neutral-400 hover:shadow-md transition-all duration-300 flex items-center justify-between gap-4 no-underline">
+        <div class="flex items-center gap-3.5 min-w-0">
+          <!-- Icon Badge -->
+          <div class="w-10 h-10 rounded-lg bg-neutral-100 text-neutral-700 flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:bg-blue-50 group-hover:text-blue-600 transition-all">
+            <i class="fa-solid fa-file-pdf text-xl"></i>
+          </div>
+          
+          <!-- Info -->
+          <div class="min-w-0">
+            <h3 class="font-medium text-neutral-900 text-sm truncate group-hover:text-blue-600 transition-colors">
+              Professional Cover Letter
+            </h3>
+            <p class="text-xs text-neutral-500 mt-0.5 truncate">
+              Custom Introduction • Software Development & Engineering
+            </p>
+          </div>
+        </div>
+
+        <!-- Action Link / Button -->
+        <span class="text-xs font-medium text-neutral-700 group-hover:text-blue-600 flex items-center gap-1 shrink-0">
+          Read Letter <i class="fa-solid fa-arrow-right-long text-xs group-hover:translate-x-0.5 transition-transform"></i>
+        </span>
+      </a>
+    </div>
+
+    <!-- Resume & CV -->
+    <div class="space-y-3">
+      <h3 class="font-medium text-neutral-900 text-xs tracking-wide uppercase text-neutral-400">
+        Resume & CV
+      </h3>
+      
+      <a href="./Resume_CV.pdf" target="_blank" rel="noopener noreferrer" class="group border border-neutral-200 rounded-xl p-4 bg-white shadow-xs hover:border-neutral-400 hover:shadow-md transition-all duration-300 flex items-center justify-between gap-4 no-underline">
+        <div class="flex items-center gap-3.5 min-w-0">
+          <!-- Icon Badge -->
+          <div class="w-10 h-10 rounded-lg bg-neutral-100 text-neutral-700 flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:bg-blue-50 group-hover:text-blue-600 transition-all">
+            <i class="fa-solid fa-address-card text-xl"></i>
+          </div>
+          
+          <!-- Info -->
+          <div class="min-w-0">
+            <h3 class="font-medium text-neutral-900 text-sm truncate group-hover:text-blue-600 transition-colors">
+              Software Developer Resume
+            </h3>
+            <p class="text-xs text-neutral-500 mt-0.5 truncate">
+              Full-Stack & Backend Experience • Updated 2026
+            </p>
+          </div>
+        </div>
+
+        <!-- Action Link / Button -->
+        <span class="text-xs font-medium text-neutral-700 group-hover:text-blue-600 flex items-center gap-1 shrink-0">
+          Download / View <i class="fa-solid fa-arrow-right-long text-xs group-hover:translate-x-0.5 transition-transform"></i>
+        </span>
+      </a>
+    </div>
+
+    <!-- Feedback & Testimonials Carousel -->
+    <div class="space-y-3 mb-8">
+      <div class="flex items-center justify-between">
+        <h3 class="font-medium text-neutral-900 text-xs tracking-wide uppercase text-neutral-400">
+          Colleague Endorsements
+        </h3>
+        <span class="text-[11px] text-neutral-400">Swipe to view more</span>
+      </div>
+
+      <!-- Horizontal Scroll Container -->
+      <div class="flex gap-4 overflow-x-auto pb-2 pt-1 snap-x snap-mandatory scrollbar-none [-ms-overflow-style:none] [scrollbar-width:none]">
+        
+        <!-- Testimonial Card 1 -->
+        <div class="w-[280px] sm:w-[320px] shrink-0 snap-start border border-neutral-200 rounded-xl p-4 bg-white shadow-xs hover:border-neutral-400 hover:shadow-md transition-all duration-300 flex flex-col justify-between gap-4">
+          <div class="space-y-3">
+            <!-- Header / Author Info -->
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-neutral-100 text-neutral-700 font-semibold text-xs flex items-center justify-center shrink-0 border border-neutral-200">
+                <img src="https://media.licdn.com/dms/image/v2/D5635AQHeE7iSDOZMuQ/profile-framedphoto-shrink_200_200/B56Z9LadyXGoAQ-/0/1783676657197?e=1786543200&v=beta&t=9o_UBGSWUL8tR2aA0Fev9tP0HMiQsr0gbtGzTes-6QY" alt="felix">
+              </div>
+              <div class="min-w-0">
+                <h4 class="font-medium text-neutral-900 text-xs truncate">
+                  <a href="https://www.linkedin.com/in/ybanezfe" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-blue-600 transition-colors shrink-0 p-1" title="View LinkedIn Profile">
+                    <i class="fa-brands fa-linkedin text-sm"></i>
+                    Felix Edrian Ybañez
+                  </a>
+                </h4>
+                <p class="text-[11px] text-neutral-500 truncate">Software Engineer</p>
+              </div>
+            </div>
+            <!-- Quote -->
+            <p class="text-xs text-neutral-600 italic leading-relaxed">
+              "A brilliant problem-solver who turns legacy code into clean architecture, balancing high-level engineering with humor and great team energy."
+            </p>
+          </div>
+          <div class="text-[10px] text-neutral-400 font-medium">
+            Worked together at Bluebeans Systems Inc.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 7. Contact Section -->
+    <section id="contact" class="space-y-6 pb-12">
+      <div class="border-b border-neutral-100 pb-4">
+        <h2 class="text-sm font-semibold tracking-wider text-neutral-400 uppercase">Contact</h2>
+      </div>
+      <p class="text-xs text-neutral-500 leading-relaxed">
+        Open to discussions regarding engineering collaborations, backend architecture consulting, and product
+        development.
+      </p>
+      <div>
+        <a href="mailto:mhikeking0@gmail.com"
+          class="inline-flex items-center gap-2 text-xs font-medium text-neutral-900 underline underline-offset-4 hover:text-neutral-600 transition-colors">
+          mhikeking0@gmail.com <i class="fa-solid fa-arrow-right text-[9px]"></i>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Certificate Modal Component -->
+  <div id="certificateModal"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 p-4">
+    <div id="modalContainer"
+      class="bg-white rounded-xl max-w-2xl w-full overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col max-h-[90vh]">
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between px-5 py-4 border-b border-neutral-100">
+        <h3 id="modalTitle" class="font-medium text-sm text-neutral-900 truncate">Certificate Title</h3>
+        <button onclick="closeCertificateModal()"
+          class="w-8 h-8 flex items-center justify-center rounded-full text-neutral-400 hover:text-neutral-900 hover:bg-neutral-100 transition-colors">
+          <ion-icon name="close-outline" class="text-lg"></ion-icon>
+        </button>
+      </div>
+      <!-- Modal Image Content -->
+      <div class="p-6 overflow-y-auto bg-neutral-50 flex items-center justify-center">
+        <embed id="modalImage" src="" alt="Certificate Full Image"
+          type="application/pdf"
+          class="max-h-[60vh] w-auto object-contain rounded-lg border border-neutral-200 shadow-sm">
+      </div>
+      <!-- Modal Footer -->
+      <div class="px-5 py-3 border-t border-neutral-100 flex justify-end">
+        <button onclick="closeCertificateModal()"
+          class="px-4 py-1.5 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium rounded-lg transition-colors">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loom Video Modal Component -->
+  <div id="loomModal"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 p-4">
+    <div id="loomModalContainer"
+      class="bg-neutral-900 rounded-xl max-w-4xl w-full overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col border border-neutral-800">
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between px-5 py-4 border-b border-neutral-800 bg-neutral-900">
+        <h3 id="loomModalTitle" class="font-medium text-sm text-white truncate">Video Walkthrough</h3>
+        <button onclick="closeLoomModal()"
+          class="w-8 h-8 flex items-center justify-center rounded-full text-neutral-400 hover:text-white hover:bg-neutral-800 transition-colors">
+          <ion-icon name="close-outline" class="text-lg"></ion-icon>
+        </button>
+      </div>
+      <!-- Video Frame Content -->
+      <div class="relative w-full bg-black" style="padding-bottom: 56.25%;">
+        <iframe id="loomIframe" src="" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen
+          class="absolute top-0 left-0 w-full h-full"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for Modals Handling -->
+  <script>
+    function toggleProjects() {
+      const extraProjects = document.getElementById('extra-projects');
+      const toggleText = document.getElementById('toggle-text');
+      const toggleIcon = document.getElementById('toggle-icon');
+
+      // Toggle the 'hidden' class
+      extraProjects.classList.toggle('hidden');
+
+      // Check current state and update button UI
+      const isExpanded = !extraProjects.classList.contains('hidden');
+
+      if (isExpanded) {
+        toggleText.textContent = 'View Less';
+        toggleIcon.style.transform = 'rotate(180deg)';
+      } else {
+        toggleText.textContent = 'View More Projects';
+        toggleIcon.style.transform = 'rotate(0deg)';
+      }
     }
+
+    // Certificate Modal Functions
+    function openCertificateModal(imageSrc, titleText) {
+      const modal = document.getElementById('certificateModal');
+      const container = document.getElementById('modalContainer');
+      const modalImg = document.getElementById('modalImage');
+      const modalTitle = document.getElementById('modalTitle');
+
+      modalImg.src = imageSrc;
+      modalTitle.textContent = titleText;
+
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      container.classList.remove('scale-95');
+      container.classList.add('scale-100');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCertificateModal() {
+      const modal = document.getElementById('certificateModal');
+      const container = document.getElementById('modalContainer');
+
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      container.classList.remove('scale-100');
+      container.classList.add('scale-95');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Loom Video Modal Functions
+    function openLoomModal(videoSrc, titleText) {
+      const modal = document.getElementById('loomModal');
+      const container = document.getElementById('loomModalContainer');
+      const iframe = document.getElementById('loomIframe');
+      const modalTitle = document.getElementById('loomModalTitle');
+
+      iframe.src = videoSrc + '?autoplay=1';
+      modalTitle.textContent = titleText;
+
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      container.classList.remove('scale-95');
+      container.classList.add('scale-100');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLoomModal() {
+      const modal = document.getElementById('loomModal');
+      const container = document.getElementById('loomModalContainer');
+      const iframe = document.getElementById('loomIframe');
+
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      container.classList.remove('scale-100');
+      container.classList.add('scale-95');
+      document.body.style.overflow = 'auto';
+      iframe.src = ''; // Stop video playback when closed
+    }
+
+    // Close modals when clicking outside the container box
+    document.getElementById('certificateModal').addEventListener('click', function (e) {
+      if (e.target === this) {
+        closeCertificateModal();
+      }
+    });
+
+    document.getElementById('loomModal').addEventListener('click', function (e) {
+      if (e.target === this) {
+        closeLoomModal();
+      }
+    });
+
+    // Close modals via Escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeCertificateModal();
+        closeLoomModal();
+      }
+    });
   </script>
+
+  <!-- Footer -->
+  <footer class="border-t border-neutral-100 py-8 px-6 bg-white">
+    <div
+      class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-neutral-400 text-xs">
+      <div class="flex items-center justify-center sm:justify-start gap-2">
+        <svg class="h-5 w-auto inline-block" viewBox="0 0 100 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="27" font-family="'Inter', sans-serif" font-weight="600" font-size="28" fill="#737373"
+            letter-spacing="-1">RM</text>
+          <rect x="65" y="20" width="6" height="6" fill="#2563eb" />
+        </svg>
+        <span></span>
+      </div>
+      <div class="flex items-center gap-6 text-sm text-neutral-600">
+        <a href="https://www.linkedin.com/in/rey-mark-engada-155122185" target="_blank" rel="noopener noreferrer"
+          class="hover:text-neutral-900 transition-colors" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in text-base"></i>
+        </a>
+        <a href="https://www.upwork.com/freelancers/~01236e8a4b76fbb88f?mp_source=share" target="_blank" rel="noopener noreferrer"
+          class="hover:text-neutral-900 transition-colors" aria-label="LinkedIn">
+          <i class="fa-brands fa-upwork text-base"></i>
+        </a>
+        <a href="https://github.com/fgunz07" target="_blank" rel="noopener noreferrer"
+          class="hover:text-neutral-900 transition-colors" aria-label="GitHub">
+          <i class="fa-brands fa-github-alt text-base"></i>
+        </a>
+        <a href="https://www.reddit.com/user/ChillingHub/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button" target="_blank" rel="noopener noreferrer"
+          class="hover:text-neutral-900 transition-colors" aria-label="GitHub">
+          <i class="fa-brands fa-reddit-alien text-base"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
 </body>
 
 </html>
