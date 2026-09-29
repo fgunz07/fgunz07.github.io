@@ -4,7 +4,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rey Mark E. | Portfolio</title>
+  <title>Rey Mark E. | Software Developer &amp; Engineer</title>
+  <meta name="description"
+    content="Software developer and engineer building clean web applications, scalable microservices and reliable backend architectures. Laravel, Node.js, TypeScript, Vue, React, Docker, AWS.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://fgunz07.github.io/">
+  <link rel="icon" href="./favicon.ico">
+
+  <!-- Social sharing (Open Graph + Twitter card) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rey Mark E. - Portfolio">
+  <meta property="og:url" content="https://fgunz07.github.io/">
+  <meta property="og:title" content="Rey Mark E. | Software Developer &amp; Engineer">
+  <meta property="og:description"
+    content="Software developer and engineer building clean web applications, scalable microservices and reliable backend architectures. Laravel, Node.js, TypeScript, Vue, React, Docker, AWS.">
+  <meta property="og:image" content="https://fgunz07.github.io/images/showring.png">
+  <meta property="og:image:width" content="1118">
+  <meta property="og:image:height" content="761">
+  <meta property="og:image:alt"
+    content="ShowRing - a dog show management platform built by Rey Mark E.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rey Mark E. | Software Developer &amp; Engineer">
+  <meta name="twitter:description"
+    content="Software developer and engineer building clean web applications, scalable microservices and reliable backend architectures. Laravel, Node.js, TypeScript, Vue, React, Docker, AWS.">
+  <meta name="twitter:image" content="https://fgunz07.github.io/images/showring.png">
+  <meta name="twitter:image:alt"
+    content="ShowRing - a dog show management platform built by Rey Mark E.">
+
   <!-- Tailwind CSS v4 CDN -->
   <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
   <script src="https://kit.fontawesome.com/39e6dc33af.js" crossorigin="anonymous"></script>
@@ -14,6 +40,41 @@
     body {
       font-family: 'Inter', sans-serif;
     }
+
+    /* In-page anchors should land below the sticky header, not under it */
+    html {
+      scroll-padding-top: 5rem;
+    }
+
+    /* Visible focus indicator for every keyboard-reachable control */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid #2563eb;
+      outline-offset: 2px;
+    }
+
+    /* The testimonial scroller hides its scrollbar. Tailwind's arbitrary
+       properties cover Firefox/IE only, so hide the WebKit scrollbar too. */
+    .scrollbar-none::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Honour reduced-motion without changing the default experience */
+    @media (prefers-reduced-motion: reduce) {
+      html.scroll-smooth {
+        scroll-behavior: auto;
+      }
+
+      .animate-pulse {
+        animation: none !important;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
   </style>
 </head>
 
@@ -21,7 +82,7 @@
 
   <!-- Header / Navigation -->
   <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100">
-    <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+    <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
       <a href="#" class="flex items-center" aria-label="RM. Logo">
         <svg class="h-6 w-auto" viewBox="0 0 100 36" fill="none" xmlns="http://www.w3.org/2000/svg">
           <text x="0" y="27" font-family="'Inter', sans-serif" font-weight="600" font-size="28" fill="#171717"
@@ -29,24 +90,54 @@
           <rect x="65" y="20" width="6" height="6" fill="#2563eb" />
         </svg>
       </a>
-      <nav class="hidden md:flex items-center gap-6 text-xs font-medium text-neutral-500">
+      <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-xs font-medium text-neutral-500"
+        aria-label="Primary">
         <a href="#experience" class="hover:text-neutral-900 transition-colors">Experience</a>
         <a href="#apps" class="hover:text-neutral-900 transition-colors">Projects</a>
+        <a href="#videos" class="hover:text-neutral-900 transition-colors">Walkthroughs</a>
         <a href="#activity" class="hover:text-neutral-900 transition-colors">Activity</a>
         <a href="#skills" class="hover:text-neutral-900 transition-colors">Skills</a>
         <a href="#certificates" class="hover:text-neutral-900 transition-colors">Certificates</a>
-        <a href="#projects" class="hover:text-neutral-900 transition-colors">Architecture</a>
+        <a href="#architecture" class="hover:text-neutral-900 transition-colors">Architecture</a>
         <a href="#organizations" class="hover:text-neutral-900 transition-colors">Organizations</a>
         <a href="#contact" class="hover:text-neutral-900 transition-colors">Contact</a>
       </nav>
+
+      <div class="flex items-center gap-2">
+        <a href="./Resume_CV.pdf" target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-neutral-900 hover:bg-neutral-800 text-white font-medium text-[11px] tracking-wide rounded-lg transition-colors">
+          <i class="fa-solid fa-file-arrow-down text-[10px]" aria-hidden="true"></i>
+          <span>Resume</span>
+        </a>
+        <button id="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"
+          aria-label="Open navigation menu"
+          class="md:hidden w-9 h-9 -mr-1 flex items-center justify-center rounded-lg text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 transition-colors">
+          <i id="nav-toggle-icon" class="fa-solid fa-bars text-sm" aria-hidden="true"></i>
+        </button>
+      </div>
     </div>
+
+    <!-- Mobile navigation disclosure (toggled by #nav-toggle) -->
+    <nav id="mobile-nav" aria-label="Primary (mobile)" class="md:hidden hidden border-t border-neutral-100 bg-white">
+      <div class="max-w-4xl mx-auto px-6 py-2 flex flex-col">
+        <a href="#experience" class="py-2.5 text-xs font-medium text-neutral-500 hover:text-neutral-900 transition-colors border-b border-neutral-50">Experience</a>
+        <a href="#apps" class="py-2.5 text-xs font-medium text-neutral-500 hover:text-neutral-900 transition-colors border-b border-neutral-50">Projects</a>
+        <a href="#videos" class="py-2.5 text-xs font-medium text-neutral-500 hover:text-neutral-900 transition-colors border-b border-neutral-50">Walkthroughs</a>
+        <a href="#activity" class="py-2.5 text-xs font-medium text-neutral-500 hover:text-neutral-900 transition-colors border-b border-neutral-50">Activity</a>
+        <a href="#skills" class="py-2.5 text-xs font-medium text-neutral-500 hover:text-neutral-900 transition-colors border-b border-neutral-50">Skills</a>
+        <a href="#certificates" class="py-2.5 text-xs font-medium text-neutral-500 hover:text-neutral-900 transition-colors border-b border-neutral-50">Certificates</a>
+        <a href="#architecture" class="py-2.5 text-xs font-medium text-neutral-500 hover:text-neutral-900 transition-colors border-b border-neutral-50">Architecture</a>
+        <a href="#organizations" class="py-2.5 text-xs font-medium text-neutral-500 hover:text-neutral-900 transition-colors border-b border-neutral-50">Organizations</a>
+        <a href="#contact" class="py-2.5 text-xs font-medium text-neutral-500 hover:text-neutral-900 transition-colors">Contact</a>
+      </div>
+    </nav>
   </header>
 
   <!-- Mobile Edge-to-Edge Hero Image -->
   <div
     class="w-full h-64 sm:hidden bg-neutral-100 overflow-hidden relative [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)]">
     <img src="./images/IMG_20220520_170046_2.jpg"
-      alt="Profile Image" class="w-full h-full object-cover grayscale">
+      alt="Rey Mark E., software developer" class="w-full h-full object-cover grayscale">
   </div>
 
   <main class="max-w-4xl mx-auto px-6 space-y-24 py-16">
@@ -56,7 +147,7 @@
       <!-- Profile Image (Desktop only) -->
       <div class="hidden sm:block w-28 h-28 bg-neutral-100 overflow-hidden">
         <img src="./images/IMG_20220520_170046_2.jpg"
-          alt="Profile Image" class="w-full h-full object-cover grayscale">
+          alt="Rey Mark E., software developer" class="w-full h-full object-cover grayscale">
       </div>
 
       <div class="space-y-4">
@@ -126,7 +217,8 @@
           <div class="flex items-start gap-3.5">
             <div
               class="w-8 h-8 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center shrink-0 mt-0.5 text-neutral-700">
-              <img src="./icons/whiteglove.png" alt="whiteglove" />
+              <img src="./icons/whiteglove.png" alt="White Glove Agents"
+                class="w-full h-full object-contain" />
             </div>
             <div>
               <h3 class="font-medium text-neutral-900 text-sm">Lead Developer (Part-time)</h3>
@@ -140,7 +232,8 @@
           <div class="flex items-start gap-3.5">
             <div
               class="w-8 h-8 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center shrink-0 mt-0.5 text-neutral-700">
-              <img src="./icons/socialinsomnia.png" alt="socialinsomnia" />
+              <img src="./icons/socialinsomnia.png" alt="Social Insomnia"
+                class="w-full h-full object-contain" />
             </div>
             <div>
               <h3 class="font-medium text-neutral-900 text-sm">Full Stack Developer (Part-time)</h3>
@@ -183,7 +276,7 @@
           <div class="flex items-start gap-3.5">
             <div
               class="w-8 h-8 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center shrink-0 mt-0.5 text-neutral-700">
-              <img src="./icons/upwork.png" alt="upwork" />
+              <img src="./icons/upwork.png" alt="Upwork" class="w-full h-full object-contain" />
             </div>
             <div>
               <h3 class="font-medium text-neutral-900 text-sm">Full Stack Developer (Freelance)</h3>
@@ -197,7 +290,8 @@
           <div class="flex items-start gap-3.5">
             <div
               class="w-8 h-8 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center shrink-0 mt-0.5 text-neutral-700">
-              <img src="./icons/experiencedigital.png" alt="experiencedigital" />
+              <img src="./icons/experiencedigital.png" alt="Experience Digital"
+                class="w-full h-full object-contain" />
             </div>
             <div>
               <h3 class="font-medium text-neutral-900 text-sm">Software Engineer (Contract)</h3>
@@ -225,7 +319,8 @@
           <div class="flex items-start gap-3.5">
             <div
               class="w-8 h-8 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center shrink-0 mt-0.5 text-neutral-700">
-              <img src="./icons/bluebeans.jpeg" alt="bluebeans" />
+              <img src="./icons/bluebeans.jpeg" alt="Bluebeans Systems"
+                class="w-full h-full object-contain" />
             </div>
             <div>
               <h3 class="font-medium text-neutral-900 text-sm">Sr. Software Developer (Full-time)</h3>
@@ -239,7 +334,8 @@
           <div class="flex items-start gap-3.5">
             <div
               class="w-8 h-8 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center shrink-0 mt-0.5 text-neutral-700">
-              <img src="./icons/coredev.png" alt="coredev" />
+              <img src="./icons/coredev.png" alt="CoreDev Solutions"
+                class="w-full h-full object-contain" />
             </div>
             <div>
               <h3 class="font-medium text-neutral-900 text-sm">Jr. Web Developer (Contract)</h3>
@@ -253,7 +349,8 @@
           <div class="flex items-start gap-3.5">
             <div
               class="w-8 h-8 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center shrink-0 mt-0.5 text-neutral-700">
-              <img src="./icons/bluebeans.jpeg" alt="bluebeans" />
+              <img src="./icons/bluebeans.jpeg" alt="Bluebeans Systems"
+                class="w-full h-full object-contain" />
             </div>
             <div>
               <h3 class="font-medium text-neutral-900 text-sm">Jr. Web Developer (Intern)</h3>
@@ -274,60 +371,60 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <!-- Video Item 1 -->
-        <div
-          onclick="openLoomModal('https://www.loom.com/embed/e8d221ac49934868b729ca20b43c191b', 'Email Sequencing Marketing Tool')"
-          class="group border border-neutral-200 rounded-xl overflow-hidden bg-white shadow-xs flex flex-col cursor-pointer hover:border-neutral-400 transition-all">
+        <button type="button" data-loom-src="https://www.loom.com/embed/e8d221ac49934868b729ca20b43c191b"
+          data-loom-title="Email Sequencing Marketing Tool" aria-haspopup="dialog"
+          aria-label="Watch on Loom: Email Sequencing Marketing Tool"
+          class="group text-left w-full border border-neutral-200 rounded-xl overflow-hidden bg-white shadow-xs flex flex-col hover:border-neutral-400 transition-all">
           <!-- Thumbnail Container with Loom Style Play Button Overlay -->
-          <div class="relative w-full aspect-video bg-neutral-900 overflow-hidden">
-            <!-- Replace thumbnail URL with an actual screenshot or project poster image -->
+          <span class="relative block w-full aspect-video bg-neutral-900 overflow-hidden">
             <img
               src="https://cdn.loom.com/sessions/thumbnails/e8d221ac49934868b729ca20b43c191b-43c9406add0d453a-full-play.gif#t=0.1"
-              alt="Video thumbnail"
+              alt=""
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
             <!-- Dark gradient overlay -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <span class="absolute inset-0 block bg-gradient-to-t from-black/60 via-transparent to-transparent"></span>
             <!-- Play Button Badge -->
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div
+            <span class="absolute inset-0 flex items-center justify-center">
+              <span
                 class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <i class="fa-solid fa-play text-xs ml-0.5"></i>
-              </div>
-            </div>
+                <i class="fa-solid fa-play text-xs ml-0.5" aria-hidden="true"></i>
+              </span>
+            </span>
             <!-- Loom Brand Badge / Duration Tag -->
-            <div
+            <span
               class="absolute bottom-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-medium">
-              <ion-icon name="videocam-outline" class="text-xs"></ion-icon> Watch on Loom
-            </div>
-          </div>
-        </div>
+              <i class="fa-solid fa-video text-xs" aria-hidden="true"></i> Watch on Loom
+            </span>
+          </span>
+        </button>
 
         <!-- Video Item 2 -->
-        <div
-          onclick="openLoomModal('https://www.loom.com/embed/af926fd005534c68b958c3952c6e0678', 'Rest Collection Automation')"
-          class="group border border-neutral-200 rounded-xl overflow-hidden bg-white shadow-xs flex flex-col cursor-pointer hover:border-neutral-400 transition-all">
+        <button type="button" data-loom-src="https://www.loom.com/embed/af926fd005534c68b958c3952c6e0678"
+          data-loom-title="Rest Collection Automation" aria-haspopup="dialog"
+          aria-label="Watch on Loom: Rest Collection Automation"
+          class="group text-left w-full border border-neutral-200 rounded-xl overflow-hidden bg-white shadow-xs flex flex-col hover:border-neutral-400 transition-all">
           <!-- Thumbnail Container with Loom Style Play Button Overlay -->
-          <div class="relative w-full aspect-video bg-neutral-900 overflow-hidden">
-            <!-- Replace thumbnail URL with an actual screenshot or project poster image -->
+          <span class="relative block w-full aspect-video bg-neutral-900 overflow-hidden">
             <img
               src="https://cdn.loom.com/sessions/thumbnails/af926fd005534c68b958c3952c6e0678-651c11bb2306564e-full-play.gif#t=0.1"
-              alt="Video thumbnail"
+              alt=""
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
             <!-- Dark gradient overlay -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <span class="absolute inset-0 block bg-gradient-to-t from-black/60 via-transparent to-transparent"></span>
             <!-- Play Button Badge -->
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div
+            <span class="absolute inset-0 flex items-center justify-center">
+              <span
                 class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <i class="fa-solid fa-play text-xs ml-0.5"></i>
-              </div>
-            </div>
+                <i class="fa-solid fa-play text-xs ml-0.5" aria-hidden="true"></i>
+              </span>
+            </span>
             <!-- Loom Brand Badge / Duration Tag -->
-            <div
+            <span
               class="absolute bottom-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-white text-[10px] font-medium">
-              <ion-icon name="videocam-outline" class="text-xs"></ion-icon> Watch on Loom
-            </div>
-          </div>
-        </div>
+              <i class="fa-solid fa-video text-xs" aria-hidden="true"></i> Watch on Loom
+            </span>
+          </span>
+        </button>
       </div>
     </section>
 
@@ -337,8 +434,19 @@
         <h2 class="text-sm font-semibold tracking-wider text-neutral-400 uppercase">Featured Projects</h2>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <!-- Project Card 1 -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <!-- ARCHIVED PROJECT CARDS (hidden 2026-09-29 pending real URLs)
+             These cards had no usable destination: either href="javascript:void(0);" with a placeholder
+             URL ("na" / "************"), or a domain that no longer resolves (the Youleads card below:
+             youleads.xyz and youleads.app are both NXDOMAIN).
+             They are kept inside <template> elements so nothing is lost: template content is inert, is not
+             rendered, is not focusable and is not fetched by the browser, and it may safely contain its own
+             HTML comments (which a single outer HTML comment could not).
+             To restore a card: move its markup out of the template into the grid and give it a real URL.
+             The only edit to the archived markup is that the blank ion-icon elements were switched to the
+             FontAwesome kit this page already loads, so a restored card renders immediately. -->
+        <template id="archived-project-cards-a">
+          <!-- Project Card 1 (Youleads - domain no longer resolves) -->
         <a href="https://youleads.xyz" target="_blank" rel="noopener noreferrer"
           class="group flex flex-col border border-neutral-200 rounded-xl overflow-hidden hover:border-neutral-400 transition-all bg-white shadow-xs">
           <div class="h-32 w-full bg-neutral-100 overflow-hidden relative">
@@ -357,7 +465,7 @@
           <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
             <div class="space-y-1.5">
               <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
-                <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> youleads.app
+                <i class="fa-solid fa-globe text-[10px]" aria-hidden="true"></i> youleads.app
               </div>
               <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
                 Automated Lead Reactivation Platform
@@ -374,13 +482,14 @@
             </div>
           </div>
         </a>
+        </template>
 
-        <!-- Project Card 2 -->
-        <a href="https://showring.thastackoff.online/"
+        <!-- Project Card 2 (Live project) -->
+        <a href="https://showring.thastackoff.online/" target="_blank" rel="noopener noreferrer"
           class="group flex flex-col border border-neutral-200 rounded-xl overflow-hidden hover:border-neutral-400 transition-all bg-white shadow-xs">
           <div class="h-32 w-full bg-neutral-100 overflow-hidden relative">
-            <img src="./images/showring.png" alt="uptime monitor preview"
-              class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
+            <img src="./images/showring.png" alt="ShowRing - dog show management platform"
+              class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500">
 
             <!-- Status Badge (Absolute Positioned on Image) -->
             <div class="absolute top-2.5 right-2.5">
@@ -394,7 +503,7 @@
           <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
             <div class="space-y-1.5">
               <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
-                <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> showring.thastackoff.online
+                <i class="fa-solid fa-globe text-[10px]" aria-hidden="true"></i> showring.thastackoff.online
               </div>
               <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
                 Dog Show Management
@@ -412,6 +521,17 @@
           </div>
         </a>
 
+        <!-- More projects on GitHub (keeps the two-column grid balanced) -->
+        <a href="https://github.com/fgunz07" target="_blank" rel="noopener noreferrer"
+          class="group flex flex-col items-center justify-center gap-2 border border-dashed border-neutral-200 rounded-xl p-6 text-center hover:border-neutral-400 hover:bg-neutral-50 transition-all">
+          <i class="fa-brands fa-github text-2xl text-neutral-400 group-hover:text-neutral-900 transition-colors"
+            aria-hidden="true"></i>
+          <span class="text-xs font-medium text-neutral-500 group-hover:text-neutral-900 transition-colors">More projects on GitHub</span>
+          <span class="text-[11px] text-neutral-400">Open-source libraries and experiments</span>
+        </a>
+
+        <!-- ARCHIVED PROJECT CARDS (continued - hidden 2026-09-29 pending real URLs) -->
+        <template id="archived-project-cards-b">
         <!-- Project Card 3 -->
         <a href="javascript:void(0);"
           class="group flex flex-col border border-neutral-200 rounded-xl overflow-hidden hover:border-neutral-400 transition-all bg-white shadow-xs">
@@ -423,7 +543,7 @@
             <div class="absolute top-2.5 right-2.5">
               <span
                 class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-neutral-300 border border-neutral-700/50 backdrop-blur-xs shadow-xs">
-                <ion-icon name="cloud-offline-outline" class="text-[9px]"></ion-icon>
+                <i class="fa-solid fa-cloud text-[9px]" aria-hidden="true"></i>
                 Offline
               </span>
             </div>
@@ -431,7 +551,7 @@
           <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
             <div class="space-y-1.5">
               <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
-                <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> na
+                <i class="fa-solid fa-globe text-[10px]" aria-hidden="true"></i> na
               </div>
               <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
                 Ad Angle Extractor
@@ -461,7 +581,7 @@
               <div class="absolute top-2.5 right-2.5">
                 <span
                   class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-neutral-300 border border-neutral-700/50 backdrop-blur-xs shadow-xs">
-                  <ion-icon name="cloud-offline-outline" class="text-[9px]"></ion-icon>
+                  <i class="fa-solid fa-cloud text-[9px]" aria-hidden="true"></i>
                   Offline
                 </span>
               </div>
@@ -469,7 +589,7 @@
             <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
               <div class="space-y-1.5">
                 <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
-                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> na
+                  <i class="fa-solid fa-globe text-[10px]" aria-hidden="true"></i> na
                 </div>
                 <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
                   Rent Collection Automation
@@ -497,7 +617,7 @@
               <div class="absolute top-2.5 right-2.5">
                 <span
                   class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-amber-400 border border-amber-500/30 backdrop-blur-xs shadow-xs">
-                  <ion-icon name="lock-closed-outline" class="text-[9px]"></ion-icon>
+                  <i class="fa-solid fa-lock text-[9px]" aria-hidden="true"></i>
                   NDA Protected
                 </span>
               </div>
@@ -505,7 +625,7 @@
             <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
               <div class="space-y-1.5">
                 <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
-                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> ************
+                  <i class="fa-solid fa-globe text-[10px]" aria-hidden="true"></i> ************
                 </div>
                 <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
                   Digital monetization
@@ -532,7 +652,7 @@
               <div class="absolute top-2.5 right-2.5">
                 <span
                   class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-amber-400 border border-amber-500/30 backdrop-blur-xs shadow-xs">
-                  <ion-icon name="lock-closed-outline" class="text-[9px]"></ion-icon>
+                  <i class="fa-solid fa-lock text-[9px]" aria-hidden="true"></i>
                   NDA Protected
                 </span>
               </div>
@@ -540,7 +660,7 @@
             <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
               <div class="space-y-1.5">
                 <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
-                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> ************
+                  <i class="fa-solid fa-globe text-[10px]" aria-hidden="true"></i> ************
                 </div>
                 <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
                   Food Develiery App
@@ -569,7 +689,7 @@
               <div class="absolute top-2.5 right-2.5">
                 <span
                   class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-amber-400 border border-amber-500/30 backdrop-blur-xs shadow-xs">
-                  <ion-icon name="lock-closed-outline" class="text-[9px]"></ion-icon>
+                  <i class="fa-solid fa-lock text-[9px]" aria-hidden="true"></i>
                   NDA Protected
                 </span>
               </div>
@@ -577,7 +697,7 @@
             <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
               <div class="space-y-1.5">
                 <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
-                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> ************
+                  <i class="fa-solid fa-globe text-[10px]" aria-hidden="true"></i> ************
                 </div>
                 <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
                   Ad Management
@@ -608,7 +728,7 @@
               <div class="absolute top-2.5 right-2.5">
                 <span
                   class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-amber-400 border border-amber-500/30 backdrop-blur-xs shadow-xs">
-                  <ion-icon name="lock-closed-outline" class="text-[9px]"></ion-icon>
+                  <i class="fa-solid fa-lock text-[9px]" aria-hidden="true"></i>
                   NDA Protected
                 </span>
               </div>
@@ -616,7 +736,7 @@
             <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
               <div class="space-y-1.5">
                 <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
-                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> ************
+                  <i class="fa-solid fa-globe text-[10px]" aria-hidden="true"></i> ************
                 </div>
                 <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
                   Construction Management SaaS
@@ -645,7 +765,7 @@
               <div class="absolute top-2.5 right-2.5">
                 <span
                   class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-amber-400 border border-amber-500/30 backdrop-blur-xs shadow-xs">
-                  <ion-icon name="lock-closed-outline" class="text-[9px]"></ion-icon>
+                  <i class="fa-solid fa-lock text-[9px]" aria-hidden="true"></i>
                   NDA Protected
                 </span>
               </div>
@@ -653,7 +773,7 @@
             <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
               <div class="space-y-1.5">
                 <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
-                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> ************
+                  <i class="fa-solid fa-globe text-[10px]" aria-hidden="true"></i> ************
                 </div>
                 <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
                   Shopify App For Reviews
@@ -683,7 +803,7 @@
               <div class="absolute top-2.5 right-2.5">
                 <span
                   class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-amber-400 border border-amber-500/30 backdrop-blur-xs shadow-xs">
-                  <ion-icon name="lock-closed-outline" class="text-[9px]"></ion-icon>
+                  <i class="fa-solid fa-lock text-[9px]" aria-hidden="true"></i>
                   NDA Protected
                 </span>
               </div>
@@ -691,7 +811,7 @@
             <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
               <div class="space-y-1.5">
                 <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
-                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> ************
+                  <i class="fa-solid fa-globe text-[10px]" aria-hidden="true"></i> ************
                 </div>
                 <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
                   Shopify App For Subscription
@@ -720,7 +840,7 @@
               <div class="absolute top-2.5 right-2.5">
                 <span
                   class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-amber-400 border border-amber-500/30 backdrop-blur-xs shadow-xs">
-                  <ion-icon name="lock-closed-outline" class="text-[9px]"></ion-icon>
+                  <i class="fa-solid fa-lock text-[9px]" aria-hidden="true"></i>
                   NDA Protected
                 </span>
               </div>
@@ -728,7 +848,7 @@
             <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
               <div class="space-y-1.5">
                 <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
-                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> ************
+                  <i class="fa-solid fa-globe text-[10px]" aria-hidden="true"></i> ************
                 </div>
                 <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
                   File Archiving System
@@ -756,7 +876,7 @@
               <div class="absolute top-2.5 right-2.5">
                 <span
                   class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-amber-400 border border-amber-500/30 backdrop-blur-xs shadow-xs">
-                  <ion-icon name="lock-closed-outline" class="text-[9px]"></ion-icon>
+                  <i class="fa-solid fa-lock text-[9px]" aria-hidden="true"></i>
                   NDA Protected
                 </span>
               </div>
@@ -764,7 +884,7 @@
             <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
               <div class="space-y-1.5">
                 <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
-                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> ************
+                  <i class="fa-solid fa-globe text-[10px]" aria-hidden="true"></i> ************
                 </div>
                 <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
                   Book a Service
@@ -793,7 +913,7 @@
               <div class="absolute top-2.5 right-2.5">
                 <span
                   class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-amber-400 border border-amber-500/30 backdrop-blur-xs shadow-xs">
-                  <ion-icon name="lock-closed-outline" class="text-[9px]"></ion-icon>
+                  <i class="fa-solid fa-lock text-[9px]" aria-hidden="true"></i>
                   NDA Protected
                 </span>
               </div>
@@ -801,7 +921,7 @@
             <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
               <div class="space-y-1.5">
                 <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
-                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> ************
+                  <i class="fa-solid fa-globe text-[10px]" aria-hidden="true"></i> ************
                 </div>
                 <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
                   Queuing System
@@ -829,7 +949,7 @@
               <div class="absolute top-2.5 right-2.5">
                 <span
                   class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-amber-400 border border-amber-500/30 backdrop-blur-xs shadow-xs">
-                  <ion-icon name="lock-closed-outline" class="text-[9px]"></ion-icon>
+                  <i class="fa-solid fa-lock text-[9px]" aria-hidden="true"></i>
                   NDA Protected
                 </span>
               </div>
@@ -837,7 +957,7 @@
             <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
               <div class="space-y-1.5">
                 <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
-                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> ************
+                  <i class="fa-solid fa-globe text-[10px]" aria-hidden="true"></i> ************
                 </div>
                 <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
                   Order Tracker
@@ -865,7 +985,7 @@
               <div class="absolute top-2.5 right-2.5">
                 <span
                   class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-neutral-900/80 text-amber-400 border border-amber-500/30 backdrop-blur-xs shadow-xs">
-                  <ion-icon name="lock-closed-outline" class="text-[9px]"></ion-icon>
+                  <i class="fa-solid fa-lock text-[9px]" aria-hidden="true"></i>
                   NDA Protected
                 </span>
               </div>
@@ -873,7 +993,7 @@
             <div class="p-4 flex flex-col flex-1 justify-between space-y-3">
               <div class="space-y-1.5">
                 <div class="flex items-center gap-1 text-[10px] text-neutral-400 font-mono truncate">
-                  <ion-icon name="globe-outline" class="text-[10px]"></ion-icon> ************
+                  <i class="fa-solid fa-globe text-[10px]" aria-hidden="true"></i> ************
                 </div>
                 <h3 class="font-medium text-neutral-900 text-xs group-hover:text-blue-600 transition-colors line-clamp-1">
                   SMS Gateway Service
@@ -890,16 +1010,21 @@
             </div>
           </a>
         </div>
+        </template>
       </div>
 
-      <!-- View More / View Less Button -->
+      <!-- ARCHIVED 2026-09-29: "View More Projects" toggle (the #extra-projects container plus
+           toggleProjects()). It is intentionally not rendered any more: once every unreleased card was
+           archived, the disclosure had nothing left to reveal. Restore this block together with the
+           archived cards above (and re-add the toggleProjects() function) to bring the toggle back.
       <div class="flex justify-center pt-4">
         <button id="toggle-projects-btn" onclick="toggleProjects()"
           class="px-4 py-2 bg-neutral-100 hover:bg-neutral-200 text-neutral-900 font-medium text-xs tracking-wide transition-all rounded-lg flex items-center gap-1.5">
           <span id="toggle-text">View More Projects</span>
-          <ion-icon name="chevron-down-outline" id="toggle-icon" class="text-xs transition-transform duration-300"></ion-icon>
+          <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300" aria-hidden="true"></i>
         </button>
       </div>
+      -->
     </section>
 
     <!-- 3. Technical Skills Section -->
@@ -963,9 +1088,9 @@
 
       <div class="space-y-6">
         <!-- Certificate 4 -->
-        <div
-          onclick="openCertificateModal('./certificates/COE_-_Rey_Mark_Engada_signed.pdf', 'Certificate')"
-          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg cursor-pointer">
+        <a href="./certificates/COE_-_Rey_Mark_Engada_signed.pdf" target="_blank" rel="noopener noreferrer"
+          data-certificate="./certificates/COE_-_Rey_Mark_Engada_signed.pdf"
+          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg">
           <div class="flex items-center gap-3.5 min-w-0">
             <embed src="./certificates/COE_-_Rey_Mark_Engada_signed.pdf"
               type="application/pdf"
@@ -988,15 +1113,15 @@
             class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block z-20 pointer-events-none w-64 bg-white p-2 rounded-lg shadow-xl border border-neutral-200">
             <embed src="./certificates/COE_-_Rey_Mark_Engada_signed.pdf"
               type="application/pdf"
-              alt="Preview" class="w-full h-36 object-cover rounded">
+              class="w-full h-36 object-cover rounded">
             <p class="text-[11px] text-center font-medium text-neutral-700 mt-1.5">Click to view full certificate</p>
           </div>
-        </div>
+        </a>
 
         <!-- Certificate 1 -->
-        <div
-          onclick="openCertificateModal('./certificates/AWS_Certified_Cloud_Practitioner_certificate.pdf', 'Advanced Laravel Architecture & Best Practices')"
-          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg cursor-pointer">
+        <a href="./certificates/AWS_Certified_Cloud_Practitioner_certificate.pdf" target="_blank" rel="noopener noreferrer"
+          data-certificate="./certificates/AWS_Certified_Cloud_Practitioner_certificate.pdf"
+          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg">
           <div class="flex items-center gap-3.5 min-w-0">
             <embed src="./certificates/AWS_Certified_Cloud_Practitioner_certificate.pdf"
               type="application/pdf"
@@ -1018,15 +1143,15 @@
           <div
             class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block z-20 pointer-events-none w-64 bg-white p-2 rounded-lg shadow-xl border border-neutral-200">
             <embed src="./certificates/AWS_Certified_Cloud_Practitioner_certificate.pdf"
-              alt="Preview" class="w-full h-36 object-cover rounded">
+              class="w-full h-36 object-cover rounded">
             <p class="text-[11px] text-center font-medium text-neutral-700 mt-1.5">Click to view full certificate</p>
           </div>
-        </div>
+        </a>
 
         <!-- Certificate 2 -->
-        <div
-          onclick="openCertificateModal('./certificates/AWS_Certified_Solutions_Architect_Associate.pdf', 'Cloudflare Workers & Edge Development')"
-          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg cursor-pointer">
+        <a href="./certificates/AWS_Certified_Solutions_Architect_Associate.pdf" target="_blank" rel="noopener noreferrer"
+          data-certificate="./certificates/AWS_Certified_Solutions_Architect_Associate.pdf"
+          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg">
           <div class="flex items-center gap-3.5 min-w-0">
             <embed src="./certificates/AWS_Certified_Solutions_Architect_Associate.pdf"
               type="application/pdf"
@@ -1049,15 +1174,15 @@
             class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block z-20 pointer-events-none w-64 bg-white p-2 rounded-lg shadow-xl border border-neutral-200">
             <embed src="./certificates/AWS_Certified_Solutions_Architect_Associate.pdf"
               type="application/pdf"
-              alt="Preview" class="w-full h-36 object-cover rounded">
+              class="w-full h-36 object-cover rounded">
             <p class="text-[11px] text-center font-medium text-neutral-700 mt-1.5">Click to view full certificate</p>
           </div>
-        </div>
+        </a>
 
         <!-- Certificate 4 -->
-        <div
-          onclick="openCertificateModal('./certificates/COE - Reymark Engada - Contractor.pdf', 'Vue.js 3 Enterprise Applications')"
-          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg cursor-pointer">
+        <a href="./certificates/COE - Reymark Engada - Contractor.pdf" target="_blank" rel="noopener noreferrer"
+          data-certificate="./certificates/COE - Reymark Engada - Contractor.pdf"
+          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg">
           <div class="flex items-center gap-3.5 min-w-0">
             <embed src="./certificates/COE - Reymark Engada - Contractor.pdf"
               type="application/pdf"
@@ -1080,15 +1205,15 @@
             class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block z-20 pointer-events-none w-64 bg-white p-2 rounded-lg shadow-xl border border-neutral-200">
             <embed src="./certificates/COE - Reymark Engada - Contractor.pdf"
               type="application/pdf"
-              alt="Preview" class="w-full h-36 object-cover rounded">
+              class="w-full h-36 object-cover rounded">
             <p class="text-[11px] text-center font-medium text-neutral-700 mt-1.5">Click to view full certificate</p>
           </div>
-        </div>
+        </a>
 
         <!-- Certificate 7 -->
-        <div
-          onclick="openCertificateModal('./certificates/react-summit2022-gitnation.pdf', 'Vue.js 3 Enterprise Applications')"
-          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg cursor-pointer">
+        <a href="./certificates/react-summit2022-gitnation.pdf" target="_blank" rel="noopener noreferrer"
+          data-certificate="./certificates/react-summit2022-gitnation.pdf"
+          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg">
           <div class="flex items-center gap-3.5 min-w-0">
             <embed src="./certificates/react-summit2022-gitnation.pdf"
               type="application/pdf"
@@ -1111,15 +1236,15 @@
             class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block z-20 pointer-events-none w-64 bg-white p-2 rounded-lg shadow-xl border border-neutral-200">
             <embed src="./certificates/react-summit2022-gitnation.pdf"
               type="application/pdf"
-              alt="Preview" class="w-full h-36 object-cover rounded">
+              class="w-full h-36 object-cover rounded">
             <p class="text-[11px] text-center font-medium text-neutral-700 mt-1.5">Click to view full certificate</p>
           </div>
-        </div>
+        </a>
 
         <!-- Certificate 5 -->
-        <div
-          onclick="openCertificateModal('./certificates/pirple-keeping-up-es6-certificate.pdf', 'Vue.js 3 Enterprise Applications')"
-          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg cursor-pointer">
+        <a href="./certificates/pirple-keeping-up-es6-certificate.pdf" target="_blank" rel="noopener noreferrer"
+          data-certificate="./certificates/pirple-keeping-up-es6-certificate.pdf"
+          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg">
           <div class="flex items-center gap-3.5 min-w-0">
             <embed src="./certificates/pirple-keeping-up-es6-certificate.pdf"
               type="application/pdf"
@@ -1142,15 +1267,15 @@
             class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block z-20 pointer-events-none w-64 bg-white p-2 rounded-lg shadow-xl border border-neutral-200">
             <embed src="./certificates/pirple-keeping-up-es6-certificate.pdf"
               type="application/pdf"
-              alt="Preview" class="w-full h-36 object-cover rounded">
+              class="w-full h-36 object-cover rounded">
             <p class="text-[11px] text-center font-medium text-neutral-700 mt-1.5">Click to view full certificate</p>
           </div>
-        </div>
+        </a>
 
         <!-- Certificate 6 -->
-        <div
-          onclick="openCertificateModal('./certificates/qbo-certificate-of-participation.pdf', 'Vue.js 3 Enterprise Applications')"
-          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg cursor-pointer">
+        <a href="./certificates/qbo-certificate-of-participation.pdf" target="_blank" rel="noopener noreferrer"
+          data-certificate="./certificates/qbo-certificate-of-participation.pdf"
+          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg">
           <div class="flex items-center gap-3.5 min-w-0">
             <embed src="./certificates/pirple-nodejs-master-class-certificate.pdf"
               type="application/pdf"
@@ -1173,15 +1298,15 @@
             class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block z-20 pointer-events-none w-64 bg-white p-2 rounded-lg shadow-xl border border-neutral-200">
             <embed src="./certificates/pirple-nodejs-master-class-certificate.pdf"
               type="application/pdf"
-              alt="Preview" class="w-full h-36 object-cover rounded">
+              class="w-full h-36 object-cover rounded">
             <p class="text-[11px] text-center font-medium text-neutral-700 mt-1.5">Click to view full certificate</p>
           </div>
-        </div>
+        </a>
 
         <!-- Certificate 8 -->
-        <div
-          onclick="openCertificateModal('./certificates/solo_lear-html-fundamentals-certificate.pdf', 'Vue.js 3 Enterprise Applications')"
-          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg cursor-pointer">
+        <a href="./certificates/solo_lear-html-fundamentals-certificate.pdf" target="_blank" rel="noopener noreferrer"
+          data-certificate="./certificates/solo_lear-html-fundamentals-certificate.pdf"
+          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg">
           <div class="flex items-center gap-3.5 min-w-0">
             <embed src="./certificates/solo_lear-html-fundamentals-certificate.pdf"
               type="application/pdf"
@@ -1204,15 +1329,15 @@
             class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block z-20 pointer-events-none w-64 bg-white p-2 rounded-lg shadow-xl border border-neutral-200">
             <embed src="./certificates/solo_lear-html-fundamentals-certificate.pdf"
               type="application/pdf"
-              alt="Preview" class="w-full h-36 object-cover rounded">
+              class="w-full h-36 object-cover rounded">
             <p class="text-[11px] text-center font-medium text-neutral-700 mt-1.5">Click to view full certificate</p>
           </div>
-        </div>
+        </a>
 
         <!-- Certificate 9 -->
-        <div
-          onclick="openCertificateModal('./certificates/solo_learn-angular-plus-nestjs-certificate.pdf', 'Vue.js 3 Enterprise Applications')"
-          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg cursor-pointer">
+        <a href="./certificates/solo_learn-angular-plus-nestjs-certificate.pdf" target="_blank" rel="noopener noreferrer"
+          data-certificate="./certificates/solo_learn-angular-plus-nestjs-certificate.pdf"
+          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg">
           <div class="flex items-center gap-3.5 min-w-0">
             <embed src="./certificates/solo_learn-angular-plus-nestjs-certificate.pdf"
               type="application/pdf"
@@ -1235,15 +1360,15 @@
             class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block z-20 pointer-events-none w-64 bg-white p-2 rounded-lg shadow-xl border border-neutral-200">
             <embed src="./certificates/solo_learn-angular-plus-nestjs-certificate.pdf"
               type="application/pdf"
-              alt="Preview" class="w-full h-36 object-cover rounded">
+              class="w-full h-36 object-cover rounded">
             <p class="text-[11px] text-center font-medium text-neutral-700 mt-1.5">Click to view full certificate</p>
           </div>
-        </div>
+        </a>
 
         <!-- Certificate 10 -->
-        <div
-          onclick="openCertificateModal('./certificates/solo_learn-javascript-certificate.pdf', 'Vue.js 3 Enterprise Applications')"
-          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg cursor-pointer">
+        <a href="./certificates/solo_learn-javascript-certificate.pdf" target="_blank" rel="noopener noreferrer"
+          data-certificate="./certificates/solo_learn-javascript-certificate.pdf"
+          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg">
           <div class="flex items-center gap-3.5 min-w-0">
             <embed src="./certificates/solo_learn-javascript-certificate.pdf"
               type="application/pdf"
@@ -1266,15 +1391,15 @@
             class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block z-20 pointer-events-none w-64 bg-white p-2 rounded-lg shadow-xl border border-neutral-200">
             <embed src="./certificates/solo_learn-javascript-certificate.pdf"
               type="application/pdf"
-              alt="Preview" class="w-full h-36 object-cover rounded">
+              class="w-full h-36 object-cover rounded">
             <p class="text-[11px] text-center font-medium text-neutral-700 mt-1.5">Click to view full certificate</p>
           </div>
-        </div>
+        </a>
 
         <!-- Certificate 3 -->
-        <div
-          onclick="openCertificateModal('./certificates/aws_innovate-certificate-of-attendance.pdf', 'Vue.js 3 Enterprise Applications')"
-          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg cursor-pointer">
+        <a href="./certificates/aws_innovate-certificate-of-attendance.pdf" target="_blank" rel="noopener noreferrer"
+          data-certificate="./certificates/aws_innovate-certificate-of-attendance.pdf"
+          class="group relative flex items-center justify-between gap-4 p-3 -mx-3 hover:bg-neutral-50 transition-colors rounded-lg">
           <div class="flex items-center gap-3.5 min-w-0">
             <embed src="./certificates/aws_innovate-certificate-of-attendance.pdf"
               type="application/pdf"
@@ -1297,10 +1422,10 @@
             class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:block z-20 pointer-events-none w-64 bg-white p-2 rounded-lg shadow-xl border border-neutral-200">
             <embed src="./certificates/aws_innovate-certificate-of-attendance.pdf"
               type="application/pdf"
-              alt="Preview" class="w-full h-36 object-cover rounded">
+              class="w-full h-36 object-cover rounded">
             <p class="text-[11px] text-center font-medium text-neutral-700 mt-1.5">Click to view full certificate</p>
           </div>
-        </div>
+        </a>
       </div>
     </section>
 
@@ -1316,8 +1441,8 @@
         <!-- Card 1: Serverless & Distributed Monitoring -->
         <div class="border border-neutral-200 rounded-xl p-5 bg-white space-y-3 shadow-xs">
           <div class="flex items-center gap-2 text-neutral-900 font-medium text-xs">
-            <ion-icon name="cloud-outline" class="text-sm text-blue-600"></ion-icon>
-            Serverless & Multi-Zone Latency Checks
+            <i class="fa-solid fa-cloud text-sm text-blue-600" aria-hidden="true"></i>
+            Serverless &amp; Multi-Zone Latency Checks
           </div>
           <p class="text-[11px] text-neutral-500 leading-relaxed">
             Designing distributed monitoring architectures across edge regions to execute 24/7 heartbeat checks, measure multi-AZ latency, and trigger instant multi-channel incident alerts.
@@ -1327,8 +1452,8 @@
         <!-- Card 2: Asynchronous Workflows & Queues -->
         <div class="border border-neutral-200 rounded-xl p-5 bg-white space-y-3 shadow-xs">
           <div class="flex items-center gap-2 text-neutral-900 font-medium text-xs">
-            <ion-icon name="git-merge-outline" class="text-sm text-blue-600"></ion-icon>
-            Asynchronous Processing & Batch Management
+            <i class="fa-solid fa-code-branch text-sm text-blue-600" aria-hidden="true"></i>
+            Asynchronous Processing &amp; Batch Management
           </div>
           <p class="text-[11px] text-neutral-500 leading-relaxed">
             Structuring robust backend workflows to handle heavy data operations—such as bulk Excel parsing and campaign batching—via background queues to ensure UI responsiveness.
@@ -1338,8 +1463,8 @@
         <!-- Card 3: Database & Schema Design -->
         <div class="border border-neutral-200 rounded-xl p-5 bg-white space-y-3 shadow-xs">
           <div class="flex items-center gap-2 text-neutral-900 font-medium text-xs">
-            <ion-icon name="server-outline" class="text-sm text-blue-600"></ion-icon>
-            Normalized & Single-Table Schemas
+            <i class="fa-solid fa-server text-sm text-blue-600" aria-hidden="true"></i>
+            Normalized &amp; Single-Table Schemas
           </div>
           <p class="text-[11px] text-neutral-500 leading-relaxed">
             Architecting secure relational databases (MySQL) with clear ownership indexing, alongside high-throughput single-table designs optimized for fast logging and metrics tracking.
@@ -1349,8 +1474,8 @@
         <!-- Card 4: Webhooks & Event-Driven Integration -->
         <div class="border border-neutral-200 rounded-xl p-5 bg-white space-y-3 shadow-xs">
           <div class="flex items-center gap-2 text-neutral-900 font-medium text-xs">
-            <ion-icon name="flash-outline" class="text-sm text-blue-600"></ion-icon>
-            Secure Webhooks & Event Pipelines
+            <i class="fa-solid fa-bolt text-sm text-blue-600" aria-hidden="true"></i>
+            Secure Webhooks &amp; Event Pipelines
           </div>
           <p class="text-[11px] text-neutral-500 leading-relaxed">
             Implementing secure inbound/outbound webhook handlers (e.g., Postmark integrations) with payload verification, idempotent event processing, and automated error logging.
@@ -1418,7 +1543,7 @@
     </section>
 
     <!-- GitHub Contribution Activity Grid Section -->
-    <section id="activity" class="space-y-8 hidden sm:block">
+    <section id="activity" class="space-y-8">
       <div class="border-b border-neutral-100 pb-4 flex items-center justify-between">
         <h2 class="text-sm font-semibold tracking-wider text-neutral-400 uppercase">GitHub Activity</h2>
         <span class="text-[11px] text-neutral-400 font-mono">Live Contribution Graph</span>
@@ -1428,8 +1553,7 @@
         <div class="flex items-center justify-between text-xs text-neutral-600">
           <div class="flex items-center gap-2">
             <i class="fa-brands fa-github text-base"></i>
-            <span class="font-medium text-neutral-900">reymark</span> <span class="text-neutral-400">(Replace username
-              in img src)</span>
+            <span class="font-medium text-neutral-900">fgunz07</span>
           </div>
           <span class="text-[11px] text-neutral-500">Powered by <code>ghchart.rshah.org</code></span>
         </div>
@@ -1640,27 +1764,26 @@
   </main>
 
   <!-- Certificate Modal Component -->
-  <div id="certificateModal"
+  <div id="certificateModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true" inert
     class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 p-4">
-    <div id="modalContainer"
-      class="bg-white rounded-xl max-w-2xl w-full overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col max-h-[90vh]">
+    <div id="modalContainer" tabindex="-1"
+      class="bg-white rounded-xl max-w-2xl w-full overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col max-h-[90vh] outline-none">
       <!-- Modal Header -->
       <div class="flex items-center justify-between px-5 py-4 border-b border-neutral-100">
         <h3 id="modalTitle" class="font-medium text-sm text-neutral-900 truncate">Certificate Title</h3>
-        <button onclick="closeCertificateModal()"
+        <button id="modalCloseBtn" type="button" aria-label="Close certificate dialog"
           class="w-8 h-8 flex items-center justify-center rounded-full text-neutral-400 hover:text-neutral-900 hover:bg-neutral-100 transition-colors">
-          <ion-icon name="close-outline" class="text-lg"></ion-icon>
+          <i class="fa-solid fa-xmark text-lg" aria-hidden="true"></i>
         </button>
       </div>
-      <!-- Modal Image Content -->
+      <!-- Modal Document Content -->
       <div class="p-6 overflow-y-auto bg-neutral-50 flex items-center justify-center">
-        <embed id="modalImage" src="" alt="Certificate Full Image"
-          type="application/pdf"
+        <embed id="modalDocument" type="application/pdf" aria-label="Certificate document"
           class="max-h-[60vh] w-auto object-contain rounded-lg border border-neutral-200 shadow-sm">
       </div>
       <!-- Modal Footer -->
       <div class="px-5 py-3 border-t border-neutral-100 flex justify-end">
-        <button onclick="closeCertificateModal()"
+        <button id="modalFooterCloseBtn" type="button"
           class="px-4 py-1.5 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-medium rounded-lg transition-colors">
           Close
         </button>
@@ -1669,122 +1792,215 @@
   </div>
 
   <!-- Loom Video Modal Component -->
-  <div id="loomModal"
+  <div id="loomModal" role="dialog" aria-modal="true" aria-labelledby="loomModalTitle" aria-hidden="true" inert
     class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 p-4">
-    <div id="loomModalContainer"
-      class="bg-neutral-900 rounded-xl max-w-4xl w-full overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col border border-neutral-800">
+    <div id="loomModalContainer" tabindex="-1"
+      class="bg-neutral-900 rounded-xl max-w-4xl w-full overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col border border-neutral-800 outline-none">
       <!-- Modal Header -->
       <div class="flex items-center justify-between px-5 py-4 border-b border-neutral-800 bg-neutral-900">
         <h3 id="loomModalTitle" class="font-medium text-sm text-white truncate">Video Walkthrough</h3>
-        <button onclick="closeLoomModal()"
+        <button id="loomCloseBtn" type="button" aria-label="Close video dialog"
           class="w-8 h-8 flex items-center justify-center rounded-full text-neutral-400 hover:text-white hover:bg-neutral-800 transition-colors">
-          <ion-icon name="close-outline" class="text-lg"></ion-icon>
+          <i class="fa-solid fa-xmark text-lg" aria-hidden="true"></i>
         </button>
       </div>
       <!-- Video Frame Content -->
       <div class="relative w-full bg-black" style="padding-bottom: 56.25%;">
-        <iframe id="loomIframe" src="" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen
+        <iframe id="loomIframe" title="Loom video walkthrough" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen
           class="absolute top-0 left-0 w-full h-full"></iframe>
       </div>
     </div>
   </div>
 
-  <!-- JavaScript for Modals Handling -->
+  <!-- JavaScript: mobile navigation + accessible modals -->
   <script>
-    function toggleProjects() {
-      const extraProjects = document.getElementById('extra-projects');
-      const toggleText = document.getElementById('toggle-text');
-      const toggleIcon = document.getElementById('toggle-icon');
+    (function () {
+      'use strict';
 
-      // Toggle the 'hidden' class
-      extraProjects.classList.toggle('hidden');
+      // ---------- Mobile navigation disclosure ----------
+      const navToggle = document.getElementById('nav-toggle');
+      const navIcon = document.getElementById('nav-toggle-icon');
+      const mobileNav = document.getElementById('mobile-nav');
 
-      // Check current state and update button UI
-      const isExpanded = !extraProjects.classList.contains('hidden');
-
-      if (isExpanded) {
-        toggleText.textContent = 'View Less';
-        toggleIcon.style.transform = 'rotate(180deg)';
-      } else {
-        toggleText.textContent = 'View More Projects';
-        toggleIcon.style.transform = 'rotate(0deg)';
+      function setMobileNav(open) {
+        mobileNav.classList.toggle('hidden', !open);
+        navToggle.setAttribute('aria-expanded', String(open));
+        navToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+        navIcon.classList.toggle('fa-bars', !open);
+        navIcon.classList.toggle('fa-xmark', open);
       }
-    }
 
-    // Certificate Modal Functions
-    function openCertificateModal(imageSrc, titleText) {
-      const modal = document.getElementById('certificateModal');
-      const container = document.getElementById('modalContainer');
-      const modalImg = document.getElementById('modalImage');
-      const modalTitle = document.getElementById('modalTitle');
+      navToggle.addEventListener('click', function () {
+        setMobileNav(navToggle.getAttribute('aria-expanded') !== 'true');
+      });
 
-      modalImg.src = imageSrc;
-      modalTitle.textContent = titleText;
+      // Close the menu when a link inside it is activated
+      mobileNav.addEventListener('click', function (event) {
+        if (event.target.closest('a')) {
+          setMobileNav(false);
+        }
+      });
 
-      modal.classList.remove('opacity-0', 'pointer-events-none');
-      container.classList.remove('scale-95');
-      container.classList.add('scale-100');
-      document.body.style.overflow = 'hidden';
-    }
+      // ---------- Modal plumbing ----------
+      const certificateModal = document.getElementById('certificateModal');
+      const certificateContainer = document.getElementById('modalContainer');
+      const certificateDocument = document.getElementById('modalDocument');
+      const certificateTitle = document.getElementById('modalTitle');
 
-    function closeCertificateModal() {
-      const modal = document.getElementById('certificateModal');
-      const container = document.getElementById('modalContainer');
+      const loomModal = document.getElementById('loomModal');
+      const loomContainer = document.getElementById('loomModalContainer');
+      const loomIframe = document.getElementById('loomIframe');
+      const loomTitle = document.getElementById('loomModalTitle');
 
-      modal.classList.add('opacity-0', 'pointer-events-none');
-      container.classList.remove('scale-100');
-      container.classList.add('scale-95');
-      document.body.style.overflow = 'auto';
-    }
+      let lastTrigger = null;
 
-    // Loom Video Modal Functions
-    function openLoomModal(videoSrc, titleText) {
-      const modal = document.getElementById('loomModal');
-      const container = document.getElementById('loomModalContainer');
-      const iframe = document.getElementById('loomIframe');
-      const modalTitle = document.getElementById('loomModalTitle');
-
-      iframe.src = videoSrc + '?autoplay=1';
-      modalTitle.textContent = titleText;
-
-      modal.classList.remove('opacity-0', 'pointer-events-none');
-      container.classList.remove('scale-95');
-      container.classList.add('scale-100');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLoomModal() {
-      const modal = document.getElementById('loomModal');
-      const container = document.getElementById('loomModalContainer');
-      const iframe = document.getElementById('loomIframe');
-
-      modal.classList.add('opacity-0', 'pointer-events-none');
-      container.classList.remove('scale-100');
-      container.classList.add('scale-95');
-      document.body.style.overflow = 'auto';
-      iframe.src = ''; // Stop video playback when closed
-    }
-
-    // Close modals when clicking outside the container box
-    document.getElementById('certificateModal').addEventListener('click', function (e) {
-      if (e.target === this) {
-        closeCertificateModal();
+      function isOpen(modal) {
+        return !modal.hasAttribute('inert');
       }
-    });
 
-    document.getElementById('loomModal').addEventListener('click', function (e) {
-      if (e.target === this) {
-        closeLoomModal();
+      function openModal(modal, container) {
+        lastTrigger = document.activeElement;
+        modal.removeAttribute('inert');
+        modal.removeAttribute('aria-hidden');
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        container.classList.remove('scale-95');
+        container.classList.add('scale-100');
+        document.body.style.overflow = 'hidden';
+        container.focus();
       }
-    });
 
-    // Close modals via Escape key
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') {
-        closeCertificateModal();
-        closeLoomModal();
+      function closeModal(modal, container) {
+        if (!isOpen(modal)) {
+          return;
+        }
+
+        modal.setAttribute('inert', '');
+        modal.setAttribute('aria-hidden', 'true');
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        container.classList.remove('scale-100');
+        container.classList.add('scale-95');
+        document.body.style.overflow = '';
+
+        if (lastTrigger && typeof lastTrigger.focus === 'function') {
+          lastTrigger.focus();
+        }
+        lastTrigger = null;
       }
-    });
+
+      // Keep Tab inside the open dialog
+      function trapFocus(modal, event) {
+        const focusable = modal.querySelectorAll(
+          'a[href], button:not([disabled]), iframe, embed, [tabindex]:not([tabindex="-1"])'
+        );
+
+        if (!focusable.length) {
+          return;
+        }
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (event.shiftKey && (document.activeElement === first || document.activeElement === modal)) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+
+      // ---------- Certificate dialog ----------
+      function openCertificateModal(documentSrc, titleText) {
+        certificateDocument.src = documentSrc;
+        certificateTitle.textContent = titleText;
+        openModal(certificateModal, certificateContainer);
+      }
+
+      function closeCertificateModal() {
+        closeModal(certificateModal, certificateContainer);
+        certificateDocument.removeAttribute('src');
+      }
+
+      document.getElementById('modalCloseBtn').addEventListener('click', closeCertificateModal);
+      document.getElementById('modalFooterCloseBtn').addEventListener('click', closeCertificateModal);
+
+      // The certificate rows are real links to the PDF; this upgrades them to dialog triggers.
+      // Modified clicks keep their native behaviour (open the PDF in a new tab).
+      document.querySelectorAll('[data-certificate]').forEach(function (row) {
+        row.addEventListener('click', function (event) {
+          if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+            return;
+          }
+
+          event.preventDefault();
+
+          const heading = row.querySelector('h3');
+          openCertificateModal(
+            row.getAttribute('data-certificate'),
+            heading ? heading.textContent.trim() : 'Certificate'
+          );
+        });
+      });
+
+      // Backdrop click closes
+      certificateModal.addEventListener('click', function (event) {
+        if (event.target === certificateModal) {
+          closeCertificateModal();
+        }
+      });
+
+      // ---------- Loom video dialog ----------
+      function openLoomModal(videoSrc, titleText) {
+        loomIframe.src = videoSrc + '?autoplay=1';
+        loomIframe.title = 'Loom walkthrough: ' + titleText;
+        loomTitle.textContent = titleText;
+        openModal(loomModal, loomContainer);
+      }
+
+      function closeLoomModal() {
+        closeModal(loomModal, loomContainer);
+        loomIframe.removeAttribute('src'); // stop playback and free the player
+        loomIframe.title = 'Loom video walkthrough';
+      }
+
+      document.getElementById('loomCloseBtn').addEventListener('click', closeLoomModal);
+
+      document.querySelectorAll('[data-loom-src]').forEach(function (card) {
+        card.addEventListener('click', function () {
+          openLoomModal(card.getAttribute('data-loom-src'), card.getAttribute('data-loom-title'));
+        });
+      });
+
+      // Backdrop click closes
+      loomModal.addEventListener('click', function (event) {
+        if (event.target === loomModal) {
+          closeLoomModal();
+        }
+      });
+
+      // ---------- Keyboard: Escape closes, Tab stays inside an open dialog ----------
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          if (isOpen(loomModal)) {
+            closeLoomModal();
+          } else if (isOpen(certificateModal)) {
+            closeCertificateModal();
+          } else if (navToggle.getAttribute('aria-expanded') === 'true') {
+            setMobileNav(false);
+            navToggle.focus();
+          }
+          return;
+        }
+
+        if (event.key === 'Tab') {
+          if (isOpen(loomModal)) {
+            trapFocus(loomContainer, event);
+          } else if (isOpen(certificateModal)) {
+            trapFocus(certificateContainer, event);
+          }
+        }
+      });
+    })();
   </script>
 
   <!-- Footer -->
@@ -1805,7 +2021,7 @@
           <i class="fa-brands fa-linkedin-in text-base"></i>
         </a>
         <a href="https://www.upwork.com/freelancers/~01236e8a4b76fbb88f?mp_source=share" target="_blank" rel="noopener noreferrer"
-          class="hover:text-neutral-900 transition-colors" aria-label="LinkedIn">
+          class="hover:text-neutral-900 transition-colors" aria-label="Upwork">
           <i class="fa-brands fa-upwork text-base"></i>
         </a>
         <a href="https://github.com/fgunz07" target="_blank" rel="noopener noreferrer"
@@ -1813,7 +2029,7 @@
           <i class="fa-brands fa-github-alt text-base"></i>
         </a>
         <a href="https://www.reddit.com/user/ChillingHub/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button" target="_blank" rel="noopener noreferrer"
-          class="hover:text-neutral-900 transition-colors" aria-label="GitHub">
+          class="hover:text-neutral-900 transition-colors" aria-label="Reddit">
           <i class="fa-brands fa-reddit-alien text-base"></i>
         </a>
       </div>

@@ -1,0 +1,418 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "RM. Logo" [ref=e4] [cursor=pointer]:
+        - /url: "#"
+        - img [ref=e5]:
+          - generic [ref=e6]: RM
+      - navigation "Primary" [ref=e8]:
+        - link "Experience" [ref=e9] [cursor=pointer]:
+          - /url: "#experience"
+        - link "Projects" [ref=e10] [cursor=pointer]:
+          - /url: "#apps"
+        - link "Walkthroughs" [ref=e11] [cursor=pointer]:
+          - /url: "#videos"
+        - link "Activity" [ref=e12] [cursor=pointer]:
+          - /url: "#activity"
+        - link "Skills" [ref=e13] [cursor=pointer]:
+          - /url: "#skills"
+        - link "Certificates" [ref=e14] [cursor=pointer]:
+          - /url: "#certificates"
+        - link "Architecture" [ref=e15] [cursor=pointer]:
+          - /url: "#architecture"
+        - link "Organizations" [ref=e16] [cursor=pointer]:
+          - /url: "#organizations"
+        - link "Contact" [ref=e17] [cursor=pointer]:
+          - /url: "#contact"
+      - link "Resume" [ref=e19] [cursor=pointer]:
+        - /url: ./Resume_CV.pdf
+  - main [ref=e23]:
+    - generic [ref=e24]:
+      - img "Rey Mark E., software developer" [ref=e26]
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - heading "Rey Mark E." [level=1] [ref=e29]
+          - paragraph [ref=e30]: "[ DevOps ] / Software Developer / Engineer"
+        - paragraph [ref=e31]: Building clean web applications, scalable microservices, and reliable backend architectures with meticulous attention to detail.
+        - generic [ref=e32]:
+          - link "Get in Touch" [ref=e33] [cursor=pointer]:
+            - /url: "#contact"
+          - link "View Experience" [ref=e34] [cursor=pointer]:
+            - /url: "#experience"
+    - link "Letter of Recommendation Featured Official Reference • Endorsement & Performance Record View Letter" [ref=e35] [cursor=pointer]:
+      - /url: ./Letter_of_Recommendation_-_Rey_signed.pdf
+      - generic [ref=e40]:
+        - generic [ref=e41]:
+          - heading "Letter of Recommendation" [level=3] [ref=e42]
+          - generic [ref=e43]: Featured
+        - paragraph [ref=e44]: Official Reference • Endorsement & Performance Record
+      - generic [ref=e45]: View Letter
+    - generic [ref=e48]:
+      - heading "Experience" [level=2] [ref=e50]
+      - generic [ref=e51]:
+        - generic [ref=e52]:
+          - generic [ref=e53]:
+            - img "White Glove Agents" [ref=e55]
+            - generic [ref=e56]:
+              - heading "Lead Developer (Part-time)" [level=3] [ref=e57]
+              - paragraph [ref=e58]: White Glove Agents • Texas, US
+          - generic [ref=e59]: Jul 2026 - Present
+        - generic [ref=e60]:
+          - generic [ref=e61]:
+            - img "Social Insomnia" [ref=e63]
+            - generic [ref=e64]:
+              - heading "Full Stack Developer (Part-time)" [level=3] [ref=e65]
+              - paragraph [ref=e66]: Social Insomnia LLC. • California, US
+          - generic [ref=e67]: May 2026 - Present
+        - generic [ref=e68]:
+          - generic [ref=e73]:
+            - heading "Software Developer (Contract)" [level=3] [ref=e74]
+            - paragraph [ref=e75]: Ominisystems LLC. • 2 Burrough Court, Burrough on the Hill, UK
+          - generic [ref=e76]: Jul 2025 - Dec 2025
+        - generic [ref=e77]:
+          - generic [ref=e82]:
+            - heading "Full Stack Developer (Full-time)" [level=3] [ref=e83]
+            - paragraph [ref=e84]: Feel At Home Builders. • California, US
+          - generic [ref=e85]: March 2024 - Jul 2025
+        - generic [ref=e86]:
+          - generic [ref=e87]:
+            - img "Upwork" [ref=e89]
+            - generic [ref=e90]:
+              - heading "Full Stack Developer (Freelance)" [level=3] [ref=e91]
+              - paragraph [ref=e92]: Upwork. • -, -
+          - generic [ref=e93]: Feb 2024 - Apr 2024
+        - generic [ref=e94]:
+          - generic [ref=e95]:
+            - img "Experience Digital" [ref=e97]
+            - generic [ref=e98]:
+              - heading "Software Engineer (Contract)" [level=3] [ref=e99]
+              - paragraph [ref=e100]: Experience Digital. • Surry Hills, AU
+          - generic [ref=e101]: May 2023 - Feb 2024
+        - generic [ref=e102]:
+          - generic [ref=e107]:
+            - heading "Sr. Software Developer (Full-time)" [level=3] [ref=e108]
+            - paragraph [ref=e109]: Get Served PH. • Dumaguete City, PH
+          - generic [ref=e110]: May 2020 - Apr 2023
+        - generic [ref=e111]:
+          - generic [ref=e112]:
+            - img "Bluebeans Systems" [ref=e114]
+            - generic [ref=e115]:
+              - heading "Sr. Software Developer (Full-time)" [level=3] [ref=e116]
+              - paragraph [ref=e117]: Bluebeans Systems Inc. • Dumaguete City, PH
+          - generic [ref=e118]: Jun 2018 - May 2020
+        - generic [ref=e119]:
+          - generic [ref=e120]:
+            - img "CoreDev Solutions" [ref=e122]
+            - generic [ref=e123]:
+              - heading "Jr. Web Developer (Contract)" [level=3] [ref=e124]
+              - paragraph [ref=e125]: CoreDev Solutions Inc. • Cebu City, PH
+          - generic [ref=e126]: Apr 2017 - May 2018
+        - generic [ref=e127]:
+          - generic [ref=e128]:
+            - img "Bluebeans Systems" [ref=e130]
+            - generic [ref=e131]:
+              - heading "Jr. Web Developer (Intern)" [level=3] [ref=e132]
+              - paragraph [ref=e133]: Bluebeans Systems Inc. • Dumaguete City, PH
+          - generic [ref=e134]: Nov 2016 - Mar 2017
+    - generic [ref=e135]:
+      - generic [ref=e136]:
+        - heading "Loom Walkthroughs" [level=2] [ref=e137]
+        - generic [ref=e138]: Demos & Code Architecture
+      - generic [ref=e139]:
+        - 'button "Watch on Loom: Email Sequencing Marketing Tool" [ref=e140]':
+          - generic [ref=e141]: Watch on Loom
+        - 'button "Watch on Loom: Rest Collection Automation" [ref=e150]':
+          - generic [ref=e151]: Watch on Loom
+    - generic [ref=e160]:
+      - heading "Featured Projects" [level=2] [ref=e162]
+      - generic [ref=e163]:
+        - link "ShowRing - dog show management platform Active showring.thastackoff.online Dog Show Management Dog show management and ticketing platform for dog lovers. Node.js Lambda DynamoDB React" [ref=e164] [cursor=pointer]:
+          - /url: https://showring.thastackoff.online/
+          - generic [ref=e165]:
+            - img "ShowRing - dog show management platform" [ref=e166]
+            - generic [ref=e167]: Active
+          - generic [ref=e170]:
+            - generic [ref=e171]:
+              - generic [ref=e172]: showring.thastackoff.online
+              - heading "Dog Show Management" [level=3] [ref=e175]
+              - paragraph [ref=e176]: Dog show management and ticketing platform for dog lovers.
+            - generic [ref=e177]:
+              - generic [ref=e178]: Node.js
+              - generic [ref=e179]: Lambda
+              - generic [ref=e180]: DynamoDB
+              - generic [ref=e181]: React
+        - link "More projects on GitHub Open-source libraries and experiments" [ref=e182] [cursor=pointer]:
+          - /url: https://github.com/fgunz07
+          - generic [ref=e185]: More projects on GitHub
+          - generic [ref=e186]: Open-source libraries and experiments
+    - generic [ref=e187]:
+      - heading "Technical Skills" [level=2] [ref=e189]
+      - generic [ref=e190]:
+        - generic [ref=e191]:
+          - heading "Backend" [level=3] [ref=e192]
+          - list [ref=e193]:
+            - listitem [ref=e194]: PHP / Laravel / CakePhp
+            - listitem [ref=e195]: Node.js / Hono / Express
+            - listitem [ref=e196]: TypeScript / JavaScript
+            - listitem [ref=e197]: RESTful APIs & Webhooks
+        - generic [ref=e198]:
+          - heading "Frontend" [level=3] [ref=e199]
+          - list [ref=e200]:
+            - listitem [ref=e201]: Vue / Nuxt
+            - listitem [ref=e202]: React / Next
+            - listitem [ref=e203]: Tailwind CSS / DaisyUI
+            - listitem [ref=e204]: Responsive UI/UX
+        - generic [ref=e205]:
+          - heading "AI & Automation" [level=3] [ref=e206]
+          - list [ref=e207]:
+            - listitem [ref=e208]: LLM Integration
+            - listitem [ref=e209]: Agent Skills
+            - listitem [ref=e210]: Agent Instructions
+            - listitem [ref=e211]: Figma Make
+            - listitem [ref=e212]: Stitch
+            - listitem [ref=e213]: Claude Code
+            - listitem [ref=e214]: Codex
+            - listitem [ref=e215]: OpenClaw
+        - generic [ref=e216]:
+          - heading "Infrastructure & Tools" [level=3] [ref=e217]
+          - list [ref=e218]:
+            - listitem [ref=e219]: PostgreSQL & MySQL
+            - listitem [ref=e220]: Docker & Containerization
+            - listitem [ref=e221]: Serverless & Cloudflare Workers
+            - listitem [ref=e222]: Git & GitHub Workflows
+            - listitem [ref=e223]: Hostinger, GoDaddy & Namecheap
+            - listitem [ref=e224]: AWS, VPC & VPS
+            - listitem [ref=e225]: Postman & API Testing
+    - generic [ref=e226]:
+      - heading "Certificates" [level=2] [ref=e228]
+      - generic [ref=e229]:
+        - link "Certificate of Employment Professional Experience • Work Record View 2025" [ref=e230] [cursor=pointer]:
+          - /url: ./certificates/COE_-_Rey_Mark_Engada_signed.pdf
+          - generic [ref=e233]:
+            - heading "Certificate of Employment" [level=3] [ref=e234]
+            - paragraph [ref=e235]: Professional Experience • Work Record
+          - generic [ref=e236]:
+            - generic [ref=e237]: View
+            - generic [ref=e240]: "2025"
+        - link "AWS Certified Cloud Practitioner Amazon Web Services (AWS) • Cloud Fundamentals View 2024" [ref=e241] [cursor=pointer]:
+          - /url: ./certificates/AWS_Certified_Cloud_Practitioner_certificate.pdf
+          - generic [ref=e244]:
+            - heading "AWS Certified Cloud Practitioner" [level=3] [ref=e245]
+            - paragraph [ref=e246]: Amazon Web Services (AWS) • Cloud Fundamentals
+          - generic [ref=e247]:
+            - generic [ref=e248]: View
+            - generic [ref=e251]: "2024"
+        - link "AWS Certified Solutions Architect – Associate Amazon Web Services (AWS) • Official Exam Participant & Score Report View 2024" [ref=e252] [cursor=pointer]:
+          - /url: ./certificates/AWS_Certified_Solutions_Architect_Associate.pdf
+          - generic [ref=e255]:
+            - heading "AWS Certified Solutions Architect – Associate" [level=3] [ref=e256]
+            - paragraph [ref=e257]: Amazon Web Services (AWS) • Official Exam Participant & Score Report
+          - generic [ref=e258]:
+            - generic [ref=e259]: View
+            - generic [ref=e262]: "2024"
+        - link "Certificate of Employment Professional Experience • Work Record View 2024" [ref=e263] [cursor=pointer]:
+          - /url: ./certificates/COE - Reymark Engada - Contractor.pdf
+          - generic [ref=e266]:
+            - heading "Certificate of Employment" [level=3] [ref=e267]
+            - paragraph [ref=e268]: Professional Experience • Work Record
+          - generic [ref=e269]:
+            - generic [ref=e270]: View
+            - generic [ref=e273]: "2024"
+        - link "GitNation Certification Online Conference • Technical Training View 2024" [ref=e274] [cursor=pointer]:
+          - /url: ./certificates/react-summit2022-gitnation.pdf
+          - generic [ref=e277]:
+            - heading "GitNation Certification" [level=3] [ref=e278]
+            - paragraph [ref=e279]: Online Conference • Technical Training
+          - generic [ref=e280]:
+            - generic [ref=e281]: View
+            - generic [ref=e284]: "2024"
+        - link "Online course certificate Online Course • Training Program View 2021" [ref=e285] [cursor=pointer]:
+          - /url: ./certificates/pirple-keeping-up-es6-certificate.pdf
+          - generic [ref=e288]:
+            - heading "Online course certificate" [level=3] [ref=e289]
+            - paragraph [ref=e290]: Online Course • Training Program
+          - generic [ref=e291]:
+            - generic [ref=e292]: View
+            - generic [ref=e295]: "2021"
+        - link "Online course certificate Online Course • Training Program View 2021" [ref=e296] [cursor=pointer]:
+          - /url: ./certificates/qbo-certificate-of-participation.pdf
+          - generic [ref=e299]:
+            - heading "Online course certificate" [level=3] [ref=e300]
+            - paragraph [ref=e301]: Online Course • Training Program
+          - generic [ref=e302]:
+            - generic [ref=e303]: View
+            - generic [ref=e306]: "2021"
+        - link "SoloLearn Course Certificate SoloLearn • Programming Certification View 2021" [ref=e307] [cursor=pointer]:
+          - /url: ./certificates/solo_lear-html-fundamentals-certificate.pdf
+          - generic [ref=e310]:
+            - heading "SoloLearn Course Certificate" [level=3] [ref=e311]
+            - paragraph [ref=e312]: SoloLearn • Programming Certification
+          - generic [ref=e313]:
+            - generic [ref=e314]: View
+            - generic [ref=e317]: "2021"
+        - link "SoloLearn Course Certificate SoloLearn • Programming Certification View 2021" [ref=e318] [cursor=pointer]:
+          - /url: ./certificates/solo_learn-angular-plus-nestjs-certificate.pdf
+          - generic [ref=e321]:
+            - heading "SoloLearn Course Certificate" [level=3] [ref=e322]
+            - paragraph [ref=e323]: SoloLearn • Programming Certification
+          - generic [ref=e324]:
+            - generic [ref=e325]: View
+            - generic [ref=e328]: "2021"
+        - link "SoloLearn Course Certificate SoloLearn • Programming Certification View 2021" [ref=e329] [cursor=pointer]:
+          - /url: ./certificates/solo_learn-javascript-certificate.pdf
+          - generic [ref=e332]:
+            - heading "SoloLearn Course Certificate" [level=3] [ref=e333]
+            - paragraph [ref=e334]: SoloLearn • Programming Certification
+          - generic [ref=e335]:
+            - generic [ref=e336]: View
+            - generic [ref=e339]: "2021"
+        - link "AWS Innovate Certificate of Attendance Amazon Web Services (AWS) • Online Conference View 2021" [ref=e340] [cursor=pointer]:
+          - /url: ./certificates/aws_innovate-certificate-of-attendance.pdf
+          - generic [ref=e343]:
+            - heading "AWS Innovate Certificate of Attendance" [level=3] [ref=e344]
+            - paragraph [ref=e345]: Amazon Web Services (AWS) • Online Conference
+          - generic [ref=e346]:
+            - generic [ref=e347]: View
+            - generic [ref=e350]: "2021"
+    - generic [ref=e351]:
+      - generic [ref=e352]:
+        - heading "Architecture & Systems" [level=2] [ref=e353]
+        - paragraph [ref=e354]: Core design patterns, data flow, and infrastructure strategies behind my projects.
+      - generic [ref=e355]:
+        - generic [ref=e356]:
+          - generic [ref=e357]: Serverless & Multi-Zone Latency Checks
+          - paragraph [ref=e360]: Designing distributed monitoring architectures across edge regions to execute 24/7 heartbeat checks, measure multi-AZ latency, and trigger instant multi-channel incident alerts.
+        - generic [ref=e361]:
+          - generic [ref=e362]: Asynchronous Processing & Batch Management
+          - paragraph [ref=e365]: Structuring robust backend workflows to handle heavy data operations—such as bulk Excel parsing and campaign batching—via background queues to ensure UI responsiveness.
+        - generic [ref=e366]:
+          - generic [ref=e367]: Normalized & Single-Table Schemas
+          - paragraph [ref=e370]: Architecting secure relational databases (MySQL) with clear ownership indexing, alongside high-throughput single-table designs optimized for fast logging and metrics tracking.
+        - generic [ref=e371]:
+          - generic [ref=e372]: Secure Webhooks & Event Pipelines
+          - paragraph [ref=e375]: Implementing secure inbound/outbound webhook handlers (e.g., Postmark integrations) with payload verification, idempotent event processing, and automated error logging.
+    - generic [ref=e376]:
+      - heading "GitHub Organizations" [level=2] [ref=e378]
+      - generic [ref=e379]:
+        - link [ref=e380] [cursor=pointer]:
+          - /url: https://github.com/annoyingmice
+          - generic [ref=e384]:
+            - heading "annoyingmice" [level=3] [ref=e385]
+            - paragraph [ref=e386]: Personal org for experiment projects and open source libs
+        - link [ref=e387] [cursor=pointer]:
+          - /url: https://github.com/Appfox-apps
+          - generic [ref=e391]:
+            - heading "Appfox-apps" [level=3] [ref=e392]
+            - paragraph [ref=e393]: "-"
+        - link [ref=e394] [cursor=pointer]:
+          - /url: https://github.com/fluxvio
+          - generic [ref=e398]:
+            - heading "fluxvio" [level=3] [ref=e399]
+            - paragraph [ref=e400]: Colab org from my old college for experiment projects
+        - link [ref=e401] [cursor=pointer]:
+          - /url: https://github.com/platf0rm
+          - generic [ref=e405]:
+            - heading "platf0rm" [level=3] [ref=e406]
+            - paragraph [ref=e407]: An open colab org for innovative devs
+    - generic [ref=e408]:
+      - generic [ref=e409]:
+        - heading "GitHub Activity" [level=2] [ref=e410]
+        - generic [ref=e411]: Live Contribution Graph
+      - generic [ref=e412]:
+        - generic [ref=e413]:
+          - generic [ref=e414]: fgunz07
+          - generic [ref=e418]:
+            - text: Powered by
+            - code [ref=e419]: ghchart.rshah.org
+        - img "Rey Mark's Github Commit Graph" [ref=e421]
+        - generic [ref=e422]:
+          - generic [ref=e423]: Less
+          - generic [ref=e430]: More
+    - generic [ref=e431]:
+      - heading "Cover Letter & Intro" [level=3] [ref=e432]
+      - link [ref=e433] [cursor=pointer]:
+        - /url: ./Cover_Letter.pdf
+        - generic [ref=e438]:
+          - heading "Professional Cover Letter" [level=3] [ref=e439]
+          - paragraph [ref=e440]: Custom Introduction • Software Development & Engineering
+        - generic [ref=e441]: Read Letter
+    - generic [ref=e444]:
+      - heading "Resume & CV" [level=3] [ref=e445]
+      - link [ref=e446] [cursor=pointer]:
+        - /url: ./Resume_CV.pdf
+        - generic [ref=e451]:
+          - heading "Software Developer Resume" [level=3] [ref=e452]
+          - paragraph [ref=e453]: Full-Stack & Backend Experience • Updated 2026
+        - generic [ref=e454]: Download / View
+    - generic [ref=e457]:
+      - generic [ref=e458]:
+        - heading "Colleague Endorsements" [level=3] [ref=e459]
+        - generic [ref=e460]: Swipe to view more
+      - generic [ref=e461]:
+        - generic [ref=e462]:
+          - generic [ref=e463]:
+            - generic [ref=e464]:
+              - img "felix" [ref=e466]
+              - generic [ref=e467]:
+                - heading [level=4] [ref=e468]:
+                  - link "Felix Edrian Ybañez" [ref=e469] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/in/ybanezfe
+                - paragraph [ref=e472]: Software Engineer
+            - paragraph [ref=e473]: "\"A brilliant problem-solver who turns legacy code into clean architecture, balancing high-level engineering with humor and great team energy.\""
+          - generic [ref=e474]: Worked together at Bluebeans Systems Inc.
+        - generic [ref=e475]:
+          - generic [ref=e476]:
+            - generic [ref=e477]:
+              - img "ivan" [ref=e479]
+              - generic [ref=e480]:
+                - heading [level=4] [ref=e481]:
+                  - link "Ivan Robert Laid" [ref=e482] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/in/ivan-robert-laid
+                - paragraph [ref=e485]: Software Engineer
+            - paragraph [ref=e486]: "\"Rey is highly recommended, reliable, and experienced full-stack and DevOps developer.\""
+          - generic [ref=e487]: Worked together at Bluebeans Systems Inc & Invencible Automation LLC.
+        - generic [ref=e488]:
+          - generic [ref=e489]:
+            - generic [ref=e490]:
+              - img "norman" [ref=e492]
+              - generic [ref=e493]:
+                - heading [level=4] [ref=e494]:
+                  - link "Norman Tomalon" [ref=e495] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/in/norman-tomalon
+                - paragraph [ref=e498]: Software Engineer
+            - paragraph [ref=e499]: "\"It’s been great working with Rey at Experience Digital these past 8 months. He’s a reliable, supportive teammate who always brings a positive attitude. Keep up the great work, Rey!\""
+          - generic [ref=e500]: Worked together at Experience Digital
+    - generic [ref=e501]:
+      - heading "Contact" [level=2] [ref=e503]
+      - paragraph [ref=e504]: Open to discussions regarding engineering collaborations, backend architecture consulting, and product development.
+      - generic [ref=e505]:
+        - link "mhikeking0@gmail.com" [ref=e506] [cursor=pointer]:
+          - /url: mailto:mhikeking0@gmail.com
+        - link "WhatsApp" [ref=e509] [cursor=pointer]:
+          - /url: https://wa.me/639559331401?text=Hello,
+  - dialog [aria-hidden]:
+    - generic:
+      - generic:
+        - heading [level=3]: Certificate Title
+        - button
+      - generic:
+        - button: Close
+  - dialog [aria-hidden]:
+    - generic:
+      - generic:
+        - heading [level=3]: Video Walkthrough
+        - button
+      - iframe [ref=e512]
+  - contentinfo [ref=e513]:
+    - generic [ref=e514]:
+      - img [ref=e516]:
+        - generic [ref=e517]: RM
+      - generic [ref=e519]:
+        - link "LinkedIn" [ref=e520] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/rey-mark-engada-155122185
+        - link "Upwork" [ref=e523] [cursor=pointer]:
+          - /url: https://www.upwork.com/freelancers/~01236e8a4b76fbb88f?mp_source=share
+        - link "GitHub" [ref=e526] [cursor=pointer]:
+          - /url: https://github.com/fgunz07
+        - link "Reddit" [ref=e529] [cursor=pointer]:
+          - /url: https://www.reddit.com/user/ChillingHub/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
