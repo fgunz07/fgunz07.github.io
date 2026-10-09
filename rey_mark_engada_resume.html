@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Rey Mark Engada — Software Developer Resume</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body, .page, .sidebar, .masthead {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  html, body { margin: 0; padding: 0; background: #e9e9e9; color: #292929; }
+  body { font-family: "Lato", Arial, sans-serif; font-size: 9.4pt; line-height: 1.48; font-weight: 400; font-synthesis: none; }
+  .page { width: 210mm; height: 297mm; margin: 10mm auto; background: #fff; position: relative; overflow: hidden; display: grid; grid-template-columns: 64.5mm 1fr; page-break-after: always; box-shadow: 0 2px 10px #0002; }
+  .sidebar { background: #f3f3f3 !important; padding: 58mm 8.5mm 12mm 15.8mm; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  .sidebar.continued { padding-top: 10mm; }
+  .main { padding: 59mm 16.5mm 16mm 7mm; }
+  .page:first-child .main { padding-top: 59mm; }
+  .masthead { position: absolute; top: 10.8mm; left: 48.8mm; width: 111mm; height: 38mm; border: 1.4px solid #292929; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #fff; z-index: 2; }
+  .masthead h1 { font-family: "Montserrat", sans-serif; font-size: 19pt; letter-spacing: 2.5px; line-height: 1.2; margin: 0 0 9px; font-weight: 750; }
+  .masthead p { font-size: 10pt; margin: 0; font-weight: 400; }
+  .section { margin: 0 0 23px; }
+  .section-title { font-family: "Montserrat", sans-serif; font-size: 9.2pt; font-weight: 750; letter-spacing: 2.4px; border-bottom: 1.3px solid #292929; padding-bottom: 5px; margin: 0 0 11px; line-height: 1.3; }
+  .label { font-size: 7.2pt; font-weight: 750; margin: 0 0 3px; }
+  .small { font-size: 8.3pt; line-height: 1.45; }
+  .side-block { margin-bottom: 13px; }
+  .skill { margin: 0 0 11px; font-size: 8.8pt; line-height: 1.4; }
+  .stars { letter-spacing: 2px; font-size: 10pt; line-height: 1.1; margin-top: 1px; }
+  .filled { color: #242424; }
+  .empty { color: #242424; }
+  a { color: inherit; text-decoration: underline; text-decoration-line: underline; text-underline-offset: 2px; overflow-wrap: anywhere; }
+  .sidebar a { text-decoration: underline !important; text-decoration-line: underline !important; text-underline-offset: 2px; }
+  .job { margin-bottom: 21px; }
+  .job-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+  .job-title { font-family: "Montserrat", sans-serif; font-weight: 750; font-size: 10.2pt; line-height: 1.3; }
+  .location { font-size: 7.9pt; white-space: nowrap; text-align: right; }
+  .date { margin: 2px 0 7px; font-size: 9pt; }
+  .job p, .project p { margin: 0; line-height: 1.52; font-size: 9.1pt; }
+  .main-section { margin-bottom: 26px; }
+  .course { font-family: "Montserrat", sans-serif; margin: 0 0 17px; font-weight: 750; font-size: 9.6pt; }
+  .project { margin-bottom: 15px; }
+  .project-title { font-family: "Montserrat", sans-serif; font-weight: 750; font-size: 9.6pt; margin-bottom: 4px; overflow-wrap: anywhere; }
+  .muted { color: #333; }
+  @media print {
+    html, body { background: #fff !important; }
+    .page { margin: 0; box-shadow: none; background: #fff !important; }
+    .sidebar { background: #f3f3f3 !important; }
+    a { text-decoration: underline !important; text-decoration-line: underline !important; }
+  }
+</style>
+</head>
+<body>
+<section class="page">
+  <header class="masthead"><h1>REY MARK ENGADA</h1><p>SOFTWARE DEVELOPER</p></header>
+  <aside class="sidebar">
+    <section class="section">
+      <h2 class="section-title">DETAILS</h2>
+      <div class="side-block"><div class="label">ADDRESS</div><div class="small">Prk. Apitong, Tubtubon<br>Sibulan, Negros Oriental<br>Philippines</div></div>
+      <div class="side-block"><div class="label">PHONE</div><div class="small">+63 (955) 933-1401</div></div>
+      <div class="side-block"><div class="label">EMAIL</div><div class="small">mhikeking0@gmail.com</div></div>
+    </section>
+    <section class="section">
+      <h2 class="section-title">SKILLS</h2>
+      <div class="skill">Laravel, Node, Express,<br>Hono, Wrangler<div class="stars">● ● ● ● ○</div></div>
+      <div class="skill">Vue/Nuxt, React/Next,<br>DaisyUI, Tailwind, NuxtUI,<br>HeroUI<div class="stars">● ● ● ● ○</div></div>
+      <div class="skill">Docker, AWS, DNS,<br>Cloudflare<div class="stars">● ● ● ● ○</div></div>
+      <div class="skill">Database Normalization<div class="stars">● ● ● ○ ○</div></div>
+      <div class="skill">API Integration<div class="stars">● ● ● ● ○</div></div>
+      <div class="skill">Mobile Development<div class="stars">● ● ○ ○ ○</div></div>
+      <div class="skill">n8n, Zapier, Make,<br>Openclaw<div class="stars">● ● ○ ○ ○</div></div>
+      <div class="skill">AI Inferencing, AI<br>Integrations, AI Workflows<div class="stars">● ● ● ○ ○</div></div>
+    </section>
+    <section class="section">
+      <h2 class="section-title">LINKS</h2>
+      <div class="small" style="margin-bottom:5px"><a href="https://www.linkedin.com/in/rey-mark-engada-155122185">linkedin</a></div>
+      <div class="small" style="margin-bottom:5px"><a href="https://github.com/fgunz07">github</a></div>
+      <div class="small"><a href="https://fgunz07.github.io/">portfolio</a></div>
+    </section>
+  </aside>
+  <main class="main">
+    <section class="main-section">
+      <h2 class="section-title">PROFESSIONAL SUMMARY</h2>
+      <p>FullStack Software Developer with 10+ years' experience delivering production web and cloud applications for startups and international clients. Founding developer and technical lead on booking and food-delivery platforms; skilled in Laravel, React, Vue, Docker, AWS, API integrations, and AI inferencing—focused on building scalable, automated systems and applying AI to realworld products.</p>
+    </section>
+    <section class="main-section">
+      <h2 class="section-title">EMPLOYMENT HISTORY</h2>
+      <article class="job"><div class="job-head"><div class="job-title">Freelance Lead Developer, White Glove Agents</div><div class="location">Texas, US</div></div><div class="date">Jul 2026 — Sept 2026</div><p>Sole developer of dog show management app using laravel, nodejs/express, serverless framework v4 and react.</p></article>
+      <article class="job"><div class="job-head"><div class="job-title">Freelance Full Stack Developer, Social Insomnia LLC</div><div class="location">California, US</div></div><div class="date">May 2026 — Aug 2026</div><p>Feature development of social insomnia web app using laravel, react, typescript. Thirdparty KYC integration using identomat.</p></article>
+      <article class="job"><div class="job-head"><div class="job-title">Software Developer, Ominisystems LLC</div><div class="location">Burrough Court, UK</div></div><div class="date">Mar 2025 — Dec 2025</div><p>Feature development using larave, vue2. Convert figma design to vue2 using tailwindcss. Thirdparty API integration using apify and mistral AI inferencing. Maintaining AWS servers configs and updates.</p></article>
+      <article class="job"><div class="job-head"><div class="job-title">Full Stack Developer, Feel At Home Builders</div><div class="location">California, US</div></div><div class="date">Mar 2024 — Jul 2025</div><p>Feature development and the creation of buildovate app using vue3/nuxt, laravel, docker. Architecting cloud infrastructure using AWS services and development environment using docker. Thirdparty API integration using PLAID and CheckBook. Team management.</p></article>
+      <article class="job"><div class="job-head"><div class="job-title">Freelance Full Stack Developer, Upwork</div></div><div class="date">Feb 2024 — Apr 2024</div><p>Feature development of existing plugin app from shopify using, graphql, react, laravel and polaris. Planning and architecting new plugin app for shopify store for subscription base. Converting existing java codebase backend to shopify admin backend.</p></article>
+      <article class="job"><div class="job-head"><div class="job-title">Software Engineer, Experience Digital</div><div class="location">Surry Hills, AU</div></div><div class="date">May 2023 — Feb 2024</div><p>Feature development and bug fixes using vue, cakephp, moodle and express.</p></article>
+    </section>
+  </main>
+</section>
+<section class="page">
+  <aside class="sidebar continued">
+    <section class="section">
+      <h2 class="section-title">LANGUAGES</h2>
+      <div class="skill">English<div class="stars">● ● ● ● ○</div></div>
+      <div class="skill">Tagalog<div class="stars">● ● ● ● ●</div></div>
+    </section>
+  </aside>
+  <main class="main" style="padding-top:10mm">
+    <article class="job"><div class="job-head"><div class="job-title">Sr. Software Developer, Get Served PH</div><div class="location">Dumaguete City, PH</div></div><div class="date">May 2020 — Apr 2023</div><p>Founding developer of the first open services booking platform using, laravel, react, graphql and docker. Founding developer of first filipino food delivery app like grab and foodpanda using larave, react and docker. Managing, maintaining and configuring cloud infrastructure using AWS services. Thirdparty API integration paymongo, google maps api.</p></article>
+    <article class="job"><div class="job-head"><div class="job-title">Sr. Software Developer, Bluebeans Systems Inc.</div><div class="location">Dumaguete City, PH</div></div><div class="date">Jun 2018 — May 2020</div><p>Founding developer of the first open services booking platform using, laravel, react, graphql and docker. Founding developer of first filipino food delivery app like grab and foodpanda using larave, react and docker. Managing, maintaining and configuring cloud infrastructure using AWS services. Thirdparty API integration paymongo, google maps api.</p></article>
+    <article class="job"><div class="job-head"><div class="job-title">Jr. Web Developer, CoreDev Solutions Inc.</div><div class="location">Cebu City, PH</div></div><div class="date">Apr 2017 — May 2018</div><p>Converting native desktop app to web app using, laravel, react.</p></article>
+    <article class="job"><div class="job-head"><div class="job-title">Jr. Web Developer, Bluebeans Systems Inc.</div><div class="location">Dumaguete City, PH</div></div><div class="date">Nov 2016 — Mar 2017</div><p>Creating web client projects using laravel, bootstrap.</p></article>
+    <section class="main-section">
+      <h2 class="section-title">EDUCATION</h2>
+      <div class="job-head"><div class="job-title">Information Technology, STI College</div><div class="location">Dumaguete City</div></div>
+      <div class="date">Apr 2014 — May 2016</div><p>2 years course under graduate.</p>
+    </section>
+    <section class="main-section">
+      <h2 class="section-title">COURSES</h2>
+      <div class="course">AWS Cloud Practitioner, AWS<br><span style="font-weight:400">Sept 2024 — Sept 2026</span></div>
+      <div class="course">AWS Innovate Certificate, AWS</div>
+      <div class="course">Certificate of Completion, GitNation</div>
+      <div class="course">Javascript Course, SoloLearn</div>
+      <div class="course">Certificate of Participation, QBO</div>
+      <div class="course">Angular + NestJs, SoloLearn</div>
+    </section>
+    <section class="main-section">
+      <h2 class="section-title">FEATURED PROJECTS</h2>
+      <div class="project"><div class="project-title"><a href="https://yourleads.xyz/">https://yourleads.xyz/</a></div><p>Email sequencing tool for customer reactivation powered with AI conferencing for email sentimate and content guard for anti spamming.</p></div>
+      <div class="project"><div class="project-title"><a href="https://showring.thastackoff.online/">https://showring.thastackoff.online/</a></div><p>The dog show management and ticketing app.</p></div>
+    </section>
+  </main>
+</section>
+<section class="page">
+  <aside class="sidebar continued"></aside>
+  <main class="main" style="padding-top:10mm">
+    <section class="main-section">
+      <h2 class="section-title">REFERENCES</h2>
+      <div class="job-title">References available upon request</div>
+    </section>
+  </main>
+</section>
+</body>
+</html>
